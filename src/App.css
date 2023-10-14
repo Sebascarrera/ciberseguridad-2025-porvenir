@@ -1,38 +1,388 @@
-.App {
+body{
+  height: 100%;
+  background-image: url(./assets/img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@font-face {
+font-family: 'Banda Regular';
+src: url(./assets/Fonts/BANDA_REGULAR.OTF) format('OTF');
+font-weight: normal;
+font-style: normal;
+font-family: 'Banda bold';
+src: url(./assets/Fonts/BandaBold-Bold.ttf) format('ttf');
+font-weight: normal;
+font-style: normal;
+}
+
+
+header {
+  padding-top: 10px; /* Añade relleno para separar el contenido */
+  text-align: center; /* Centra el contenido dentro del encabezado */
+}
+
+.logo-ciberseguridad {
+  height: auto;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.logo-ciberseguridad img {
+  width: 100%;
+}
+
+.form-cont{
+  width: 50%;
+  height: 50%;
   text-align: center;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 100px;
+  clear: both;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.registro{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  margin-top: 40px;
+}
+
+.controls{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-family: 'Banda Regular' sans-serif;
+}
+
+.controls img {
+margin-right: 10px;
+margin-left: 20px;
+background-color: #161616;
+border-radius: 15px;
+color: #fff;
+}
+
+.icono {
+  width: 30px;
+  height: 30px;
+}
+
+.input-container {
+  width: 500px;
+  height: 55px;
+  margin-right: 10px;
+  background-color: #161616;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.controls input {
+  width: 400px;
+  border: none; /* Elimina el borde predeterminado */
+  outline: none; /* Elimina el contorno al hacer clic */
+  padding: 5px; /* Añade relleno según tus preferencias */
+  background-color: transparent; /* Fondo transparente */
+  font-family: 'Banda Regular', sans-serif;
+  color: #fff;
+  /* Agrega otros estilos personalizados según tus necesidades */
+}
+
+.terminos-y-condiciones{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.cont-check-terms{
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Ocultar el input checkbox por defecto */
+#activar {
+  display: none;
+}
+
+/* Estilo personalizado para el checkbox */
+#activar + label::before {
+  content: ''; /* Código Unicode de un símbolo de marca de verificación */
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid #FF7C00;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+/* Estilo para el checkbox cuando está marcado */
+#activar:checked + label::before {
+  content: '\2713'; /* Símbolo de marca de verificación */
+  background-color: #FF7C00; /* Cambia el fondo cuando está marcado */
+  color: #fff; /* Cambia el color del símbolo */
+}
+
+
+.text-terms{
+  margin-left: 10px;
+  text-align: center;
+  font-family: 'Banda Regular', sans-serif;
+}
+
+.resaltado{
+color: #FF7C00;
+}
+
+#miPopUp {
+display: none; /* Inicialmente oculto */
+margin: 0 auto;
+}
+
+.popUp {
+position: fixed;
+margin: 0 auto;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.popup-contenido {
+width: 80%;
+height: 80%;
+background: white;
+padding: 20px;
+border-radius: 5px;
+text-align: center;
+justify-content: center;
+align-items: center;
+}
+
+#abrirPopup {
+cursor: pointer; /* Cambia el cursor al puntero cuando se pasa sobre el enlace */
+text-decoration: none; /* Subraya el texto para indicar que es un enlace */
+/* Otros estilos como fondo, bordes, etc., según tus preferencias */
+}
+
+.cerrar-popup {
+position: absolute;
+top: 20px;
+right: 20px;
+font-size: 60px;
+cursor: pointer;
+color: #fff;
+}
+
+iframe {
+width: 70%;
+height: 100%; /* Ajusta la altura según tus necesidades */
+border: none;
+}
+
+
+.boton-start {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 15px;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+}
+
+.boton-enlace {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 200px;
+  background-color: #FF7C00;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #FF7C00;
+  border-radius: 15px;
+  font-family: 'Banda bold', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+}
+
+.boton-enlace:hover {
+  background-color: #ffecdb;
+  color: #161616;
+}
+
+footer {
+  position: absolute; /* Establece el pie de página como un elemento posicionado de forma absoluta */
+  width: 100%; /* Ocupa todo el ancho de la ventana */
+  bottom: 0; /* Coloca el pie de página en la parte inferior de la ventana */
+  text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.cont-footer{
+  position: relative;
+}
+
+.naranja{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.naranja img{
+  width: 400px;
+  margin: 0;
+}
+
+.negro{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.negro img{
+  width: 400px;
+  margin: 0;
+}
+
+
+
+
+.cont-select{
+  margin-top: 150px;
+}
+
+.cont-sel-options{
+  display: flex;
+  width: 100%;
+}
+
+.titulo-juegos{
+  display: flex;
+  width: 100%;
+}
+
+.titulo-juegos img{
+  width: 80%;
+  margin: auto;
+}
+
+
+.cont-juegos{
+  width: 65%;
+}
+
+.cont-escoge-juego{
+  height: 520px;
+  background-color: #FF7C00;
+  border-radius: 15px;
+}
+
+.escoge-juego{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-ruleta{
+  margin: auto;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.cont-ruleta img{
+  margin-bottom: 10px;
+}
+
+.cont-focus{
+  margin: auto;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.cont-focus img{
+  margin-bottom: 10px;
+}
+
+.cont-ninja{
+  margin: auto;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.cont-ninja img{
+  margin-bottom: 10px;
+}
+
+.boton-enlace-juegos {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 200px;
+  background-color: #ffffff;
+  color: #FF7C00;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  font-family: 'Banda Regular', sans-serif;
+  font-size: 18px;
+  font-weight: lighter;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.boton-enlace-juegos:hover {
+  background-color: hsl(28, 100%, 83%);
+  color: #161616;
+}
+
+.cont-transmision{
+  width: 35%;
+  display: flex;
+}
+
+.ver-en-vivo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#boton-con-imagen {
+  display: flex;
+  margin: auto;
+  width: 85%; /* Establece el ancho de acuerdo a las dimensiones de tu imagen */
+  cursor: pointer; /* Cambia el cursor al puntero al pasar el ratón por encima */
+  /* Otros estilos según tus necesidades */
+}
+
+
+#boton-con-imagen:hover img {
+  content: url(./assets/img/live-imagen-hover.png); /* Cambia la imagen en hover */
+  width: 100%;
+}
+
+#boton-con-imagen img {
+  width: 100%;
 }
