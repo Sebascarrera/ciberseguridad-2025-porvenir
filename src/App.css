@@ -386,3 +386,200 @@ footer {
 #boton-con-imagen img {
   width: 100%;
 }
+
+
+/* Estilos para pantallas más pequeñas (máximo 768px de ancho) */
+@media (max-width: 768px) {
+  /* Estilos específicos para pantallas más pequeñas */
+  body {
+    font-size: 16px;
+  }
+  .container {
+    width: 90%;
+  }
+  .logo-ciberseguridad {
+    display: flex;
+    float: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-ciberseguridad img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  /* Estilos base para .form-cont */
+.form-cont {
+  width: 100%; /* Ajusta el ancho según tu diseño */
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 18%; /* Reduce el margen superior para adaptarse a pantallas más pequeñas */
+}
+
+/* Estilos para .registro */
+.registro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Ajusta el margen superior para pantallas más pequeñas */
+}
+
+/* Estilos para .input-container */
+.input-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente en pantallas pequeñas */
+  margin: 5px 0; /* Aumenta el espacio entre controles */
+}
+
+/* Estilos para .controls */
+.controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-family: 'Banda Regular', sans-serif; /* Corrige la propiedad de la fuente */
+  margin: 8px 0; /* Aumenta el espacio entre controles */
+}
+
+.controls img {
+  margin-right: 10px;
+  margin-left: 20px;
+  background-color: #161616;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.cont-check-terms{
+  display: table-column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-terms{
+  text-align: center;
+  font-family: 'Banda Regular', sans-serif;
+  font-size: 12px;
+}
+.naranja img{
+  width: 130px;
+  margin: 0;
+}
+
+.negro img{
+  width: 130px;
+  margin: 0;
+}
+footer{
+  width: 96%;
+}
+
+.popup-contenido {
+  width: 95%;
+  height: 80%;
+  background: white;
+  margin-top: 62px;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  }
+  .cerrar-popup {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 60px;
+    cursor: pointer;
+    color: #fff;
+    }
+
+    .cont-select{
+      display: flex;
+      flex-direction: column;
+      margin-top: 0px;
+    }
+    
+    .cont-sel-options{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .titulo-juegos{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .titulo-juegos img{
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: auto;
+    }
+    
+    
+    .cont-juegos{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .cont-escoge-juego{
+      display: flex;
+      flex-direction: column;
+      height: 1650px;
+      background-color: #FF7C00;
+      border-radius: 15px;
+    }
+    
+    .escoge-juego{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .cont-focus{
+      margin: auto;
+      margin-top: 50px;
+      height: 80%;
+    }
+    
+    .cont-ninja{
+      margin: auto;
+      margin-top: 50px;
+      height: 80%;
+    }
+
+    .cont-transmision{
+      width: 90%;
+      display: flex;
+    }
+    
+    .ver-en-vivo{
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+}
+
+/* Estilos para pantallas más grandes (más de 768px de ancho) */
+@media (min-width: 769px) {
+  /* Estilos específicos para pantallas más grandes */
+  body {
+    font-size: 18px;
+  }
+  .container {
+    width: 80%;
+  }
+}
