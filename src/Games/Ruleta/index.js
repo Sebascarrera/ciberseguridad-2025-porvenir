@@ -11,7 +11,7 @@ import ProfileCard from './ProfileCard'
 
 import '../Ruleta/App.css'
 
-import logo from '/Users/mac/Documents/porvenir/repo-web-ciberseguridad/ciberseguridad-porvenir-web/src/assets/img/ciberseguridad-logo.png'; // Importa la imagen del logo
+import logo from '../../assets/img/ciberseguridad-logo.png'; // Importa la imagen del logo
 
 
 
@@ -58,17 +58,19 @@ const Ruleta = () => {
                 <ProfileCard name={"testing"} character={avatar} />
             </div>
 
-            <div ref={wheelRef}>
-                <div className="cont-logo">
+            <div className="cont-logo">
                 <img src={logo} alt="Logo Ciberseguridad Porvenir" /> {/* Agrega el logo aquí */}
-                </div>
-            <Wheel 
-                width={width * 0.4}
-                friction={0.4}
-                slices={slices} 
-                onSelectedWinnerSlice={ index => {
-                    navigate(`/ruleta/preguntas?slice=${index}`)
-                }} />
+            </div>
+
+            <div ref={wheelRef}>
+                
+                <Wheel 
+                    width={width * 0.4}
+                    friction={0.4}
+                    slices={slices} 
+                    onSelectedWinnerSlice={ index => {
+                        navigate(`/ruleta/preguntas?slice=${index}`)
+                    }} />
 
             </div>
 
