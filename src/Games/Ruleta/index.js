@@ -6,6 +6,12 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { fetchSlices } from "./Redux/slice"
 
+import '../Ruleta/App.css'
+
+import logo from '/Users/mac/Documents/porvenir/repo-web-ciberseguridad/ciberseguridad-porvenir-web/src/assets/img/ciberseguridad-logo.png'; // Importa la imagen del logo
+
+
+
 const Ruleta = () => {
 
     const dispatch = useDispatch()
@@ -44,8 +50,11 @@ const Ruleta = () => {
             )}
 
             <div ref={wheelRef}>
+                <div className="cont-logo">
+                <img src={logo} alt="Logo Ciberseguridad Porvenir" /> {/* Agrega el logo aquí */}
+                </div>
             <Wheel 
-                width={width * 0.6}
+                width={width * 0.4}
                 friction={0.4}
                 slices={slices} 
                 onSelectedWinnerSlice={ index => {
