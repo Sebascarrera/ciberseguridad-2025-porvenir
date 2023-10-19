@@ -1,0 +1,72 @@
+.QuestionScreenContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.QuestionContainer {
+  margin: 56px;
+}
+
+.Question {
+  display: flex;
+  flex: 1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 300;
+  color: #2babe4;
+}
+
+.Answers {
+  margin-top: 57px;
+}
+
+.Answers > .Answer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin: 17px 0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 26px;
+  font-size: 28px;
+  font-weight: 300;
+  color: #000;
+  justify-content: center;
+}
+
+.Answers > .RightAnswer {
+  background-color: #7ed321;
+}
+
+.Answers > .WrongAnswer {
+  background-color: #d0011b;
+}
+
+.Answers > .Answer .AnswerEnum {
+  width: 30px;
+}
+.Answers > .Answer .AnswerContent {
+  margin-left: 2%;
+}
+
+.GameInfoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  max-height: 200px;
+}
+
+.GameInfoContainer > .GameQuestionNumber, .GameInfoContainer > .GameCurrentCategoryName {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+}

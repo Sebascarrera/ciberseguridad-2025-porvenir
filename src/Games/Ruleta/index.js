@@ -3,14 +3,19 @@ import { useEffect, useRef, useState } from "react"
 import Wheel from "./Wheel/Wheel"
 
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
-import { fetchSlices } from "./Redux/slice"
+import { fetchSlices } from "./Redux"
+
+import ProfileCard from './ProfileCard'
 
 const Ruleta = () => {
 
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const slices = useSelector( state => state.ruleta_slices.slices)
-    const status = useSelector(state => state.ruleta_slices.status)
+    const slices = useSelector( state => state.ruleta.slices)
+    const status = useSelector(state => state.ruleta.status)
+    const avatar = useSelector( state => state.ruleta.avatar)
     const [width, setWidth] = useState(0)
 
     const wheelRef = useRef(null)
@@ -43,13 +48,17 @@ const Ruleta = () => {
                 </div>
             )}
 
+            <div>
+                <ProfileCard name={"testing"} character={avatar} />
+            </div>
+
             <div ref={wheelRef}>
             <Wheel 
                 width={width * 0.6}
                 friction={0.4}
                 slices={slices} 
                 onSelectedWinnerSlice={ index => {
-                    console.log(index)
+                    navigate(`/ruleta/preguntas?slice=${index}`)
                 }} />
 
             </div>

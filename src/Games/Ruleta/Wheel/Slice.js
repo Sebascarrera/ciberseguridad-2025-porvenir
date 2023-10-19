@@ -11,8 +11,8 @@ const Slice = ({ image, radius, rotation, angle, color, scale }) => {
   const iconImageSize = 95
 
   const fixedScale = scale > 1 ? 1 : scale
-  const imageOffsetX = 50 * fixedScale
-  const imageOffsetY = 93 * fixedScale
+  const imageOffsetX = 20 * fixedScale
+  const imageOffsetY = 45 * fixedScale
 
   const radiusCenter = radius / 2
   const iconImageX = radiusCenter + imageOffsetX
@@ -47,7 +47,7 @@ const Slice = ({ image, radius, rotation, angle, color, scale }) => {
           rotation={ (Math.PI + angle ) / 2}
           image={ imageElement } />
       )}
-      
+
     </Group>
   )
 

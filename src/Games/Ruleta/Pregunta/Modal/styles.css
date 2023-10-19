@@ -1,0 +1,38 @@
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-blend-mode: multiply;
+  background-image: linear-gradient(to bottom, #272428, #272428);
+  z-index: 99999999;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ContainerAnswerModal {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.ContainerAnswerModalLabel {
+  margin-top: 38px;
+  color: #fff;
+  font-size: 64px;
+}

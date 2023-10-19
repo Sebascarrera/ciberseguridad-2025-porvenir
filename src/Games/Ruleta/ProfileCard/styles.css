@@ -1,0 +1,40 @@
+.ScoreCardContainer {
+  display: flex;
+  z-index: 0;
+}
+
+.ScoreCardBackground {
+  z-index: 1;
+  width: 100%;
+  background-color: #6a6a6a;
+  background-blend-mode: multiply;
+  border-radius: 100px;
+  position: relative;
+}
+
+
+.ScoreCardImage {
+  position: absolute;
+  top: -20px;
+  z-index: 2;
+  left: 56px;
+  max-width: 195px;
+  max-height: 110px;
+}
+
+.ScoreCardInfo {
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ScoreCardUserName, .ScoreCardUserPoints {
+  color: #fff;
+}
+
+.ScoreCardUserName {
+  font-weight: 500;
+}

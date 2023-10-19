@@ -26,7 +26,7 @@ const Selector = () => {
                                 <div className="cont-ruleta">
                                     <img src={ruletaImg} alt="Ruleta del Saber" />
                                     <div className="boton-ruleta">
-                                        <a href="/ruleta" className="boton-enlace-juegos">Ruleta del Saber</a>
+                                        <a href="/ruleta/personaje" className="boton-enlace-juegos">Ruleta del Saber</a>
                                     </div>
                                 </div>
                                 <div className="cont-focus">
