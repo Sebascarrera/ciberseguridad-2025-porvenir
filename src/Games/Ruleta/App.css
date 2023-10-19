@@ -1,0 +1,15 @@
+  .cont-logo{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  img {
+    width: 350px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
