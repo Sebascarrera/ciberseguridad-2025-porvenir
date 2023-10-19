@@ -26,19 +26,19 @@ const Selector = () => {
                                 <div className="cont-ruleta">
                                     <img src={ruletaImg} alt="Ruleta del Saber" />
                                     <div className="boton-ruleta">
-                                        <a href="ruleta.html" className="boton-enlace-juegos">Ruleta del Saber</a>
+                                        <a href="/ruleta" className="boton-enlace-juegos">Ruleta del Saber</a>
                                     </div>
                                 </div>
                                 <div className="cont-focus">
                                     <img src={focusImg} alt="Focus Game" />
                                     <div className="boton-focus">
-                                        <a href="focus.html" className="boton-enlace-juegos">Focus Game</a>
+                                        <a href="/focus" className="boton-enlace-juegos">Focus Game</a>
                                     </div>
                                 </div>
                                 <div className="cont-ninja">
                                     <img src={ninjaImg} alt="Cipo Ninja" />
                                     <div className="boton-ninja">
-                                        <a href="ninja.html" className="boton-enlace-juegos">Cipo Ninja</a>
+                                        <a href="/ninja" className="boton-enlace-juegos">Cipo Ninja</a>
                                     </div>
                                 </div>
                             </div>
