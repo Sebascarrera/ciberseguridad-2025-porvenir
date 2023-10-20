@@ -55,7 +55,7 @@ const Ruleta = () => {
             )}
 
                 <div className="cont-logo">
-                <img src={logo} alt="Logo Ciberseguridad Porvenir" /> {/* Agrega el logo aquí */}
+                <img src={logo} style={{width: '100%'}} alt="Logo Ciberseguridad Porvenir" />
             </div>
 
             <div>

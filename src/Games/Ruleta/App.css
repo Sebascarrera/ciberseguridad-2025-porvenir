@@ -4,12 +4,12 @@
     width: 100%;
   }
   
-  /* img {
-    width: 350px;
+  .cont-logo > img {
+    max-width: 350px !important;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-bottom: 20px;
-  } */
+  }
