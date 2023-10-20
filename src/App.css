@@ -22,6 +22,7 @@ font-style: normal;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  justify-content: space-around;
 }
 
 
@@ -40,15 +41,6 @@ header {
   width: 100%;
 }
 
-.form-cont{
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  position: relative;
-  margin: 0 auto;
-  margin-top: 100px;
-  clear: both;
-}
 
 .registro{
   display: flex;
@@ -238,13 +230,10 @@ border: none;
 }
 
 .cont-footer{
-  position: relative;
+  display: flex;
 }
 
 .naranja{
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 
 .naranja img{
@@ -253,9 +242,6 @@ border: none;
 }
 
 .negro{
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 .negro img{
@@ -449,15 +435,6 @@ border: none;
     max-width: 60%;
     height: auto;
   }
-
-  /* Estilos base para .form-cont */
-.form-cont {
-  width: 100%; /* Ajusta el ancho según tu diseño */
-  height: 100%;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 18%; /* Reduce el margen superior para adaptarse a pantallas más pequeñas */
-}
 
 /* Estilos para .registro */
 .registro {

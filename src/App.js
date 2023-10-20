@@ -62,12 +62,7 @@ function App() {
           </section>
       </form>
       
-      <div id="miPopUp" className="popUp" style={{ display: isShowingPopup ? 'block' : 'none' }}>
-          <div className="popup-contenido">
-              <span onClick={closePopup} className="cerrar-popup">&times;</span>
-              <iframe id="pdfViewer" src={docDatos} frameborder="0"></iframe>
-          </div>
-      </div>
+      
       <footer>
           <div className="cont-footer">
               <div className="naranja">
@@ -78,6 +73,14 @@ function App() {
               </div>
           </div>
       </footer>
+
+      <div id="miPopUp" className="popUp" style={{ display: isShowingPopup ? 'block' : 'none' }}>
+          <div className="popup-contenido">
+              <span onClick={closePopup} className="cerrar-popup">&times;</span>
+              <iframe id="pdfViewer" src={docDatos} frameborder="0"></iframe>
+          </div>
+      </div>
+      
     </div>
   );
 }
