@@ -18,6 +18,12 @@ font-weight: normal;
 font-style: normal;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 
 header {
   padding-top: 10px; /* Añade relleno para separar el contenido */
@@ -505,9 +511,6 @@ border: none;
 .negro img{
   width: 130px;
   margin: 0;
-}
-footer{
-  width: 96%;
 }
 
 .popup-contenido {
