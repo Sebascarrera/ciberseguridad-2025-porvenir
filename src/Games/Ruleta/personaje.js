@@ -6,15 +6,13 @@ import { useDispatch } from 'react-redux'
 
 import { selectAvatar } from './Redux'
 
-import characterMan1 from '../../assets/img/avatars/avatar-6.png'
-import characterMan2 from '../../assets/img/avatars/avatar-2.png'
-import characterMan3 from '../../assets/img/avatars/avatar-3.png'
-import characterMan4 from '../../assets/img/avatars/avatar-8.png'
+import characterMan1 from '../../assets/img/avatars/h1.png'
+import characterMan2 from '../../assets/img/avatars/h2.png'
+import characterMan3 from '../../assets/img/avatars/h3.png'
 
-import characterWoman1 from '../../assets/img/avatars/avatar-4.png'
-import characterWoman2 from '../../assets/img/avatars/avatar-5.png'
-import characterWoman3 from '../../assets/img/avatars/avatar-1.png'
-import characterWoman4 from '../../assets/img/avatars/avatar-7.png'
+import characterWoman1 from '../../assets/img/avatars/m1.png'
+import characterWoman2 from '../../assets/img/avatars/m2.png'
+import characterWoman3 from '../../assets/img/avatars/m3.png'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -28,11 +26,9 @@ const PersonajeScreen = () => {
         { image: characterWoman1 },
         { image: characterWoman2 },
         { image: characterWoman3 },
-        { image: characterWoman4 },
         { image: characterMan1 },
         { image: characterMan2 },
         { image: characterMan3 },
-        { image: characterMan4 },
       ]
 
     return (

@@ -281,7 +281,7 @@ footer {
 }
 
 .titulo-juegos img{
-  width: 80%;
+  width: 60%;
   margin: auto;
 }
 
@@ -294,6 +294,9 @@ footer {
   height: 520px;
   background-color: #FF7C00;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .escoge-juego{
@@ -303,33 +306,71 @@ footer {
 }
 
 .cont-ruleta{
+  flex: 1;
+  max-width: 100%;
   margin: auto;
-  margin-top: 10px;
-  height: 80%;
+  margin-top: 20px;
+  position: relative
 }
 
 .cont-ruleta img{
   margin-bottom: 10px;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .cont-focus{
+  flex: 1;
+  max-width: 100%;
   margin: auto;
-  margin-top: 10px;
-  height: 80%;
+  margin-top: 20px;
+  position: relative
 }
 
 .cont-focus img{
   margin-bottom: 10px;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .cont-ninja{
+  flex: 1;
+  max-width: 100%;
   margin: auto;
-  margin-top: 10px;
-  height: 80%;
+  margin-top: 20px;
+  position: relative;
+  align-items: center;
 }
 
 .cont-ninja img{
   margin-bottom: 10px;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.boton-ruleta {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.boton-focus {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.boton-ninja {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
 }
 
 .boton-enlace-juegos {
