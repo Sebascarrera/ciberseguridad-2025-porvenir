@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+
+import { useNavigate } from 'react-router-dom'
+
 import Logo from '../../assets/img/focus/ciberseguridad-logo-porvenir.png'
 import LogoGrande from '../../assets/img/focus/focus-game-logo-grande.png'
 import ImagenTapada from '../../assets/img/focus/png-tapadas/tapa-focus-porvenir-208px.png'
@@ -6,6 +9,8 @@ import ImagenTapada from '../../assets/img/focus/png-tapadas/tapa-focus-porvenir
 import './styles.css'
 
 const Focus = () => {
+
+    const navigate = useNavigate()
 
     const [cards, setCards] = useState(generateCards());
     const [tarjetasDestapadas, setTarjetasDestapadas] = useState(0);
@@ -73,13 +78,15 @@ const Focus = () => {
     
     useEffect(() => {
         if (segundos === 30) {
-            // Game over logic goes here
+            setTimeout( () => {
+                navigate('/selector')
+            }, 3000)
         } else {
             setTimeout(() => {
             setSegundos(segundos + 1);
             }, 1000);
         }
-    }, [segundos]);
+    }, [navigate, segundos]);
     
     function generateCards()  {
       
@@ -251,9 +258,9 @@ const Focus = () => {
                     </section>
                 </main>
             </div>
-            {/* <footer>
+            <footer>
                 <img src={LogoGrande} alt="logo-focus" />
-            </footer> */}
+            </footer>
 
         </div>
     )

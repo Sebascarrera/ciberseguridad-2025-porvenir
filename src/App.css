@@ -231,13 +231,6 @@ border: none;
   color: #161616;
 }
 
-footer {
-  position: absolute; /* Establece el pie de página como un elemento posicionado de forma absoluta */
-  width: 100%; /* Ocupa todo el ancho de la ventana */
-  bottom: 0; /* Coloca el pie de página en la parte inferior de la ventana */
-  text-align: center; /* Centra el contenido horizontalmente */
-}
-
 .cont-footer{
   position: relative;
 }
@@ -249,7 +242,7 @@ footer {
 }
 
 .naranja img{
-  width: 400px;
+  width: 130px;
   margin: 0;
 }
 
@@ -260,7 +253,7 @@ footer {
 }
 
 .negro img{
-  width: 400px;
+  width: 130px;
   margin: 0;
 }
 

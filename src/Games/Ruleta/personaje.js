@@ -50,7 +50,7 @@ const PersonajeScreen = () => {
                         dispatch(selectAvatar(characters[index]))
                         navigate('/ruleta')
                       }}>
-                      <img src={character.image} />
+                      <img style={{ maxWidth: 200 }} src={character.image} />
                     </div>
                   ))
                 }
