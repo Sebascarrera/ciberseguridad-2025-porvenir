@@ -54,12 +54,12 @@ const Ruleta = () => {
                 </div>
             )}
 
-            <div>
-                <ProfileCard name={"testing"} character={avatar} />
+                <div className="cont-logo">
+                <img src={logo} alt="Logo Ciberseguridad Porvenir" /> {/* Agrega el logo aquí */}
             </div>
 
-            <div className="cont-logo">
-                <img src={logo} alt="Logo Ciberseguridad Porvenir" /> {/* Agrega el logo aquí */}
+            <div>
+                <ProfileCard name={"testing"} character={avatar} />
             </div>
 
             <div ref={wheelRef}>

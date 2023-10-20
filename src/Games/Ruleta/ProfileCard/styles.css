@@ -6,7 +6,9 @@
 .ScoreCardBackground {
   z-index: 1;
   width: 100%;
-  background-color: #6a6a6a;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #333333;
   background-blend-mode: multiply;
   border-radius: 100px;
   position: relative;
@@ -15,11 +17,11 @@
 
 .ScoreCardImage {
   position: absolute;
-  top: -20px;
+  top: -80px;
   z-index: 2;
   left: 56px;
   max-width: 195px;
-  max-height: 110px;
+  max-height: auto;
 }
 
 .ScoreCardInfo {
@@ -33,6 +35,8 @@
 
 .ScoreCardUserName, .ScoreCardUserPoints {
   color: #fff;
+  font-family: 'Banda Regular', sans-serif;
+  margin-top: 10px;
 }
 
 .ScoreCardUserName {
