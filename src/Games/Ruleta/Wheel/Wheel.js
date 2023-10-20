@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 
-import { Stage, Layer, Group, Image, Rect, Circle } from 'react-konva'
+import { Stage, Layer, Group, Image } from 'react-konva'
 
 import Konva from 'konva'
 
