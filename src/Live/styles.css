@@ -1,0 +1,20 @@
+.container_live {display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_live_frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* This is for a 16:9 aspect ratio. Adjust as needed (e.g., 4:3 = 75%). */
+}
+
+.container_live_frame > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

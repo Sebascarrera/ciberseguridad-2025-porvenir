@@ -15,8 +15,7 @@ import PreguntaScreen from './Games/Ruleta/Pregunta'
 
 import Ninja from './Games/Ninja'
 
-
-
+import Live from './Live'
 
 
 const router = createBrowserRouter([
@@ -27,6 +26,10 @@ const router = createBrowserRouter([
     {
         path: "/selector",
         element: <Selector />,
+    },
+    {
+        path: "/live",
+        element: <Live />,
     },
 
     {

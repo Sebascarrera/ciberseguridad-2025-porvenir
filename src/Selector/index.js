@@ -46,7 +46,7 @@ const Selector = () => {
                     </section>
                     <section className="cont-transmision">
                         <div className="ver-en-vivo">
-                            <a href="#" id="boton-con-imagen">
+                            <a href="/live" id="boton-con-imagen">
                                 <img src={liveImg} alt="Señal en Vivo" />
                             </a>                
                         </div>
