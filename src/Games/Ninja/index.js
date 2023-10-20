@@ -4,28 +4,71 @@ import { Stage, Layer, Circle, Image } from 'react-konva'
 
 import { useRandomInterval } from './useRandomInterval'
 
-import mainImage from '../../assets/img/ninja/main.png'
+import mainImage from '../../assets/img/ninja/Cipo-ninja.png'
+
+
+import objectImage1 from '../../assets/img/ninja/troyano-1.png'
+import objectImage2 from '../../assets/img/ninja/troyano-2.png'
+import objectImage3 from '../../assets/img/ninja/troyano-3.png'
+import objectImage4 from '../../assets/img/ninja/troyano-4.png'
+import objectImage5 from '../../assets/img/ninja/troyano-5.png'
+import objectImage6 from '../../assets/img/ninja/troyano-6.png'
+import objectImage7 from '../../assets/img/ninja/troyano-7.png'
 
 
 
 const Ninja = () => {
 
+    const mainImageWidth = 100
+    const mainImageHeight = 100
+
     const [mainObjectImage, setMainObjectImage] = useState(null)
-    const [mainImageHeight, setMainImageHeight] = useState(0)
-    const [mainImageWidth, setMainImageWidth] = useState(0)
     const [positionXMainObject, setPositionXMainObject] = useState(0)
     const animationFrameRef = useRef()
 
     const delay = [1000, 3000];
 
-    const objects = ['red', 'green', 'blue', 'yellow',  'purple']
+    const createImageForObject = (src) => {
+        let image = new window.Image()
+        image.src = src
+        return image
+    }
+
+    const objects = [
+        {
+            image: createImageForObject(objectImage1),
+            points: 10,
+        }, 
+        {
+            image: createImageForObject(objectImage2),
+            points: 20,
+        },
+        {
+            image: createImageForObject(objectImage3),
+            points: 30,
+        },
+        {
+            image: createImageForObject(objectImage4),
+            points: 10,
+        },
+        {
+            image: createImageForObject(objectImage5),
+            points: 20,
+        },
+        {
+            image: createImageForObject(objectImage6),
+            points: 30,
+        },
+        {
+            image: createImageForObject(objectImage7),
+            points: 10,
+        }
+    ]
 
     const [currentObjects, setCurrentObjects] = useState([])
 
     const currentObjectsRef = useRef(currentObjects);
     const positionXMainObjectRef = useRef(positionXMainObject);
-    const mainImageWidthRef = useRef(mainImageWidth);
-    const mainImageHeightRef = useRef(mainImageHeight);
 
     useEffect(() => {
         currentObjectsRef.current = currentObjects; // Update ref when state changes
@@ -35,15 +78,6 @@ const Ninja = () => {
     useEffect(() => {
         positionXMainObjectRef.current = positionXMainObject; // Update ref when state changes
     }, [positionXMainObject]);
-
-    useEffect(() => {
-        mainImageWidthRef.current = mainImageWidth; // Update ref when state changes
-    }, [mainImageWidth]);
-
-
-    useEffect(() => {
-        mainImageHeightRef.current = mainImageHeight; // Update ref when state changes
-    }, [mainImageHeight]);
 
     const randomInterval = useRandomInterval( () => {
         generateRandomCollideObjects()
@@ -107,8 +141,7 @@ const Ninja = () => {
 
         const currentObjects = currentObjectsRef.current;
         const positionXMainObject = positionXMainObjectRef.current;
-        const mainImageWidth = mainImageWidthRef.current;
-        const mainImageHeight = mainImageHeightRef.current;
+        
 
         currentObjects.forEach(object => {
             const circleX = object.x;
@@ -150,17 +183,13 @@ const Ninja = () => {
         checkCollisions()
 
         animationFrameRef.current = requestAnimationFrame(updateObjectsPosition);
-    };
-
-    
+    };    
 
     useEffect(() => {
         const image = new window.Image()
         image.src= mainImage
         image.onload = () => {
-            setMainImageHeight(image.height)
-            setMainImageWidth(image.width)
-            setPositionXMainObject((window.innerWidth/2) - (image.width / 2))
+            setPositionXMainObject((window.innerWidth/2) - (mainImageWidth / 2))
             setMainObjectImage(image)
         }
 
@@ -202,6 +231,8 @@ const Ninja = () => {
                 <Layer>
                     { mainObjectImage && (
                     <Image  
+                        height={100}
+                        width={100}
                         x={positionXMainObject}
                         y={window.innerHeight - mainImageHeight}
                         image={mainObjectImage}
@@ -209,12 +240,13 @@ const Ninja = () => {
                     )}
 
                     { currentObjects.map( (item, index) =>
-                        <Circle
+                        <Image
+                            height={55}
+                            width={55}
                             key={index}
                             x={item.x}
                             y={item.y}
-                            radius={20}
-                            fill={item.data} />
+                            image={item.data.image} />
                     ) }
 
                 </Layer>
