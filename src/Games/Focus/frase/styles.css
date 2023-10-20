@@ -1,0 +1,64 @@
+.container_focus {
+    background-image: url(../../../assets/img/focus/background-focus-game_2.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #fc6c0c;
+    margin: auto;
+    min-height: 100vh;
+}
+
+/* Estilos para el header y otros elementos generales */
+header.header_focus {
+    display: flex;
+    justify-content: center;
+    padding-top: 65px;
+}
+
+footer.footer_focus {
+    display: flex;
+    justify-content: center;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.focus-logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 65px;
+}
+
+.frase{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    text-align: center;
+    margin: auto;
+}
+  
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  

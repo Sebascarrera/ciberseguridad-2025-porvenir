@@ -4,12 +4,18 @@ import {
 
 import App from './App'
 import Selector from './Selector';
-import Ruleta from './Games/Ruleta'
-import Ninja from './Games/Ninja'
-import Focus from './Games/Focus'
 
+import Focus from './Games/Focus'
+import FocusFrase from './Games/Focus/frase'
+
+import Ruleta from './Games/Ruleta'
 import RuletaPersonaje from './Games/Ruleta/personaje'
 import PreguntaScreen from './Games/Ruleta/Pregunta'
+
+
+import Ninja from './Games/Ninja'
+
+
 
 
 
@@ -27,7 +33,10 @@ const router = createBrowserRouter([
         path: "/focus",
         element: <Focus />,
     },
-
+    {
+        path: "/focus/frase",
+        element: <FocusFrase />,
+    },
     {
         path: "/ninja",
         element: <Ninja />,

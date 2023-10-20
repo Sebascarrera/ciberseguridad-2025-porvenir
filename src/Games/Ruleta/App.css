@@ -4,12 +4,17 @@
     width: 100%;
   }
   
-  img {
+  /* img {
     width: 350px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+<<<<<<< Updated upstream
     margin-bottom: 10px;
   }
+=======
+    margin-bottom: 20px;
+  } */
+>>>>>>> Stashed changes

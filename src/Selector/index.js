@@ -32,7 +32,7 @@ const Selector = () => {
                                 <div className="cont-focus">
                                     <img src={focusImg} alt="Focus Game" />
                                     <div className="boton-focus">
-                                        <a href="/focus" className="boton-enlace-juegos">Focus Game</a>
+                                        <a href="/focus/frase" className="boton-enlace-juegos">Focus Game</a>
                                     </div>
                                 </div>
                                 <div className="cont-ninja">
