@@ -48,6 +48,9 @@ const PersonajeScreen = () => {
 			<header className='container_logo'>
 				<img src={Logo} alt="logo" />
 			</header>
+            <div className='titulo-personaje'>
+				<p>Escoge tu personaje</p>
+            </div>
             <div className="container-carousel">
               <Carousel
                 selectedItem={ selectedIndex }
@@ -72,7 +75,7 @@ const PersonajeScreen = () => {
 					Siguiente
 				</div>
 			</div>
-			<footer>
+			<footer className='container_logo_ruleta'>
 				<img src={LogoRuleta} alt="Logo ruleta" />
 			</footer>
         </div>
