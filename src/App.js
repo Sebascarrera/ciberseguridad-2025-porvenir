@@ -83,7 +83,7 @@ function App() {
             </div>
             <div className="terminos-y-condiciones">
                 <div className="cont-check-terms">
-                    <input type="checkbox" {...register("terms")} />
+                    <input type="checkbox" {...register("terms")} required />
                     <label htmlFor="activar">
                         <p className="text-terms">He leído y acepto la autorización de tratamiento de datos que se encuentra disponible en el siguiente <span className="resaltado" onClick={openPopup}>enlace</span>.</p>
                     </label>
