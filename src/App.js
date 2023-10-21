@@ -65,7 +65,7 @@ function App() {
                 <div className="input-container">
                     <div className="controls">
                         <img className="icono" src={iconNombre} alt="Nombre" />
-                        <input {...register("fullname")} placeholder="Nombre" required />
+                        <input {...register("fullname")} placeholder="Nombre y Apellido" required />
                     </div>        
                 </div>
                 <div className="input-container">
