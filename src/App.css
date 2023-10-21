@@ -601,3 +601,12 @@ border: none;
     width: 80%;
   }
 }
+
+
+.container_logo > img {
+  max-width: 20%;
+}
+
+.container_logo_ruleta > img {
+  max-width: 10%;
+}

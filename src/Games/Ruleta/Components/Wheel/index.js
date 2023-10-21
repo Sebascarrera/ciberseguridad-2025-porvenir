@@ -32,7 +32,7 @@ class Wheel extends Component {
     this.rotating = false
     this.activeWedge = null
     this.clapAudio = new Howl({
-      src: [require('../../../assets/sounds/clap_ruleta.mp3')]
+      src: [require('../../../../assets/sounds/clap_ruleta.mp3')]
     })
 
 
@@ -44,7 +44,7 @@ class Wheel extends Component {
     this.anim.start()
 
     var imageObj = new window.Image()
-    imageObj.src = require('../../../assets/img/wheel/flecha.png')
+    imageObj.src = require('../../../../assets/img/wheel/flecha.png')
     imageObj.onload = () => {
       this.setState({ pointerImage: imageObj })
     }
@@ -53,7 +53,7 @@ class Wheel extends Component {
     }
 
     var backgroundImageObj = new window.Image()
-    backgroundImageObj.src = require('../../../assets/img/wheel/circulo.png')
+    backgroundImageObj.src = require('../../../../assets/img/wheel/circulo.png')
     backgroundImageObj.onload = () => {
       this.setState({ backgroundWheelImage: backgroundImageObj })
     }

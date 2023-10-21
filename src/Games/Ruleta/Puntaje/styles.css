@@ -1,0 +1,10 @@
+.container_screen_ruleta_puntaje {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container_ruleta_puntaje {
+    text-align: center;
+}
