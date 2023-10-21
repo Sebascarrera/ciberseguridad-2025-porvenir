@@ -102,7 +102,7 @@ function App() {
 
             <section>
                 { status == "failed" && (
-                    <p className='error_form'>Datos invalidos</p>
+                    <p className='error_form'>Datos Inválidos</p>
                 )}
             </section>
         </form>

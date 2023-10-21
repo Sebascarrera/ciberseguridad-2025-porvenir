@@ -43,7 +43,7 @@ const Selector = () => {
                                     </div>
                                 </div>
                                 <div className="cont-ninja">
-                                    <img src={ninjaImg} alt="Cipo Ninja" />
+                                    <img src={ninjaImg} alt="CiPo Ninja" />
                                     <div className="boton-ninja">
                                         <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
                                             Cipo Ninja
