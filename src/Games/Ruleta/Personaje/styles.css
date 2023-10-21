@@ -5,10 +5,6 @@
     justify-content: space-around;
 }
 
-.container_logo > img {
-    max-width: 230px;
-}
-
 .container-carousel {
     text-align: center;
 }

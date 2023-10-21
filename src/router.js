@@ -11,6 +11,8 @@ import FocusFrase from './Games/Focus/frase'
 import Ruleta from './Games/Ruleta'
 import RuletaPersonaje from './Games/Ruleta/Personaje'
 import PreguntaScreen from './Games/Ruleta/Pregunta'
+import PuntajeScreen from './Games/Ruleta/Puntaje'
+
 
 
 import Ninja from './Games/Ninja'
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
     {
         path: "/ruleta/preguntas",
         element: <PreguntaScreen />
+    },
+    {
+        path: "/ruleta/puntaje",
+        element: <PuntajeScreen />
     }
 ]);
 

@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 
-import Wheel from "./Wheel/Wheel"
+import Wheel from "./Components/Wheel"
 
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { fetchSlices } from "./Redux"
 
-import ProfileCard from './ProfileCard'
+import ProfileCard from './Components/ProfileCard'
 
 import './styles.css'
 
@@ -26,7 +26,6 @@ const Ruleta = () => {
     const wheelRef = useRef(null)
 
     useEffect(() => {
-        console.log(wheelRef.current.offsetWidth)
         setWidth(wheelRef.current.offsetWidth)
       }, [wheelRef]);
 

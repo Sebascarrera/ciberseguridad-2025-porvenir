@@ -48,7 +48,7 @@ const PreguntaScreen = () => {
 
         setTimeout( () => {
 
-            navigate( questions < Config.questionsPerGame ? -1 : '/selector')
+            navigate( questions < Config.questionsPerGame ? -1 : '/ruleta/puntaje')
 
             if(questions === Config.questionsPerGame) {
                 dispatch(resetAnsweredQuestions())
