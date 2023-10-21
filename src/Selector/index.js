@@ -45,7 +45,7 @@ const Selector = () => {
                                 <div className="cont-ninja">
                                     <img src={ninjaImg} alt="Cipo Ninja" />
                                     <div className="boton-ninja">
-                                        <div onClick={ () => navigate('/ninja')} className="boton-enlace-juegos">
+                                        <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
                                             Cipo Ninja
                                         </div>
                                     </div>
