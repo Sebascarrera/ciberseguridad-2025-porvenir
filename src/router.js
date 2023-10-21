@@ -7,13 +7,12 @@ import Selector from './Selector';
 
 import Focus from './Games/Focus'
 import FocusFrase from './Games/Focus/frase'
+import FocusPuntaje from './Games/Focus/Puntaje'
 
 import Ruleta from './Games/Ruleta'
 import RuletaPersonaje from './Games/Ruleta/Personaje'
 import PreguntaScreen from './Games/Ruleta/Pregunta'
 import PuntajeScreen from './Games/Ruleta/Puntaje'
-
-
 
 import Ninja from './Games/Ninja'
 
@@ -41,6 +40,10 @@ const router = createBrowserRouter([
     {
         path: "/focus/frase",
         element: <FocusFrase />,
+    },
+    {
+        path: "/focus/puntaje",
+        element: <FocusPuntaje />,
     },
     {
         path: "/ninja",

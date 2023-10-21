@@ -10,85 +10,7 @@ import './styles.css'
 
 const Focus = () => {
 
-    const navigate = useNavigate()
-
-    const [cards, setCards] = useState(generateCards());
-    const [tarjetasDestapadas, setTarjetasDestapadas] = useState(0);
-    const [tarjeta1, setTarjeta1] = useState(null);
-    const [tarjeta2, setTarjeta2] = useState(null);
-    const [primerResultado, setPrimerResultado] = useState(null);
-    const [segundoResultado, setSegundoResultado] = useState(null);
-    const [movimientos, setMovimientos] = useState(0);
-    const [aciertos, setAciertos] = useState(0);
-    const [segundos, setSegundos] = useState(0);
-
-    useEffect(() => {
-
-        if (tarjetasDestapadas === 1) {
-            // Mostrar primer numero
-            const updatedCards = cards.slice();
-            updatedCards[tarjeta1].show = true;
-
-            setPrimerResultado(updatedCards[tarjeta1].content);
-            setCards(updatedCards);
-        } else if (tarjetasDestapadas === 2) {
-            // Mostrar segundo numero
-            const updatedCards = cards.slice();
-            updatedCards[tarjeta2].show = true;
-            setSegundoResultado(updatedCards[tarjeta2].content);
-            setCards(updatedCards);
-
-            // Incrementar movimientos
-            setMovimientos(prev => prev + 1);   
-        }
-    }, [tarjetasDestapadas]);
-
-    useEffect( () => {
-
-        if (primerResultado == null || segundoResultado == null) {
-            return
-        }
-
-        if (primerResultado.match === segundoResultado.match) {
-            // Encerar contador tarjetas destapadas
-            setTarjetasDestapadas(0);
-            setPrimerResultado(null)
-            setSegundoResultado(null)
-
-            // Aumentar aciertos
-            setAciertos(prev => prev + 1);
-
-        } else {
-            // Mostrar momentaneamente valores y volver a tapar
-            setTimeout(() => {
-                const updatedCards = cards.slice();
-                updatedCards[tarjeta1].show = false;
-                updatedCards[tarjeta2].show = false;
-                setCards(updatedCards);
-                setTarjetasDestapadas(0);
-            }, 1000);
-        }
-    }, [primerResultado, segundoResultado])
-
-    useEffect(() => {
-        if (aciertos === 6) {
-            // Game won logic goes here
-        }
-    }, [aciertos])
-    
-    useEffect(() => {
-        if (segundos === 30) {
-            setTimeout( () => {
-                navigate('/selector')
-            }, 3000)
-        } else {
-            // setTimeout(() => {
-            // setSegundos(segundos + 1);
-            // }, 1000);
-        }
-    }, [navigate, segundos]);
-    
-    function generateCards()  {
+    const generateCards = () => {
       
         const numeros = [        
             { 
@@ -194,9 +116,102 @@ const Focus = () => {
           .map((content, index) => ({ id: index, content, show: false }));
     
         return cards;
-      }
+        }
+
+    const navigate = useNavigate()
+
+    const [cards, setCards] = useState(generateCards());
+    const [tarjetasDestapadas, setTarjetasDestapadas] = useState(0);
+    const [tarjeta1, setTarjeta1] = useState(null);
+    const [tarjeta2, setTarjeta2] = useState(null);
+    const [primerResultado, setPrimerResultado] = useState(null);
+    const [segundoResultado, setSegundoResultado] = useState(null);
+    const [movimientos, setMovimientos] = useState(0);
+    const [aciertos, setAciertos] = useState(0);
+    const [seconds, setSeconds] = useState(300);
+    const [intervalId, setIntervalId] = useState(null);
+
+    useEffect(() => {
+
+        if (tarjetasDestapadas === 1) {
+            // Mostrar primer numero
+            const updatedCards = cards.slice();
+            updatedCards[tarjeta1].show = true;
+
+            setPrimerResultado(updatedCards[tarjeta1].content);
+            setCards(updatedCards);
+        } else if (tarjetasDestapadas === 2) {
+            // Mostrar segundo numero
+            const updatedCards = cards.slice();
+            updatedCards[tarjeta2].show = true;
+            setSegundoResultado(updatedCards[tarjeta2].content);
+            setCards(updatedCards);
+
+            // Incrementar movimientos
+            setMovimientos(prev => prev + 1);   
+        }
+    }, [tarjetasDestapadas]);
+
+    useEffect( () => {
+
+        if (primerResultado == null || segundoResultado == null) {
+            return
+        }
+
+        console.log(primerResultado)
+        console.log(segundoResultado)
+
+        if (primerResultado.match === segundoResultado.match) {
+            // Encerar contador tarjetas destapadas
+            setTarjetasDestapadas(0);
+            setPrimerResultado(null)
+            setSegundoResultado(null)
+
+            // Aumentar aciertos
+            setAciertos(prev => prev + 1);
+
+        } else {
+            // Mostrar momentaneamente valores y volver a tapar
+            setTimeout(() => {
+                const updatedCards = cards.slice();
+                updatedCards[tarjeta1].show = false;
+                updatedCards[tarjeta2].show = false;
+                setCards(updatedCards);
+                setTarjetasDestapadas(0);
+                setPrimerResultado(null)
+                setSegundoResultado(null)
+            }, 5000);
+        }
+    }, [primerResultado, segundoResultado])
+
+    useEffect(() => {
+        if (aciertos === 12) {
+            markAsFinished()
+        }
+    }, [navigate, aciertos])
+
+    useEffect(() => {
+        const id = setInterval(() => {
+          setSeconds(prevSeconds => prevSeconds - 1);
+        }, 1000);
     
-      function destapar(id) {
+        setIntervalId(id);
+    
+        return () => clearInterval(id);
+    }, []); // This empty array makes the effect run only once, similar to componentDidMount
+    
+    useEffect(() => {
+        if (seconds === 0) {
+            markAsFinished()
+        }
+    }, [navigate, seconds, intervalId]);
+
+    const markAsFinished = () => {
+        clearInterval(intervalId);
+        navigate('/focus/puntaje')
+    }
+
+    const destapar = (id) => {
         if (tarjetasDestapadas === 0) {
           setTarjetasDestapadas(1);
           setTarjeta1(id);
@@ -206,7 +221,7 @@ const Focus = () => {
         }
       }
 
-    function generateTable() {
+    const generateTable = () => {
         const table = [];
         let row = [];
 
@@ -232,6 +247,8 @@ const Focus = () => {
         return table;
     }
 
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
 
     return (
         <div className='container_focus'>
@@ -250,11 +267,17 @@ const Focus = () => {
                             Aciertos: {aciertos}
                         </h2>
                         <h2 id="tiempo" className="estadisticas">
-                            Tiempo: {segundos} Segundos
+                            Tiempo: {String(minutes).padStart(2, '0')}:{String(remainingSeconds).padStart(2, '0')}
                         </h2>
                         <h2 id="movimientos" className="estadisticas">
                             Movimientos: {movimientos}
                         </h2>
+                        
+                        <div style={{ paddingTop: 20 }}>
+                            <div className='boton-enlace' onClick={markAsFinished}> 
+                                Terminar 
+                            </div>
+                        </div>
                     </section>
                 </main>
             </div>

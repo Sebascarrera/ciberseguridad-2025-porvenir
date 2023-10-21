@@ -20,7 +20,7 @@ const PuntajeScreen = () => {
 
         setTimeout( () => {
             navigate('/selector')
-        }, 3000)
+        }, 4000)
 
     }, [])
 
