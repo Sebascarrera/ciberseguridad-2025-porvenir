@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom"
 
 import { bumpAnsweredQuestion, resetAnsweredQuestions } from "../Redux"
 
+import Logo from '../../../assets/img/ciberseguridad-logo.png'
+
 import './styles.css'
 
 import Config from "../Config"
@@ -80,24 +82,15 @@ const PreguntaScreen = () => {
 
     return (
         <div>
+            <header className="container_logo">
+                <img src={Logo} alt="Logo" />
+            </header>
             <div className="Question">
                 { selectedQuestion ? selectedQuestion.description : null }
             </div>
 
             <div className="Answers">
                 { answers }
-            </div>
-
-            <div className="GameInfoContainer">
-                {/* <div className="GameQuestionNumber">
-                    { this.props.answeredQuestions + 1 + this.pre[this.props.answeredQuestions]} pregunta
-                </div>
-                <div className="logo-container">
-                    <img src={ LogoGram } />
-                </div> */}
-                <div className="GameCurrentCategoryName">
-                    { selectedSlice ? selectedSlice.name : null }
-                </div>
             </div>
             { selectedQuestion &&
             <AnswerModal

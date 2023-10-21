@@ -9,7 +9,7 @@ import Focus from './Games/Focus'
 import FocusFrase from './Games/Focus/frase'
 
 import Ruleta from './Games/Ruleta'
-import RuletaPersonaje from './Games/Ruleta/personaje'
+import RuletaPersonaje from './Games/Ruleta/Personaje'
 import PreguntaScreen from './Games/Ruleta/Pregunta'
 
 

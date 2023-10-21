@@ -9,11 +9,10 @@ import { fetchSlices } from "./Redux"
 
 import ProfileCard from './ProfileCard'
 
-import '../Ruleta/App.css'
+import './styles.css'
 
-import logo from '../../assets/img/ciberseguridad-logo.png'; // Importa la imagen del logo
-
-
+import Logo from '../../assets/img/ciberseguridad-logo.png'
+import LogoRuleta from '../../assets/img/logo_ruleta.png'
 
 const Ruleta = () => {
 
@@ -27,6 +26,7 @@ const Ruleta = () => {
     const wheelRef = useRef(null)
 
     useEffect(() => {
+        console.log(wheelRef.current.offsetWidth)
         setWidth(wheelRef.current.offsetWidth)
       }, [wheelRef]);
 
@@ -45,8 +45,9 @@ const Ruleta = () => {
         }
     }, [status, dispatch])
 
+
     return (
-        <div>
+        <div className="container-screen-ruleta">
 
             { status === 'loading' && (
                 <div>
@@ -54,26 +55,29 @@ const Ruleta = () => {
                 </div>
             )}
 
-            <div className="cont-logo">
-                <img src={logo} alt="Logo Ciberseguridad Porvenir" />
-            </div>
+            <header className="cont-logo">
+                <img src={Logo} alt="Logo Ciberseguridad Porvenir" />
+            </header>
 
             <div>
                 <ProfileCard name={"testing"} character={avatar} />
             </div>
 
-            <div ref={wheelRef}>
-                
-                <Wheel 
-                    width={width * 0.4}
-                    friction={0.4}
-                    slices={slices} 
-                    onSelectedWinnerSlice={ index => {
-                        navigate(`/ruleta/preguntas?slice=${index}`)
-                    }} />
-
+            <div className="cont-wheel" >
+                <div className="center-wheel" ref={wheelRef}>
+                    <Wheel 
+                        width={width * 0.8} 
+                        friction={0.4}
+                        slices={slices} 
+                        onSelectedWinnerSlice={ index => {
+                            navigate(`/ruleta/preguntas?slice=${index}`)
+                        }} />
+                </div>
             </div>
-
+{/* 
+            <footer className="cont-logo-ruleta">
+				<img src={LogoRuleta} alt="Logo ruleta" />
+			</footer> */}
             
         </div>
     )
