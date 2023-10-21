@@ -6,8 +6,11 @@ import ninjaImg from '../assets/img/ninja-img.png'
 import liveImg from '../assets/img/live-imagen.png'
 
 import '../App.css'
+import { useNavigate } from 'react-router-dom'
 
 const Selector = () => {
+
+    const navigate = useNavigate()
     return (
         <div>
             <header>
@@ -26,19 +29,25 @@ const Selector = () => {
                                 <div className="cont-ruleta">
                                     <img src={ruletaImg} alt="Ruleta del Saber" />
                                     <div className="boton-ruleta">
-                                        <a href="/ruleta/personaje" className="boton-enlace-juegos">Ruleta del Saber</a>
+                                        <div onClick={ () => navigate('/ruleta/personaje')} className="boton-enlace-juegos">
+                                            Ruleta del Saber
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="cont-focus">
                                     <img src={focusImg} alt="Focus Game" />
                                     <div className="boton-focus">
-                                        <a href="/focus/frase" className="boton-enlace-juegos">Focus Game</a>
+                                        <div onClick={ () => navigate('/focus/frase')} className="boton-enlace-juegos">
+                                            Focus Game
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="cont-ninja">
                                     <img src={ninjaImg} alt="Cipo Ninja" />
                                     <div className="boton-ninja">
-                                        <a href="/ninja" className="boton-enlace-juegos">Cipo Ninja</a>
+                                        <div onClick={ () => navigate('/ninja')} className="boton-enlace-juegos">
+                                            Cipo Ninja
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -46,9 +55,9 @@ const Selector = () => {
                     </section>
                     <section className="cont-transmision">
                         <div className="ver-en-vivo">
-                            <a href="/live" id="boton-con-imagen">
+                            <div onClick={ () => navigate('/live')} id="boton-con-imagen">
                                 <img src={liveImg} alt="Señal en Vivo" />
-                            </a>                
+                            </div>                
                         </div>
                     </section>
                 </section>

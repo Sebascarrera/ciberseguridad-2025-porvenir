@@ -21,6 +21,7 @@ const Ruleta = () => {
     const slices = useSelector( state => state.ruleta.slices)
     const status = useSelector(state => state.ruleta.status)
     const avatar = useSelector( state => state.ruleta.avatar)
+    const user = useSelector( state => state.user.user )
     const [width, setWidth] = useState(0)
 
     const wheelRef = useRef(null)
@@ -59,7 +60,7 @@ const Ruleta = () => {
             </header>
 
             <div>
-                <ProfileCard name={"testing"} character={avatar} />
+                <ProfileCard name={user.fullname} character={avatar} />
             </div>
 
             <div className="cont-wheel" >

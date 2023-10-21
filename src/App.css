@@ -215,6 +215,7 @@ border: none;
   transition: background-color 0.3s ease;
   transition: all 0.2s;
   transform: rotate(0deg);
+  color: #fff;
 }
 
 .boton-enlace > input {
