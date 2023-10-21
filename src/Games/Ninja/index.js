@@ -14,8 +14,9 @@ import objectImage4 from '../../assets/img/ninja/troyano-4.png'
 import objectImage5 from '../../assets/img/ninja/troyano-5.png'
 import objectImage6 from '../../assets/img/ninja/troyano-6.png'
 import objectImage7 from '../../assets/img/ninja/troyano-7.png'
+import objectImage8 from '../../assets/img/ninja/troyano.png'
 
-
+import "./styles.css"
 
 const Ninja = () => {
 
@@ -41,11 +42,11 @@ const Ninja = () => {
         }, 
         {
             image: createImageForObject(objectImage2),
-            points: 20,
+            points: 10,
         },
         {
             image: createImageForObject(objectImage3),
-            points: 30,
+            points: 10,
         },
         {
             image: createImageForObject(objectImage4),
@@ -53,15 +54,19 @@ const Ninja = () => {
         },
         {
             image: createImageForObject(objectImage5),
-            points: 20,
+            points: 10,
         },
         {
             image: createImageForObject(objectImage6),
-            points: 30,
+            points: 10,
         },
         {
             image: createImageForObject(objectImage7),
             points: 10,
+        },
+        {
+            image: createImageForObject(objectImage8),
+            points: 20,
         }
     ]
 
