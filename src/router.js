@@ -15,9 +15,11 @@ import PreguntaScreen from './Games/Ruleta/Pregunta'
 import PuntajeScreen from './Games/Ruleta/Puntaje'
 
 import Ninja from './Games/Ninja'
+import NinjaIntro from './Games/Ninja/Intro'
+import NinjaPuntaje from './Games/Ninja/Puntaje'
+
 
 import Live from './Live'
-
 
 const router = createBrowserRouter([
     {
@@ -48,6 +50,16 @@ const router = createBrowserRouter([
     {
         path: "/ninja",
         element: <Ninja />,
+    },
+
+    {
+        path: "/ninja/intro",
+        element: <NinjaIntro />,
+    },
+
+    {
+        path: "/ninja/puntaje",
+        element: <NinjaPuntaje />,
     },
 
     {

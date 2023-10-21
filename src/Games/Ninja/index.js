@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 
-import { Stage, Layer, Circle, Image } from 'react-konva'
+import { Stage, Layer, Image } from 'react-konva'
 
 import { useRandomInterval } from './useRandomInterval'
 
-import mainImage from '../../assets/img/ninja/Cipo-ninja.png'
+import { useNavigate } from "react-router-dom"
 
+import mainImage from '../../assets/img/ninja/Cipo-ninja.png'
 
 import objectImage1 from '../../assets/img/ninja/troyano-1.png'
 import objectImage2 from '../../assets/img/ninja/troyano-2.png'
@@ -16,9 +17,14 @@ import objectImage6 from '../../assets/img/ninja/troyano-6.png'
 import objectImage7 from '../../assets/img/ninja/troyano-7.png'
 import objectImage8 from '../../assets/img/ninja/troyano.png'
 
+import Logo from '../../assets/img/ciberseguridad-logo.png'
+
 import "./styles.css"
 
+
 const Ninja = () => {
+
+    const navigate = useNavigate()
 
     const mainImageWidth = 100
     const mainImageHeight = 100
@@ -26,6 +32,10 @@ const Ninja = () => {
     const [mainObjectImage, setMainObjectImage] = useState(null)
     const [positionXMainObject, setPositionXMainObject] = useState(0)
     const animationFrameRef = useRef()
+
+    const [totalPoints, setTotalPoints] = useState(0)
+    const [seconds, setSeconds] = useState(60)
+    const [intervalId, setIntervalId] = useState(null)
 
     const delay = [1000, 3000];
 
@@ -82,7 +92,21 @@ const Ninja = () => {
 
     useEffect(() => {
         positionXMainObjectRef.current = positionXMainObject; // Update ref when state changes
-    }, [positionXMainObject]);
+    }, [positionXMainObject])
+
+    useEffect(() => {
+        if (seconds === 0) {
+            endGame()
+        }
+    }, [seconds]);
+
+    const startTimer = () => {
+        const id = setInterval(() => {
+            setSeconds(prevSeconds => prevSeconds - 1);
+        }, 1000);
+    
+        setIntervalId(id);
+    }
 
     const randomInterval = useRandomInterval( () => {
         generateRandomCollideObjects()
@@ -106,14 +130,11 @@ const Ninja = () => {
         setTimeout( () => {
             startGame()
         }, 3000)
-
-        setTimeout( () => {
-            endGame()
-        }, 60000)
     }
 
     const startGame = () => {
         console.log('starting game')
+        startTimer()
         randomInterval.start()
 
         // Start the animation loop
@@ -127,6 +148,9 @@ const Ninja = () => {
         console.log('ending game')
         randomInterval.cancel()
         cancelAnimationFrame(animationFrameRef.current);
+        clearInterval(intervalId)
+
+        navigate('/ninja/puntaje')
     }
 
     const generateRandomCollideObjects = () => {
@@ -175,7 +199,7 @@ const Ninja = () => {
         const currentObjects = currentObjectsRef.current;
         const newObjects = currentObjects.filter(obj => obj.id !== object.id);
         setCurrentObjects(newObjects)
-
+        setTotalPoints( prev => prev + object.data.points)
     }
 
     const updateObjectsPosition = () => {
@@ -217,9 +241,9 @@ const Ninja = () => {
     useEffect(() => {
         const handleKeyDown = (event) => {
           if (event.key === 'ArrowLeft') {
-            setPositionXMainObject(prev => validateXAxisMainObject(prev, prev - 10));
+            setPositionXMainObject(prev => validateXAxisMainObject(prev, prev - 20));
           } else if (event.key === 'ArrowRight') {
-            setPositionXMainObject(prev => validateXAxisMainObject(prev, prev + 10));
+            setPositionXMainObject(prev => validateXAxisMainObject(prev, prev + 20));
           }
         };
       
@@ -230,32 +254,47 @@ const Ninja = () => {
         };
     }, [mainImageWidth]);
 
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
     return (
-        <div>
-            <Stage width={window.innerWidth} height={window.innerHeight}>
-                <Layer>
-                    { mainObjectImage && (
-                    <Image  
-                        height={100}
-                        width={100}
-                        x={positionXMainObject}
-                        y={window.innerHeight - mainImageHeight}
-                        image={mainObjectImage}
-                        />
-                    )}
+        <div className="container_ninja">
+            <header className="cont-logo">
+                <img src={Logo} alt="Logo" />
+            </header>
 
-                    { currentObjects.map( (item, index) =>
-                        <Image
-                            height={55}
-                            width={55}
-                            key={index}
-                            x={item.x}
-                            y={item.y}
-                            image={item.data.image} />
-                    ) }
+            <div className="stats">
+                <p>{String(minutes).padStart(2, '0')}:{String(remainingSeconds).padStart(2, '0')}</p>
+                <p>{totalPoints} Pts</p>
+            </div>
 
-                </Layer>
-            </Stage>
+            <div className="scene">
+                <Stage width={window.innerWidth} height={window.innerHeight}>
+                    <Layer>
+                        { mainObjectImage && (
+                        <Image  
+                            height={100}
+                            width={100}
+                            x={positionXMainObject}
+                            y={window.innerHeight - mainImageHeight}
+                            image={mainObjectImage}
+                            />
+                        )}
+
+                        { currentObjects.map( (item, index) =>
+                            <Image
+                                height={55}
+                                width={55}
+                                key={index}
+                                x={item.x}
+                                y={item.y}
+                                image={item.data.image} />
+                        ) }
+
+                    </Layer>
+                </Stage>
+            </div>
+            
         </div>
     )
 }

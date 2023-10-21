@@ -14,7 +14,7 @@ const FocusFrase = () => {
     useEffect( () => {
         setTimeout( () => {
             navigate('/focus')
-        }, 3000)
+        }, 4000)
     }, [navigate])
 
     return (
