@@ -63,6 +63,10 @@ const Ruleta = () => {
                 <ProfileCard name={user.fullname} character={avatar} />
             </div>
 
+            <div className='titulo-gira-ruleta'>
+				<p>Gira la Ruleta</p>
+            </div>
+
             <div className="cont-wheel" >
                 <div className="center-wheel" ref={wheelRef}>
                     <Wheel 

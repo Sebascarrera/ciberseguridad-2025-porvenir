@@ -43,3 +43,13 @@
   .cont-logo-ruleta img {
     width: 5%;
   }
+
+  .titulo-gira-ruleta{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo-gira-ruleta p{
+    font-size: larger;
+    font-weight:700;
+}
