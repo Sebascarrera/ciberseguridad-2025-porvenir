@@ -27,14 +27,14 @@ font-style: normal;
 
 
 header {
-  padding-top: 10px; /* Añade relleno para separar el contenido */
+  padding-top: 0px; /* Añade relleno para separar el contenido */
   text-align: center; /* Centra el contenido dentro del encabezado */
 }
 
 .logo-ciberseguridad {
   height: auto;
   float: right;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .logo-ciberseguridad img {
@@ -164,7 +164,7 @@ align-items: center;
 }
 
 .popup-contenido {
-width: 80%;
+width: 100%;
 height: 80%;
 background: white;
 padding: 20px;
@@ -182,8 +182,8 @@ text-decoration: none; /* Subraya el texto para indicar que es un enlace */
 
 .cerrar-popup {
 position: absolute;
-top: 20px;
-right: 20px;
+top: 85%;
+right: 50%;
 font-size: 60px;
 cursor: pointer;
 color: #fff;
@@ -231,9 +231,12 @@ border: none;
 
 .cont-footer{
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .naranja{
+  margin-top: 0;
 }
 
 .naranja img{
@@ -242,6 +245,7 @@ border: none;
 }
 
 .negro{
+  margin-top: 0;
 }
 
 .negro img{
@@ -253,7 +257,6 @@ border: none;
 
 
 .cont-select{
-  margin-top: 150px;
 }
 
 .cont-sel-options{
@@ -277,7 +280,6 @@ border: none;
 }
 
 .cont-escoge-juego{
-  height: 520px;
   background-color: #FF7C00;
   border-radius: 15px;
   display: flex;
@@ -301,7 +303,7 @@ border: none;
 
 .cont-ruleta img{
   margin-bottom: 10px;
-  width: 55%;
+  width: 70%;
   display: flex;
   justify-content: center;
   margin: auto;
@@ -317,7 +319,7 @@ border: none;
 
 .cont-focus img{
   margin-bottom: 10px;
-  width: 55%;
+  width: 70%;
   display: flex;
   justify-content: center;
   margin: auto;
@@ -334,7 +336,7 @@ border: none;
 
 .cont-ninja img{
   margin-bottom: 10px;
-  width: 55%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
