@@ -196,7 +196,6 @@ height: 100%; /* Ajusta la altura según tus necesidades */
 border: none;
 }
 
-
 .boton-start {
   display: flex;
   text-align: center;
@@ -210,19 +209,27 @@ border: none;
   display: flex;
   justify-content: center;
   padding: 10px 20px;
-  width: 200px;
   background-color: #FF7C00;
-  color: #fff;
-  text-decoration: none;
   border: 1px solid #FF7C00;
   border-radius: 15px;
+  transition: background-color 0.3s ease;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+}
+
+.boton-enlace > input {
+  color: #fff;
+  text-decoration: none;
   font-family: 'Banda bold', sans-serif;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  transition: background-color 0.3s ease;
-  transition: all 0.2s;
-  transform: rotate(0deg);
+  border: none;
+  background-color: transparent;
+}
+
+.boton-enlace > .loader_button {
+  margin-left: 10px;
 }
 
 .boton-enlace:hover {
@@ -603,4 +610,36 @@ border: none;
 
 .container_logo_ruleta > img {
   max-width: 10%;
+}
+
+
+.loader_button {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid gray;
+  border-right: 2px solid darkgray;
+  border-bottom: 2px solid lightgray;
+  border-left: 2px solid gray;
+  width: 12px;
+  height: 12px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  text-align: center;
+  margin: auto;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error_form {
+  text-align: center;
+  color: red;
+  padding: 20px;
 }

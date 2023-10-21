@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form'
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
-import './App.css';
+import { useDispatch, useSelector } from 'react-redux'
+
+import { createUser } from './Redux';
+
 import logo from './assets/img/logo-ciberseguridad.jpg'
 import iconNombre from './assets/img/icon-nombre.png'
 import iconCedula from './assets/img/icon-cedula.png'
@@ -13,9 +16,15 @@ import docDatos from './assets/docs/tratamientoDatosPorvenir.pdf'
 import imgNegra  from './assets/img/img-negra.png'
 import imgNaranja from './assets/img/img-naranja.png'
 
+import './App.css';
+
 function App() {
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const status = useSelector( state => state.user.status )
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const [isShowingPopup, setIsShowingPopup] = useState(false)
@@ -34,8 +43,15 @@ function App() {
             return
         }
 
-        navigate('/selector')
+        dispatch(createUser(data))
+
     }
+
+    useEffect( () => {
+        if (status == "succeded") {
+            navigate('/selector')
+        }
+    }, [status])
 
     return (
     <div className="App">
@@ -49,13 +65,13 @@ function App() {
                 <div className="input-container">
                     <div className="controls">
                         <img className="icono" src={iconNombre} alt="Nombre" />
-                        <input {...register("name")} placeholder="Nombre" required />
+                        <input {...register("fullname")} placeholder="Nombre" required />
                     </div>        
                 </div>
                 <div className="input-container">
                     <div className="controls">
                         <img className="icono" src={iconCedula} alt="Cédula" />
-                        <input className="controls" {...register("cedula")} placeholder="Cédula" required />
+                        <input className="controls" {...register("document")} placeholder="Cédula" required />
                     </div>        
                 </div>
                 <div className="input-container">
@@ -76,8 +92,18 @@ function App() {
             </div>
             
             <section className="boton-start">
+                <div className="boton-enlace">
+                    <input value="Continuar" type="submit" />
+                    { status == 'loading' && (
+                        <div className='loader_button'></div>
+                    )}
+                </div>
+            </section>
 
-                <input value="Continuar" type="submit" className="boton-enlace" />
+            <section>
+                { status == "failed" && (
+                    <p className='error_form'>Datos invalidos</p>
+                )}
             </section>
         </form>
         
