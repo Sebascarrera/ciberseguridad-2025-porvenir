@@ -2,8 +2,7 @@ import { useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import Logo from '../../../assets/img/focus/focus-game-logo.png'
-import Frase from '../../../assets/img/focus/frase-juego-focus-porvenir.png'
+import Logo from '../../../assets/img/ciberseguridad-logo-porvenir-blanco.png'
 import LogoGrande from '../../../assets/img/focus/focus-game-logo-grande.png'
 
 import './styles.css'
@@ -24,7 +23,9 @@ const FocusFrase = () => {
                 <img src={Logo} alt="focus-game-banboger" />
             </header>
             <section className="frase">
-                <img src={Frase} alt="" />
+                <div className='frase-guia-juego-focus'>
+                    <p className='texto-frase-focus'>Encuentra las</p><p className='texto-frase-focus'>parejas en el menor tiempo posible</p>
+                </div>
             </section>
             <div className="loader"></div>
             <footer className="footer_focus">

@@ -82,9 +82,9 @@ const Focus = () => {
                 navigate('/selector')
             }, 3000)
         } else {
-            setTimeout(() => {
-            setSegundos(segundos + 1);
-            }, 1000);
+            // setTimeout(() => {
+            // setSegundos(segundos + 1);
+            // }, 1000);
         }
     }, [navigate, segundos]);
     
@@ -240,12 +240,12 @@ const Focus = () => {
             </header>
             <div className="rectangle specific-page">
                 <main>      
-                    <section className="section1">
+                    <section className="focus-section1">
                         <table>
                             <tbody>{generateTable()}</tbody>
                         </table>
                     </section>
-                    <section className="section2">
+                    <section className="focus-section2">
                         <h2 id="aciertos" className="estadisticas">
                             Aciertos: {aciertos}
                         </h2>
@@ -259,7 +259,9 @@ const Focus = () => {
                 </main>
             </div>
             <footer>
-                <img src={LogoGrande} alt="logo-focus" />
+                <div className='focus-logo-pie'>
+                    <img src={LogoGrande} alt="logo-focus" />
+                </div>      
             </footer>
 
         </div>

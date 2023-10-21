@@ -19,3 +19,8 @@
     justify-content: center;
 }
 
+.titulo-personaje p{
+    font-size: larger;
+    font-weight:700;
+}
+

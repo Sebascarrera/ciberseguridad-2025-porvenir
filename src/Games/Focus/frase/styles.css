@@ -27,8 +27,13 @@ header.header_focus {
 footer.footer_focus {
     display: flex;
     justify-content: center;
-    padding-top: 65px;
     padding-bottom: 65px;
+}
+
+footer.footer_focus img {
+    display: flex;
+    justify-content: center;
+    width: 150px;
 }
 
 .focus-logo {
@@ -44,16 +49,24 @@ footer.footer_focus {
     padding-bottom: 50px;
 }
 
+.texto-frase-focus{
+    font-size: 3.75em;
+    font-weight: bolder;
+    font-family: 'Banda bold' sans-serif;
+    line-height: 1.2;
+    color: #f3f3f3;
+}
+
 
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid blue;
     border-right: 16px solid green;
-    border-bottom: 16px solid red;
+    border-bottom: 16px solid rgb(251, 0, 255);
     border-left: 16px solid pink;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
     text-align: center;

@@ -254,12 +254,6 @@ border: none;
   margin: 0;
 }
 
-
-
-
-.cont-select{
-}
-
 .cont-sel-options{
   display: flex;
   width: 100%;
@@ -304,7 +298,7 @@ border: none;
 
 .cont-ruleta img{
   margin-bottom: 10px;
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: center;
   margin: auto;
@@ -320,7 +314,7 @@ border: none;
 
 .cont-focus img{
   margin-bottom: 10px;
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: center;
   margin: auto;
@@ -337,7 +331,7 @@ border: none;
 
 .cont-ninja img{
   margin-bottom: 10px;
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
