@@ -58,8 +58,7 @@ const PersonajeScreen = () => {
                 showStatus={false}
                 showIndicators={false}
                 showThumbs={true}
-                emulateTouch
-                centerMode>
+                emulateTouch>
                 {
                   characters.map( (character, index) => (
                     <div key={index}>
