@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
+import Modal from 'react-modal'
 
 import Logo from '../../assets/img/focus/ciberseguridad-logo-porvenir.png'
 import LogoGrande from '../../assets/img/focus/focus-game-logo-grande.png'
@@ -15,99 +16,123 @@ const Focus = () => {
         const numeros = [        
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-1A.png'),
-                match: 1
+                match: 1,
+                match_image: require('../../assets/img/focus/png-tapadas/208-1B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-1A.png'),
-                match: 1
+                match: 1,
+                match_image: require('../../assets/img/focus/png-tapadas/208-1B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-2A.png'),
-                match: 2
+                match: 2,
+                match_image: require('../../assets/img/focus/png-tapadas/208-2B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-2A.png'),
-                match: 2
+                match: 2,
+                match_image: require('../../assets/img/focus/png-tapadas/208-2B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-3A.png'),
-                match: 3
+                match: 3,
+                match_image: require('../../assets/img/focus/png-tapadas/208-3B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-3A.png'),
-                match: 3
+                match: 3,
+                match_image: require('../../assets/img/focus/png-tapadas/208-3B.png')
             },            
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-4A.png'),
-                match: 4
+                match: 4,
+                match_image: require('../../assets/img/focus/png-tapadas/208-4B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-4A.png'),
-                match: 4
+                match: 4,
+                match_image: require('../../assets/img/focus/png-tapadas/208-4B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-5A.png'),
-                match: 5
+                match: 5,
+                match_image: require('../../assets/img/focus/png-tapadas/208-5B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-5A.png'),
-                match: 5
+                match: 5,
+                match_image: require('../../assets/img/focus/png-tapadas/208-5B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-6A.png'),
-                match: 6
+                match: 6,
+                match_image: require('../../assets/img/focus/png-tapadas/208-6B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-6A.png'),
-                match: 6
+                match: 6,
+                match_image: require('../../assets/img/focus/png-tapadas/208-6B.png')
             },            
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-7A.png'),
-                match: 7
+                match: 7,
+                match_image: require('../../assets/img/focus/png-tapadas/208-7B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-7A.png'),
-                match: 7
+                match: 7,
+                match_image: require('../../assets/img/focus/png-tapadas/208-7B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-8A.png'),
-                match: 8
+                match: 8,
+                match_image: require('../../assets/img/focus/png-tapadas/208-8B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-8A.png'),
-                match: 8
+                match: 8,
+                match_image: require('../../assets/img/focus/png-tapadas/208-8B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-9A.png'),
-                match: 9
+                match: 9,
+                match_image: require('../../assets/img/focus/png-tapadas/208-9B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-9A.png'),
-                match: 9
+                match: 9,
+                match_image: require('../../assets/img/focus/png-tapadas/208-9B.png')
             },            
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-10A.png'),
-                match: 10
+                match: 10,
+                match_image: require('../../assets/img/focus/png-tapadas/208-10B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-10A.png'),
-                match: 10
+                match: 10,
+                match_image: require('../../assets/img/focus/png-tapadas/208-10B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-11A.png'),
-                match: 11
+                match: 11,
+                match_image: require('../../assets/img/focus/png-tapadas/208-11B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-11A.png'),
-                match: 11
+                match: 11,
+                match_image: require('../../assets/img/focus/png-tapadas/208-11B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-12A.png'),
-                match: 12
+                match: 12,
+                match_image: require('../../assets/img/focus/png-tapadas/208-12B.png')
             },                
             { 
                 image: require('../../assets/img/focus/png-tapadas/208-12A.png'),
-                match: 12
+                match: 12,
+                match_image: require('../../assets/img/focus/png-tapadas/208-12B.png')
             },
         ];
     
@@ -128,8 +153,10 @@ const Focus = () => {
     const [segundoResultado, setSegundoResultado] = useState(null);
     const [movimientos, setMovimientos] = useState(0);
     const [aciertos, setAciertos] = useState(0);
-    const [seconds, setSeconds] = useState(300);
+    const [seconds, setSeconds] = useState(120);
     const [intervalId, setIntervalId] = useState(null);
+    const [isShowingModalMatch, setIsShowingModalMatch] = useState(false)
+    const [imageMatch, setImageMatch] = useState(null)
 
     useEffect(() => {
 
@@ -155,11 +182,9 @@ const Focus = () => {
     useEffect( () => {
 
         if (primerResultado == null || segundoResultado == null) {
+            
             return
         }
-
-        console.log(primerResultado)
-        console.log(segundoResultado)
 
         if (primerResultado.match === segundoResultado.match) {
             // Encerar contador tarjetas destapadas
@@ -167,10 +192,15 @@ const Focus = () => {
             setPrimerResultado(null)
             setSegundoResultado(null)
 
+            setImageMatch(segundoResultado.match_image)
+
             // Aumentar aciertos
             setAciertos(prev => prev + 1);
 
         } else {
+
+            setImageMatch(null)
+
             // Mostrar momentaneamente valores y volver a tapar
             setTimeout(() => {
                 const updatedCards = cards.slice();
@@ -180,7 +210,7 @@ const Focus = () => {
                 setTarjetasDestapadas(0);
                 setPrimerResultado(null)
                 setSegundoResultado(null)
-            }, 5000);
+            }, 3000);
         }
     }, [primerResultado, segundoResultado])
 
@@ -199,6 +229,11 @@ const Focus = () => {
     
         return () => clearInterval(id);
     }, []); // This empty array makes the effect run only once, similar to componentDidMount
+
+    useEffect( () => {
+        console.log(imageMatch)
+        setIsShowingModalMatch(imageMatch !== null)
+    }, [imageMatch])
     
     useEffect(() => {
         if (seconds === 0) {
@@ -286,6 +321,19 @@ const Focus = () => {
                     <img src={LogoGrande} alt="logo-focus" />
                 </div>      
             </footer>
+
+            <Modal 
+                isOpen={isShowingModalMatch}>
+                    <div className='container_focus_modal'>
+                        <div className='container_focus_modal_close'>
+                            <button onClick={() => setIsShowingModalMatch(false) }>Cerrar</button>
+                        </div>
+                    
+                        <img src={imageMatch} alt="Match" />
+
+                    </div>
+                
+            </Modal>
 
         </div>
     )

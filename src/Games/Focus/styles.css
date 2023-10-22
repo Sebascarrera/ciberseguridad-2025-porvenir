@@ -149,4 +149,14 @@ footer .focus-logo-pie img{
     padding-bottom: 180px;
     margin-bottom: 0%;
   }
+
+
+.container_focus_modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_focus_modal_close {
+    text-align: right;
+}
   
