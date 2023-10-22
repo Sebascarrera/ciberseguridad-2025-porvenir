@@ -210,7 +210,7 @@ const Focus = () => {
                 setTarjetasDestapadas(0);
                 setPrimerResultado(null)
                 setSegundoResultado(null)
-            }, 3000);
+            }, 2000);
         }
     }, [primerResultado, segundoResultado])
 
