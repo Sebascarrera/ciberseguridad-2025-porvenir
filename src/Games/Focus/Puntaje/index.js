@@ -24,7 +24,7 @@ const FocusPuntaje = () => {
                 <img src={Logo} alt="focus-game-banboger" />
             </header>
             <section className="container_focus_puntaje">
-                <p>Tu puntaje ha sido: </p>
+                <p className='texto-puntaje-focus'>Tu puntaje ha sido: </p>
                 <p>Tu tiempo ha sido: </p>
             </section>
             <footer className="footer_focus">

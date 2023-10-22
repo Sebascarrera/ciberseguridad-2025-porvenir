@@ -154,6 +154,8 @@ footer .focus-logo-pie img{
 .container_focus_modal {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .container_focus_modal_close {
