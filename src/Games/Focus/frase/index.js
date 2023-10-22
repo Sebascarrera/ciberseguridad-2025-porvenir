@@ -11,12 +11,6 @@ const FocusFrase = () => {
 
     const navigate = useNavigate()
 
-    useEffect( () => {
-        setTimeout( () => {
-            navigate('/focus')
-        }, 4000)
-    }, [navigate])
-
     return (
         <div className='container_focus'>
             <header className="header_focus">
@@ -27,7 +21,15 @@ const FocusFrase = () => {
                     <p className='texto-frase-focus'>Encuentra las</p><p className='texto-frase-focus'>parejas en el menor tiempo posible</p>
                 </div>
             </section>
-            <div className="loader"></div>
+            <div>
+                <div className='container_focus_iniciar'>
+                    <div style={{ maxWidth: 250 }} 
+                        onClick={ () => navigate('/focus') } 
+                        className='boton-enlace-negro'>
+                        Iniciar Juego
+                    </div>
+                </div>
+            </div>
             <footer className="footer_focus">
                 <img src={LogoGrande} alt="logo-banco" />
             </footer>

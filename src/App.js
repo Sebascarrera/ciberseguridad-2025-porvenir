@@ -24,6 +24,7 @@ function App() {
     const navigate = useNavigate()
 
     const status = useSelector( state => state.user.status )
+    const error = useSelector(state => state.user.error)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -102,7 +103,7 @@ function App() {
 
             <section>
                 { status == "failed" && (
-                    <p className='error_form'>Datos Inválidos</p>
+                    <p className='error_form'>{error}</p>
                 )}
             </section>
         </form>

@@ -11,12 +11,6 @@ const IntroNinja = () => {
 
     const navigate = useNavigate()
 
-    useEffect( () => {
-        setTimeout( () => {
-            navigate('/ninja')
-        }, 4000)
-    }, [navigate])
-
     return (
         <div className='container_intro_ninja'>
             <header>
@@ -34,6 +28,16 @@ const IntroNinja = () => {
                 <div>
                     <p className='texto-indicaciones-inicio-ninja'>Muévelo de lado a lado y atrápa</p>
                     <p className='texto-indicaciones-inicio-ninja'>a Troyano y sus ciber secuases</p>
+                </div>
+
+                <div>
+                    <div className='container_focus_iniciar'>
+                        <div style={{ maxWidth: 250 }} 
+                            onClick={ () => navigate('/ninja') } 
+                            className='boton-enlace'>
+                            Iniciar Juego
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

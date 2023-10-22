@@ -8,10 +8,13 @@ const initialState = {
     error: null
 }
 
-export const createUser = createAsyncThunk('user/create', async data => {
-    const response = await createUserService(data)
-    console.log(response.data)
-    return response.data
+export const createUser = createAsyncThunk('user/create', async (data, { rejectWithValue }) => {
+    try {
+        const response = await createUserService(data)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error.response.data);
+    }
 })
 
 export const userSlice = createSlice({
@@ -29,7 +32,7 @@ export const userSlice = createSlice({
             })
             .addCase(createUser.rejected, (state, action) => {
                 state.status = 'failed'
-                state.error = action.error.message
+                state.error = action.payload.detail
             })
     }
 })

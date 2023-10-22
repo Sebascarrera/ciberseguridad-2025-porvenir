@@ -216,6 +216,7 @@ border: none;
   transition: all 0.2s;
   transform: rotate(0deg);
   color: #fff;
+  cursor: pointer;
 }
 
 .boton-enlace > input {
@@ -643,4 +644,22 @@ border: none;
   text-align: center;
   color: red;
   padding: 20px;
+}
+
+.boton-enlace-negro {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #000;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+  color: #fff;
+  cursor: pointer;
+}
+
+.boton-enlace-negro:hover {
+  background-color:gray;
+  color: #fffffD;
 }
