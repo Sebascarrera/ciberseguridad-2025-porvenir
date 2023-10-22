@@ -25,15 +25,15 @@ const IntroNinja = () => {
 
             <main className='descripcion'>
                 <div>
-                    <p>Ayuda a CiPo a luchar</p>
-                    <p>contra el crimen cibernético</p>
+                    <p className='texto-indicaciones-inicio-ninja'>Ayuda a CiPo a luchar</p>
+                    <p className='texto-indicaciones-inicio-ninja'>contra el crimen cibernético</p>
                 </div>
                 <div>
                     <img src={Flechas} alt="Flechas" />
                 </div>
                 <div>
-                    <p>Muévelo de lado a lado y atrápa</p>
-                    <p>a Troyano y sus ciber secuases</p>
+                    <p className='texto-indicaciones-inicio-ninja'>Muévelo de lado a lado y atrápa</p>
+                    <p className='texto-indicaciones-inicio-ninja'>a Troyano y sus ciber secuases</p>
                 </div>
             </main>
         </div>

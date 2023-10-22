@@ -50,6 +50,6 @@
 }
 
 .titulo-gira-ruleta p{
-    font-size: larger;
-    font-weight:700;
+    font-size: 0,75em;
+    font-family: 'Banda Bold',   sans-serif;
 }

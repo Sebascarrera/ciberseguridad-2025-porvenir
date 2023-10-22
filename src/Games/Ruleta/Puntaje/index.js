@@ -33,14 +33,14 @@ const PuntajeScreen = () => {
 
             <main>
                 { avatar && avatar.image && (
-                    <div>
+                    <div className='container-personaje-felicitaciones'>
                         <img src={avatar.image} alt="avatar" />
                     </div>
                 )}
 
                 <div className='container_ruleta_puntaje'>
-                    <p>Felicitaciones</p>
-                    <p>Tu puntaje es { puntaje } </p>
+                    <p className='texto-felicitaciones-ruleta'>Felicitaciones</p>
+                    <p className='texto-felicitaciones-ruleta'>Tu puntaje es { puntaje } </p>
                 </div>
             </main>
 

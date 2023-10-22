@@ -18,7 +18,7 @@ const Focus = () => {
                 match: 1
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-1B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-1A.png'),
                 match: 1
             },                
             { 
@@ -26,7 +26,7 @@ const Focus = () => {
                 match: 2
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-2B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-2A.png'),
                 match: 2
             },                
             { 
@@ -34,7 +34,7 @@ const Focus = () => {
                 match: 3
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-3B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-3A.png'),
                 match: 3
             },            
             { 
@@ -42,7 +42,7 @@ const Focus = () => {
                 match: 4
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-4B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-4A.png'),
                 match: 4
             },                
             { 
@@ -50,7 +50,7 @@ const Focus = () => {
                 match: 5
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-5B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-5A.png'),
                 match: 5
             },                
             { 
@@ -58,7 +58,7 @@ const Focus = () => {
                 match: 6
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-6B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-6A.png'),
                 match: 6
             },            
             { 
@@ -66,7 +66,7 @@ const Focus = () => {
                 match: 7
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-7B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-7A.png'),
                 match: 7
             },                
             { 
@@ -74,7 +74,7 @@ const Focus = () => {
                 match: 8
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-8B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-8A.png'),
                 match: 8
             },                
             { 
@@ -82,7 +82,7 @@ const Focus = () => {
                 match: 9
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-9B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-9A.png'),
                 match: 9
             },            
             { 
@@ -90,7 +90,7 @@ const Focus = () => {
                 match: 10
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-10B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-10A.png'),
                 match: 10
             },                
             { 
@@ -98,7 +98,7 @@ const Focus = () => {
                 match: 11
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-11B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-11A.png'),
                 match: 11
             },                
             { 
@@ -106,7 +106,7 @@ const Focus = () => {
                 match: 12
             },                
             { 
-                image: require('../../assets/img/focus/png-tapadas/208-12B.png'),
+                image: require('../../assets/img/focus/png-tapadas/208-12A.png'),
                 match: 12
             },
         ];

@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.texto-felicitaciones-ruleta{
+    font-size: 1.35em;
+    font-family: 'Banda bold', sans-serif;
+}
+
 /* .container-personaje-felicitaciones{
     text-align: center;
     margin: 0 auto;
