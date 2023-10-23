@@ -18,8 +18,10 @@ import Ninja from './Games/Ninja'
 import NinjaIntro from './Games/Ninja/Intro'
 import NinjaPuntaje from './Games/Ninja/Puntaje'
 
-
 import Live from './Live'
+
+import { useSelector } from 'react-redux'
+import AuthRoute from './Auth/';
 
 const router = createBrowserRouter([
     {
@@ -28,55 +30,101 @@ const router = createBrowserRouter([
     },
     {
         path: "/selector",
-        element: <Selector />,
+        element: (
+            <AuthRoute>
+                <Selector />
+            </AuthRoute>
+        ),
     },
     {
         path: "/live",
-        element: <Live />,
+        element: (
+        <AuthRoute>
+            <Live />
+        </AuthRoute>),
     },
 
     {
         path: "/focus",
-        element: <Focus />,
+        element: (
+        <AuthRoute>
+            <Focus />
+        </AuthRoute>),
     },
     {
         path: "/focus/frase",
-        element: <FocusFrase />,
+        element: (
+            <AuthRoute>
+                <FocusFrase />
+            </AuthRoute>
+        ),
     },
     {
         path: "/focus/puntaje",
-        element: <FocusPuntaje />,
+        element: (
+            <AuthRoute>
+                <FocusPuntaje />
+            </AuthRoute>
+        ),
     },
     {
         path: "/ninja",
-        element: <Ninja />,
+        element: (
+            <AuthRoute>
+                <Ninja />
+            </AuthRoute>
+        ),
     },
 
     {
         path: "/ninja/intro",
-        element: <NinjaIntro />,
+        element: (
+            <AuthRoute>
+                <NinjaIntro />
+            </AuthRoute>
+        ),
     },
 
     {
         path: "/ninja/puntaje",
-        element: <NinjaPuntaje />,
+        element: (
+            <AuthRoute>
+                <NinjaPuntaje />
+            </AuthRoute>
+        ),
     },
 
     {
         path: "/ruleta",
-        element: <Ruleta />,
+        element: (
+            <AuthRoute>
+                <Ruleta />
+            </AuthRoute>
+        ),
     },
     {
         path: "/ruleta/personaje",
-        element: <RuletaPersonaje />
+        element: (
+            <AuthRoute>
+                <RuletaPersonaje />
+            </AuthRoute>
+        )
     },
     {
         path: "/ruleta/preguntas",
-        element: <PreguntaScreen />
+        element: (
+            <AuthRoute>
+                <PreguntaScreen />
+            </AuthRoute>
+        )
     },
     {
         path: "/ruleta/puntaje",
-        element: <PuntajeScreen />
+        element: (
+            <AuthRoute>
+                <PuntajeScreen />
+            </AuthRoute>
+        )
     }
 ]);
 

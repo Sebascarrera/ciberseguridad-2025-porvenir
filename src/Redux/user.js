@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { createUser as createUserService } from './Services/user'
+import { createUser as createUserService } from '../Services/user'
 
 const initialState = {
     user: null,
@@ -20,7 +20,11 @@ export const createUser = createAsyncThunk('user/create', async (data, { rejectW
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        clearUser(state, action) {
+            state.user = null
+        }
+    },
     extraReducers(builder) {
         builder
             .addCase(createUser.pending, (state, action) => {
@@ -36,5 +40,7 @@ export const userSlice = createSlice({
             })
     }
 })
+
+export const { clearUser } = userSlice.actions
 
 export default userSlice.reducer

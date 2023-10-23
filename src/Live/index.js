@@ -7,9 +7,9 @@ const LiveScreen = () => {
                 <iframe
                     src="https://www.youtube.com/embed/nKY3gd9fnl0?si=Px0bUPXtBiJK8NJ3" 
                     title="YouTube video player" 
-                    frameborder="0" 
+                    frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
+                    allowFullScreen>
                 </iframe>
             </div>                    
         </div>
