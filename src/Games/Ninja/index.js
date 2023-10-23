@@ -20,11 +20,19 @@ import objectImage8 from '../../assets/img/ninja/troyano.png'
 import Logo from '../../assets/img/ciberseguridad-logo.png'
 
 import "./styles.css"
+import { useDispatch } from "react-redux"
+
+import { 
+    startGame as startGameScore,
+    endGame as endGameScore,
+    markScore
+ } from "../../Redux/scores"
 
 
 const Ninja = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const mainImageWidth = 100
     const mainImageHeight = 100
@@ -137,6 +145,8 @@ const Ninja = () => {
         startTimer()
         randomInterval.start()
 
+        dispatch(startGameScore())
+
         // Start the animation loop
         animationFrameRef.current = requestAnimationFrame(updateObjectsPosition);
 
@@ -145,7 +155,7 @@ const Ninja = () => {
     }
 
     const endGame = () => {
-        console.log('ending game')
+        dispatch(endGameScore)
         randomInterval.cancel()
         cancelAnimationFrame(animationFrameRef.current);
         clearInterval(intervalId)
@@ -197,7 +207,8 @@ const Ninja = () => {
     const removeDetectedObject = (object) => {
 
         const currentObjects = currentObjectsRef.current;
-        const newObjects = currentObjects.filter(obj => obj.id !== object.id);
+        const newObjects = currentObjects.filter(obj => obj.id !== object.id)
+        dispatch(markScore(object.data.points))
         setCurrentObjects(newObjects)
         setTotalPoints( prev => prev + object.data.points)
     }
