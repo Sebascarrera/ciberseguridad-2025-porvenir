@@ -57,34 +57,42 @@ const Ninja = () => {
         {
             image: createImageForObject(objectImage1),
             points: 10,
+            size: 55,
         }, 
         {
             image: createImageForObject(objectImage2),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage3),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage4),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage5),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage6),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage7),
             points: 10,
+            size: 55,
         },
         {
             image: createImageForObject(objectImage8),
             points: 20,
+            size: 95,
         }
     ]
 
@@ -294,6 +302,8 @@ const Ninja = () => {
 
                         { currentObjects.map( (item, index) =>
                             <Image
+                                height={item.data.size}
+                                width={item.data.size}
                                 key={index}
                                 x={item.x}
                                 y={item.y}
