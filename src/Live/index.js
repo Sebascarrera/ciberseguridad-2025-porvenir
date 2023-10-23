@@ -5,7 +5,7 @@ const LiveScreen = () => {
         <div className="container_live">
             <div className='container_live_frame'>
                 <iframe
-                    src="https://www.youtube.com/embed/nKY3gd9fnl0?si=Px0bUPXtBiJK8NJ3" 
+                    src="https://www.youtube.com/embed/xOICFcHRvZU?si=4zHXro64EvUNQWnc" 
                     title="YouTube video player" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
