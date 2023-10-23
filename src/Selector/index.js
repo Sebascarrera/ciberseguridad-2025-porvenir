@@ -13,11 +13,16 @@ const Selector = () => {
     const navigate = useNavigate()
     return (
         <div>
-            <header>
+            <div className='selector-header'>
+                <div className='boton-salir'>
+                    <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
+                        Salir
+                    </div>
+                </div>
                 <div className="logo-ciberseguridad">
                     <img src={logo} alt="Logo Ciberseguridad Porvenir" />
                 </div>
-            </header>
+            </div>
             <section className="cont-select">
                 <section className="cont-sel-options">
                     <section className="cont-juegos">

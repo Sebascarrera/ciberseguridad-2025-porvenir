@@ -64,7 +64,7 @@ const Ruleta = () => {
             </div>
 
             <div className='titulo-gira-ruleta'>
-				<p>Gira la Ruleta</p>
+				<p className="titulo-gira-ruleta">Haz click sostenido y gira la Ruleta</p>
             </div>
 
             <div className="cont-wheel" >
