@@ -1,12 +1,5 @@
-import axios from "axios";
-
-const instance = axios.create({
-    baseURL: 'https://ciberseguridad-porvenir.uc.r.appspot.com'
-});
-
+import api from "./api";
 
 export const createUser = data => {
-    return instance.post('users', data)
+    return api.post('users', data)
 }
-
-export default instance 

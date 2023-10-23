@@ -8,13 +8,15 @@ import AnswerModal from './Modal'
 
 import { useNavigate } from "react-router-dom"
 
-import { bumpAnsweredQuestion, resetAnsweredQuestions } from "../Redux"
+import { bumpAnsweredQuestion } from "../Redux"
 
 import Logo from '../../../assets/img/ciberseguridad-logo.png'
 
 import './styles.css'
 
 import Config from "../Config"
+
+import { markScore, startGame } from "../../../Redux/scores"
 
 const PreguntaScreen = () => {
 
@@ -43,6 +45,24 @@ const PreguntaScreen = () => {
         }
     }, [selectedSlice])
 
+    useEffect( () => {
+
+        if (selectedQuestion == null) {
+            return 
+        }
+
+        if (selectedAnswerIndex === (selectedQuestion.correct_answer - 1)) {
+            dispatch(markScore(Config.points))
+        }
+    }, [selectedQuestion, selectedAnswerIndex])
+
+
+    useEffect( () => {
+        if( questions === 0) {
+            dispatch(startGame())
+        }
+    }, [questions])
+
     const selectAnswer = (index) => {
         setSelectedAnswerIndex(index)
 
@@ -50,9 +70,7 @@ const PreguntaScreen = () => {
 
             navigate( questions < Config.questionsPerGame ? -1 : '/ruleta/puntaje')
 
-            if(questions === Config.questionsPerGame) {
-                dispatch(resetAnsweredQuestions())
-            } else {
+            if(questions < Config.questionsPerGame) {
                 dispatch(bumpAnsweredQuestion())
             }
         }, 5000)

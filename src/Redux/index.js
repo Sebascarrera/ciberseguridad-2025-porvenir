@@ -3,10 +3,12 @@ import storage from 'redux-persist/lib/storage'
 
 import UserReducer from './user'
 import RuletaReducer from '../Games/Ruleta/Redux'
+import ScoreReducer  from './scores'
 
 const appReducer = combineReducers({
   user: UserReducer,
-  ruleta: RuletaReducer
+  ruleta: RuletaReducer,
+  scores: ScoreReducer
 })
 
 const rootReducer = (state, action) => {

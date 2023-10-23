@@ -14,11 +14,8 @@
     font-family: 'Banda bold', sans-serif;
 }
 
-/* .container-personaje-felicitaciones{
-    text-align: center;
-    margin: 0 auto;
+.container-personaje-felicitaciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.container-personaje-felicitaciones img{
-    display: inline-block;
-} */

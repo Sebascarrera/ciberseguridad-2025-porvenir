@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Logo from '../../../assets/img/ciberseguridad-logo.png'
 import LogoRuleta from '../../../assets/img/logo_ruleta.png'
@@ -7,22 +7,29 @@ import './styles.css'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { saveScore, clearCurrentScore } from '../../../Redux/scores'
+
 const PuntajeScreen = () => {
 
     const avatar = useSelector( state => state.ruleta.avatar )
-    const puntaje = useSelector( state => state.ruleta.puntaje )
+    const puntaje = useSelector( state => state.scores.current )
+    const status = useSelector(state => state.scores.status)
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect( () => {
+        if(status === 'succeded') {
+            setTimeout( () => {
+                dispatch(clearCurrentScore())
+                navigate('/selector')
+            }, 4000)
+        }
+    }, [status])
 
-        // Todo: salvar puntaje, mostrar loader mientras guarda, y cuando success redirija al inicio
-
-        setTimeout( () => {
-            navigate('/selector')
-        }, 4000)
-
-    }, [])
+    useEffect( () => {
+        dispatch(saveScore('ruleta'))
+    }, [dispatch])
 
     return (
         <div className='container_screen_ruleta_puntaje'>
