@@ -7,15 +7,23 @@ import liveImg from '../assets/img/live-imagen.png'
 
 import '../App.css'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import { clearUser } from '../Redux/user'
 
 const Selector = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const onExit = () => {
+        dispatch( { type: 'user/clear' } )
+    }
     return (
         <div>
             <div className='selector-header'>
                 <div className='boton-salir'>
-                    <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
+                    <div onClick={ onExit } className="boton-enlace-juegos">
                         Salir
                     </div>
                 </div>

@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { createUser } from './Redux/user';
-
 import logo from './assets/img/logo-ciberseguridad.jpg'
 import iconNombre from './assets/img/icon-nombre.png'
 import iconCedula from './assets/img/icon-cedula.png'
@@ -17,6 +15,7 @@ import imgNegra  from './assets/img/img-negra.png'
 import imgNaranja from './assets/img/img-naranja.png'
 
 import './App.css';
+import { createUser } from './Redux/user';
 
 function App() {
 

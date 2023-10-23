@@ -20,7 +20,6 @@ import NinjaPuntaje from './Games/Ninja/Puntaje'
 
 import Live from './Live'
 
-import { useSelector } from 'react-redux'
 import AuthRoute from './Auth/';
 
 const router = createBrowserRouter([

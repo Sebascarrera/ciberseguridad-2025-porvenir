@@ -1,32 +1,21 @@
-import { createContext, useContext, useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const AuthContext = createContext();
+const AuthRoute = ({ children }) => {
+  const user = useSelector(state => state.user.user); 
 
-export const AuthRoute = ({ children }) => {
-  const user = useSelector(state => state.user.user);
   const navigate = useNavigate();
 
-  useEffect( () => {
-    if (user) {
-        navigate("/selector", { replace: true });
-    } else {
-        navigate("/", { replace: true });
-    }
-  }, [user])
+  console.log('Validating user on render', user)
 
-  const value = useMemo(
-    () => ({
-      user,
-    }),
-    [user]
-  );
-
-  if (!user) {
-    return null
+  if (user !== null) {
+    return children; 
+  } else {
+    console.log('debe salir')
+    navigate('/', { replace: true });
+    return null; 
   }
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-export default AuthRoute
+export default AuthRoute;

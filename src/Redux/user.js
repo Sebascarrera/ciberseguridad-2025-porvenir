@@ -23,6 +23,9 @@ export const userSlice = createSlice({
     reducers: {
         clearUser(state, action) {
             state.user = null
+        },
+        replaceUser(state, action) {
+            state.user = action.payload
         }
     },
     extraReducers(builder) {
@@ -41,6 +44,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const { clearUser } = userSlice.actions
+export const { clearUser, replaceUser } = userSlice.actions
 
 export default userSlice.reducer

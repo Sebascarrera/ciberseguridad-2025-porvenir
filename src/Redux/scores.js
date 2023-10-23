@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { saveScore as saveScoreService } from '../Services/score'
 
 import { resetAnsweredQuestions } from '../Games/Ruleta/Redux'
+import { replaceUser } from './user'
 
 const initialState = {
     current: null,
@@ -26,7 +27,9 @@ export const saveScore = createAsyncThunk('scores/create', async (data, { dispat
             dispatch(resetAnsweredQuestions())
         }
         const response = await saveScoreService(score)
-        return response.data
+        const user = response.data
+        dispatch(replaceUser(user))
+        return user
     } catch (error) {
         return rejectWithValue(error.response.data);
     }
