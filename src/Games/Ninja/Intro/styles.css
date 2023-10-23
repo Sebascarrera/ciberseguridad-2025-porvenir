@@ -33,3 +33,32 @@
     font-size: 1.35em;
     font-family: 'Banda bold', sans-serif;
 }
+
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+    body {
+      font-size: 16px;
+    }
+    .texto-indicaciones-inicio-ninja{
+        font-size: 1em !important;
+    }
+    .header-intro-ninja img{
+        width: 350px;
+        margin: 0 auto;
+    }
+    .flechas-imagen img{
+        width: 300px;
+    }
+    .cont-logo{
+        width: 100%;
+
+    }
+    .cont-logo img{
+        width: 300px;
+        margin: 0 auto;
+
+    }
+    .stats{
+        position: inherit !important;
+    }
+}

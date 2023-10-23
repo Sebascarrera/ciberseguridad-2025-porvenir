@@ -32,7 +32,7 @@ const NinjaPuntaje = () => {
             <section className="container_ninja_puntaje">
                 <div>
                     <p className='texto-felicitaciones-ninja'>Tu puntaje ha sido: </p>
-                    <p>{score}</p>
+                    <p className='texto-felicitaciones-ninja'>{score}</p>
                 </div>
             </section>
         </div>

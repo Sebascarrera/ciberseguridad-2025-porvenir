@@ -161,4 +161,33 @@ footer .focus-logo-pie img{
 .container_focus_modal_close {
     text-align: right;
 }
-  
+
+
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+    body {
+      font-size: 16px;
+    }
+    header.header_focus img{
+        width: 350px;
+        margin: 0 auto;
+    }
+    .texto-frase-focus{
+        font-size: 2em !important;
+    }
+    .header-game img{
+        width: 350px;
+        margin: 0 auto;
+    }
+    .estadisticas{
+        font-size: 1em;
+    }
+    .boton-enlace{
+        width: 30px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .rectangle{
+        border-radius: 10px;
+    }
+}

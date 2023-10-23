@@ -13,16 +13,16 @@ const IntroNinja = () => {
 
     return (
         <div className='container_intro_ninja'>
-            <header>
+            <div className='header-intro-ninja'>
                 <img src={Logo} alt="Logo" />
-            </header>
+            </div>
 
             <main className='descripcion'>
                 <div>
                     <p className='texto-indicaciones-inicio-ninja'>Ayuda a CiPo a luchar</p>
                     <p className='texto-indicaciones-inicio-ninja'>contra el crimen cibernético</p>
                 </div>
-                <div>
+                <div className='flechas-imagen'>
                     <img src={Flechas} alt="Flechas" />
                 </div>
                 <div>

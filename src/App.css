@@ -591,6 +591,18 @@ border: none;
       justify-content: center;
       align-items: center;
     }
+
+    .selector-header{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0px; /* Añade relleno para separar el contenido */
+      text-align: center; /* Centra el contenido dentro del encabezado */
+    }
+
+    .boton-salir{
+      margin: 0 auto;
+    }
     
 }
 
@@ -603,6 +615,7 @@ border: none;
   .container {
     width: 80%;
   }
+  
 }
 
 
