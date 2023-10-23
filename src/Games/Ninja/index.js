@@ -294,8 +294,6 @@ const Ninja = () => {
 
                         { currentObjects.map( (item, index) =>
                             <Image
-                                height={55}
-                                width={55}
                                 key={index}
                                 x={item.x}
                                 y={item.y}
