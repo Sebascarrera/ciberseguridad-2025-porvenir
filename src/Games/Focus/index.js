@@ -7,7 +7,11 @@ import Logo from '../../assets/img/focus/ciberseguridad-logo-porvenir.png'
 import LogoGrande from '../../assets/img/focus/focus-game-logo-grande.png'
 import ImagenTapada from '../../assets/img/focus/png-tapadas/tapa-focus-porvenir-208px.png'
 
+import { startGame, endGame, markScore } from '../../Redux/scores'
+
 import './styles.css'
+import { useDispatch } from 'react-redux'
+import { saveScore } from '../../Services/score'
 
 const Focus = () => {
 
@@ -144,6 +148,7 @@ const Focus = () => {
         }
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [cards, setCards] = useState(generateCards());
     const [tarjetasDestapadas, setTarjetasDestapadas] = useState(0);
@@ -192,6 +197,8 @@ const Focus = () => {
             setPrimerResultado(null)
             setSegundoResultado(null)
 
+            dispatch(markScore(10))
+
             setImageMatch(segundoResultado.match_image)
 
             // Aumentar aciertos
@@ -226,12 +233,13 @@ const Focus = () => {
         }, 1000);
     
         setIntervalId(id);
+
+        dispatch(startGame())
     
         return () => clearInterval(id);
-    }, []); // This empty array makes the effect run only once, similar to componentDidMount
+    }, []); 
 
     useEffect( () => {
-        console.log(imageMatch)
         setIsShowingModalMatch(imageMatch !== null)
     }, [imageMatch])
     
