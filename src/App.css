@@ -263,6 +263,11 @@ border: none;
   margin: 0;
 }
 
+.cont-select{
+  display: flex;
+  flex-direction: row;
+}
+
 .cont-sel-options{
   display: flex;
   width: 100%;
@@ -405,7 +410,7 @@ border: none;
 }
 
 .cont-transmision{
-  width: 35%;
+  width: 65%;
   display: flex;
 }
 
@@ -540,7 +545,6 @@ border: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%;
     }
     
     .titulo-juegos{
