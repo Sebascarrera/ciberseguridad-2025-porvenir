@@ -7,7 +7,7 @@ import liveImg from '../assets/img/live-imagen.png'
 
 import '../App.css'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { clearUser } from '../Redux/user'
 
@@ -15,6 +15,9 @@ const Selector = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    const isCompleted = useSelector( state => state.user.user.completed)
+    const result = useSelector( state => state.user.user.result)
 
     const onExit = () => {
         dispatch( { type: 'user/clear' } )
@@ -32,7 +35,20 @@ const Selector = () => {
                 </div>
             </div>
             <section className="cont-select">
-                <section className="cont-sel-options">
+
+                { isCompleted ? (
+                    <section className='container_gracias'>
+                        <p>
+                            Gracias por participar
+                        </p>
+                        <p>
+                            Tu puntaje total es de <span style={{ color: '#FF7C00'}}>{result} Pts</span>
+                        </p>
+                        <p>
+                            Te invitamos a seguir las transmisiones en vivo
+                        </p>
+                    </section>
+                ) : (
                     <section className="cont-juegos">
                         <div className="titulo-juegos">
                             <img src={tituloJuegos} alt="" />
@@ -66,6 +82,9 @@ const Selector = () => {
                             </div>
                         </div>
                     </section>
+                )}
+                <section className="cont-sel-options">
+                    
                     <section className="cont-transmision">
                         <div className="ver-en-vivo">
                             <div onClick={ () => navigate('/live')} id="boton-con-imagen">
