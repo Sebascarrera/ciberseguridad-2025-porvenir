@@ -36,7 +36,7 @@ export const ruletaSlice = createSlice({
             })
             .addCase(fetchSlices.fulfilled, (state, action) => {
                 state.status = 'succeded'
-                state.slices = state.slices.concat(action.payload)
+                state.slices = action.payload
             })
             .addCase(fetchSlices.rejected, (state, action) => {
                 state.status = 'failed'

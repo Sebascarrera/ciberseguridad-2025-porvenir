@@ -19,7 +19,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  blacklist: ['ruleta', 'scores']
+  blacklist: ['scores']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

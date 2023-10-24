@@ -7,12 +7,9 @@ const AuthRoute = ({ children }) => {
 
   const navigate = useNavigate();
 
-  console.log('Validating user on render', user)
-
   if (user !== null) {
     return children; 
   } else {
-    console.log('debe salir')
     navigate('/', { replace: true });
     return null; 
   }

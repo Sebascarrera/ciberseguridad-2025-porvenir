@@ -40,10 +40,8 @@ const Ruleta = () => {
       })
 
     useEffect( () => {
-        if(status === 'idle') {
-            dispatch(fetchSlices())
-        }
-    }, [status, dispatch])
+        dispatch(fetchSlices())
+    }, [dispatch])
 
 
     return (
