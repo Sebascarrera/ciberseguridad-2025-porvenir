@@ -19,12 +19,10 @@ const PuntajeScreen = () => {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        if(status === 'succeded') {
-            setTimeout( () => {
-                dispatch(clearCurrentScore())
-                navigate('/selector')
-            }, 4000)
-        }
+        setTimeout( () => {
+            dispatch(clearCurrentScore())
+            navigate('/selector')
+        }, 4000)
     }, [status])
 
     useEffect( () => {
