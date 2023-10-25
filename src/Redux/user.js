@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { createUser as createUserService } from '../Services/user'
+import { 
+    createUser as createUserService,
+    getUser as getUserService
+ } from '../Services/user'
 
 const initialState = {
     user: null,
@@ -11,6 +14,16 @@ const initialState = {
 export const createUser = createAsyncThunk('user/create', async (data, { rejectWithValue }) => {
     try {
         const response = await createUserService(data)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error.response.data);
+    }
+})
+
+export const getUser = createAsyncThunk('user/get', async (_, { rejectWithValue, getState }) => {
+    try {
+        const user = getState().user.user
+        const response = await getUserService(user.id)
         return response.data
     } catch (error) {
         return rejectWithValue(error.response.data);
@@ -39,8 +52,20 @@ export const userSlice = createSlice({
             })
             .addCase(createUser.rejected, (state, action) => {
                 state.status = 'failed'
-                state.error = action.payload.detail
+                state.error = action.payload.detail ?? "General error"
             })
+            .addCase(getUser.pending, (state, _) => {
+                state.status = 'loading'
+            })
+            .addCase(getUser.fulfilled, (state, action) => {
+                state.status = 'succeded'
+                state.user = action.payload
+            })
+            .addCase(getUser.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.payload.detail ??  "General error"
+            })
+            
     }
 })
 

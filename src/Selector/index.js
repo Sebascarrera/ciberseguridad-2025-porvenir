@@ -9,7 +9,8 @@ import '../App.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { clearUser } from '../Redux/user'
+import { clearUser, getUser } from '../Redux/user'
+import { useEffect } from 'react'
 
 const Selector = () => {
 
@@ -18,6 +19,10 @@ const Selector = () => {
 
     const isCompleted = useSelector( state => state.user.user.completed)
     const result = useSelector( state => state.user.user.result)
+
+    useEffect( () => {
+        dispatch(getUser())
+    }, [dispatch])
 
     const onExit = () => {
         dispatch( { type: 'user/clear' } )
