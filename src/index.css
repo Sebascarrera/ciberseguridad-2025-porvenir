@@ -1,13 +1,70 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0; /* Elimina el margen predeterminado */
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Reset de márgenes, padding y bordes para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Quitar el estilo de lista por defecto */
+ul, ol {
+  list-style: none;
+}
+
+/* Quitar el subrayado por defecto en los enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Normalizar imágenes y videos para que no excedan su contenedor */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Quitar estilos predeterminados de botones y normalizar su comportamiento */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Hacer que el HTML y el body ocupen el 100% de la altura del viewport */
+html, body {
+  height: 100%;
+}
+
+/* Eliminar bordes de campos de formulario al ser enfocados */
+input, textarea, select {
+  border: none;
+  outline: none;
+}
+
+/* Normalizar tablas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  padding: 8px;
+  text-align: left;
+}
+
