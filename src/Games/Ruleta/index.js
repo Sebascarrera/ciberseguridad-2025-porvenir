@@ -57,9 +57,7 @@ const Ruleta = () => {
                 <img src={Logo} alt="Logo Ciberseguridad Porvenir" />
             </header>
 
-            <div>
-                <ProfileCard name={user.fullname} character={avatar} />
-            </div>
+
 
             <div className='titulo-gira-ruleta'>
 				<p className="titulo-gira-ruleta">Haz click sostenido y gira la Ruleta</p>

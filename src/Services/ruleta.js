@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://ruleta-del-saber.uc.r.appspot.com'
+    baseURL: 'http://localhost:3000'
 });
 
 const client = "/all/client/652f4a3263ae13f23561dae7"

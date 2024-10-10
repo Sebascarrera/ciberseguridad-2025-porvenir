@@ -96,33 +96,25 @@ const router = createBrowserRouter([
     {
         path: "/ruleta",
         element: (
-            <AuthRoute>
-                <Ruleta />
-            </AuthRoute>
+            <Ruleta />
         ),
     },
     {
         path: "/ruleta/personaje",
         element: (
-            <AuthRoute>
-                <RuletaPersonaje />
-            </AuthRoute>
+            <RuletaPersonaje />
         )
     },
     {
         path: "/ruleta/preguntas",
         element: (
-            <AuthRoute>
-                <PreguntaScreen />
-            </AuthRoute>
+            <PreguntaScreen />
         )
     },
     {
         path: "/ruleta/puntaje",
         element: (
-            <AuthRoute>
-                <PuntajeScreen />
-            </AuthRoute>
+            <PuntajeScreen />
         )
     }
 ]);
