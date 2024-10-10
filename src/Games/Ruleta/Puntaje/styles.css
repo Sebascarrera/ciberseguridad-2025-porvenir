@@ -1,0 +1,21 @@
+.container_screen_ruleta_puntaje {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container_ruleta_puntaje {
+    text-align: center;
+}
+
+.texto-felicitaciones-ruleta{
+    font-size: 1.35em;
+    font-family: 'Banda bold', sans-serif;
+}
+
+.container-personaje-felicitaciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

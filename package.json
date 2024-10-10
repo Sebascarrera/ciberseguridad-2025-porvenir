@@ -1,16 +1,24 @@
 {
-  "name": "pacman-antifraude",
+  "name": "ciberseguridad-porvenir-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "konva": "^9.3.15",
+    "axios": "^1.5.1",
+    "classnames": "^2.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.47.0",
     "react-konva": "^18.2.10",
+    "react-modal": "^3.16.1",
+    "react-redux": "^8.1.3",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
     "use-image": "^1.1.1",
     "web-vitals": "^2.1.4"
   },
@@ -37,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16"
   }
 }

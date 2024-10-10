@@ -1,0 +1,110 @@
+.QuestionScreenContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.QuestionContainer {
+  width: 100%;
+  margin: 56px;
+}
+
+.Question {
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex: 1;
+  border-radius: 50px;
+  background-color: #FF7C00;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Banda Regular', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.Answers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 17px;
+}
+
+.Answers > .Answer {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex: 1;
+  flex-direction: center;
+  margin: 17px 0;
+  border-radius: 8px;
+  background-color: #333;
+  padding: 26px;
+  font-family: 'Banda Regular', sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff;
+  justify-content: center;
+}
+
+.Answers > .RightAnswer {
+  background-color: #7ed321;
+}
+
+.Answers > .WrongAnswer {
+  background-color: #d0011b;
+}
+
+.Answers > .Answer .AnswerEnum {
+  width: 30px;
+}
+.Answers > .Answer .AnswerContent {
+  margin-left: 2%;
+}
+
+.GameInfoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  max-height: 200px;
+}
+
+.GameInfoContainer > .GameQuestionNumber, .GameInfoContainer > .GameCurrentCategoryName {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  /* Estilos específicos para pantallas más pequeñas */
+  .Question{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .Answers .Answer{
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  .container_logo > img {
+    max-width: 80%;
+
+  }
+  
+  .container_logo_ruleta > img {
+    max-width: 6%;
+  }
+}
