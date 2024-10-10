@@ -1,16 +1,15 @@
 // Ghost.js
 import React from 'react';
-import './Ghost.css';
+import { Circle } from 'react-konva';
 
-const Ghost = ({ position }) => {
+const Ghost = ({ position, color = 'red', cellSize }) => {
   return (
-    <div
-      className="ghost"
-      style={{
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-      }}
-    ></div>
+    <Circle
+      x={position.x + cellSize / 2}
+      y={position.y + cellSize / 2}
+      radius={cellSize / 2}
+      fill={color}
+    />
   );
 };
 

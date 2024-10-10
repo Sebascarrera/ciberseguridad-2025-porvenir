@@ -17,8 +17,6 @@
 
 .wall {
   background-color: rgb(23, 110, 224); /* Cambiar el color de las paredes */
-  width: 10px; /* Ajustar el ancho de las paredes */
-  height: 10px;
 }
 
 .logo-container {

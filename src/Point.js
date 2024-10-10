@@ -1,16 +1,15 @@
 // Point.js
 import React from 'react';
-import './Point.css';
+import { Circle } from 'react-konva';
 
-const Point = ({ position }) => {
+const Point = ({ position, size }) => {
   return (
-    <div
-      className="point"
-      style={{
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-      }}
-    ></div>
+    <Circle
+      x={position.x}
+      y={position.y}
+      radius={size / 2} // El radio será la mitad del tamaño especificado
+      fill="yellow" // Color del punto
+    />
   );
 };
 

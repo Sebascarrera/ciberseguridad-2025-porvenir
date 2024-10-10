@@ -3,6 +3,7 @@ import Pacman from './Pacman';
 import Ghost from './Ghost';
 import Point from './Point';
 import Board from './Board';
+import Maze from './Maze';
 import './App.css';
 import logo from './assets/img/logo.png'; // Asegúrate de tener el logo en tu carpeta de proyecto
 
@@ -10,149 +11,147 @@ import logo from './assets/img/logo.png'; // Asegúrate de tener el logo en tu c
 const App = () => {
   const boardWidth = 400;  // Ancho del tablero
   const boardHeight = 650; // Alto del tablero
-  const cellSize = 20; // Cada celda será de 20x20 píxeles
+  const cellSize = 40; // Cada celda será de 20x20 píxeles
+  const numGhosts = 3;
 
-  const [ghosts, setGhosts] = useState([
-    { x: 40, y: 40, type: 'chaser' },
-    { x: 180, y: 40, type: 'random' },
-    { x: 320, y: 40, type: 'chaser' },
-  ]);
+  const [ghosts, setGhosts] = useState([]);
   const [points, setPoints] = useState([]);
   const [score, setScore] = useState(0);
-  const [mazeLayout, setMazeLayout] = useState(generateMaze());
-  const [pacmanPosition, setPacmanPosition] = useState(initializePacmanPosition());
-
-  // Generar el laberinto con paredes internas
-  function generateMaze() {
-    const rows = Math.floor(boardHeight / cellSize);
-    const cols = Math.floor(boardWidth / cellSize);
-    const maze = Array.from({ length: rows }, () => Array(cols).fill(0));
-
-    // Agregar paredes alrededor del borde
-    for (let row = 0; row < rows; row++) {
-      maze[row][0] = 1; // Pared izquierda
-      maze[row][cols - 1] = 1; // Pared derecha
-    }
-    for (let col = 0; col < cols; col++) {
-      maze[0][col] = 1; // Pared superior
-      maze[rows - 1][col] = 1; // Pared inferior
-    }
-
-    // Crear el laberinto interno
-    for (let row = 1; row < rows - 1; row += 2) {
-      for (let col = 1; col < cols - 1; col += 2) {
-        maze[row][col] = 1; // Crear una pared en una celda
-
-        // Elegir una dirección aleatoria para crear una pared
-        const direction = Math.floor(Math.random() * 4);
-        switch (direction) {
-          case 0: // Arriba
-            if (row - 1 > 0) maze[row - 1][col] = 1;
-            break;
-          case 1: // Abajo
-            if (row + 1 < rows - 1) maze[row + 1][col] = 1;
-            break;
-          case 2: // Izquierda
-            if (col - 1 > 0) maze[row][col - 1] = 1;
-            break;
-          case 3: // Derecha
-            if (col + 1 < cols - 1) maze[row][col + 1] = 1;
-            break;
-          default:
-            break;
-        }
-      }
-    }
-
-    return maze;
-  }
-
-  // Inicializar la posición de Pacman lejos de los fantasmas
-  function initializePacmanPosition() {
-    const rows = Math.floor(boardHeight / cellSize);
-    const cols = Math.floor(boardWidth / cellSize);
-    
-    let validPositionFound = false;
-    let pacmanPosition = { x: 0, y: 0 };
-
-    while (!validPositionFound) {
-      // Generar una posición aleatoria
-      pacmanPosition.x = Math.floor(Math.random() * (cols - 2)) * cellSize + cellSize; // Evitar el borde
-      pacmanPosition.y = Math.floor(Math.random() * (rows - 2)) * cellSize + cellSize; // Evitar el borde
-
-      // Verificar que la posición no esté cerca de los fantasmas
-      validPositionFound = ghosts.every(ghost => {
-        const distance = Math.sqrt(
-          (pacmanPosition.x - ghost.x) ** 2 +
-          (pacmanPosition.y - ghost.y) ** 2
-        );
-        return distance > 100; // Distancia mínima de 100 píxeles
-      });
-    }
-
-    return pacmanPosition;
-  }
-
-  // Función para generar puntos aleatorios, evitando las paredes
-  function generateRandomPoints(num) {
-    const newPoints = [];
-    while (newPoints.length < num) {
-      const randomX = Math.floor(Math.random() * (boardWidth / cellSize)) * cellSize;
-      const randomY = Math.floor(Math.random() * (boardHeight / cellSize)) * cellSize;
-
-      const row = Math.floor(randomY / cellSize);
-      const col = Math.floor(randomX / cellSize);
-
-      // Verificar que la posición no sea una pared
-      if (mazeLayout[row][col] === 0) {
-        newPoints.push({ x: randomX, y: randomY });
-      }
-    }
-    return newPoints;
-  }
+  const [mazeLayout, setMazeLayout] = useState(generateMazeDFS());
+  const [pacmanPosition, setPacmanPosition] = useState([]);
 
   useEffect(() => {
     // Generar el laberinto y los puntos al cargar
-    setMazeLayout(generateMaze());
-    setPoints(generateRandomPoints(5));
-  }, []);
+    const { pacmanStart, ghosts, points } = initializeEntities(mazeLayout, cellSize, numGhosts);
+    setPoints(points);
+    setGhosts(ghosts);
+    setPacmanPosition(pacmanStart);
 
-  const handleKeyDown = (e) => {
-    movePacman(e.key);
+  }, [mazeLayout]);
+
+  function generateMazeDFS() {
+    const rows = Math.floor(boardHeight / cellSize);
+    const cols = Math.floor(boardWidth / cellSize);
+    
+    // Inicialmente, todo el laberinto son paredes
+    const maze = Array.from({ length: rows }, () => Array(cols).fill(1)); 
+    
+    // Dirección de movimiento: arriba, abajo, izquierda, derecha
+    const directions = [
+      [-2, 0], // Arriba
+      [2, 0],  // Abajo
+      [0, -2], // Izquierda
+      [0, 2],  // Derecha
+    ];
+  
+    // Función auxiliar para verificar si la celda está dentro de los límites
+    const isValid = (x, y) => x > 0 && y > 0 && x < rows - 1 && y < cols - 1;
+  
+    // Algoritmo DFS para generar el laberinto
+    function dfs(x, y) {
+      maze[x][y] = 0; // Abrir la celda actual
+      
+      // Mezclar las direcciones para un laberinto aleatorio
+      directions.sort(() => Math.random() - 0.5);
+      
+      for (const [dx, dy] of directions) {
+        const nx = x + dx;
+        const ny = y + dy;
+        
+        if (isValid(nx, ny) && maze[nx][ny] === 1) {
+          // Eliminar la pared entre la celda actual y la siguiente
+          maze[(x + nx) / 2][(y + ny) / 2] = 0;
+          // Llamar recursivamente para la siguiente celda
+          dfs(nx, ny);
+        }
+      }
+    }
+  
+    // Iniciar DFS desde una posición aleatoria en el laberinto
+    const startX = Math.floor(Math.random() * (rows / 2)) * 2 + 1;
+    const startY = Math.floor(Math.random() * (cols / 2)) * 2 + 1;
+    
+    dfs(startX, startY);
+    
+    return maze;
+  }
+
+  const getRandomPassagePosition = (maze, cellSize) => {
+    let row, col;
+  
+    do {
+      row = Math.floor(Math.random() * maze.length);
+      col = Math.floor(Math.random() * maze[0].length);
+    } while (maze[row][col] !== 0); // Asegurarse de que la celda es un pasillo
+  
+    // Convertir las coordenadas de la celda en coordenadas en píxeles para el canvas
+    return {
+      x: col * cellSize,
+      y: row * cellSize
+    };
   };
 
+  // Función para inicializar las posiciones de Pacman, fantasmas y puntos
+  const initializeEntities = (maze, cellSize, numGhosts) => {
+    const pacmanStart = getRandomPassagePosition(maze, cellSize);
+    
+    // Generar varios fantasmas
+    const ghosts = Array.from({ length: numGhosts }, () => getRandomPassagePosition(maze, cellSize));
+
+    const points = [];
+
+    // Colocar los puntos en todas las celdas de pasillos
+    maze.forEach((row, rowIndex) => {
+      row.forEach((cell, colIndex) => {
+        if (cell === 0) { // Solo en los pasillos
+          points.push({
+            x: colIndex * cellSize + cellSize / 2, // Centramos el punto en la celda
+            y: rowIndex * cellSize + cellSize / 2
+          });
+        }
+      });
+    });
+
+    return { pacmanStart, ghosts, points };
+  };
+
+  // Función para mover Pacman
   const movePacman = (direction) => {
-    let { x, y } = pacmanPosition;
-    const step = cellSize * 2; // Ampliar el movimiento para que el camino sea más ancho
-  
-    const newPosition = { ...pacmanPosition };
-  
+    let newX = pacmanPosition.x;
+    let newY = pacmanPosition.y;
+
+    // Actualizar la posición de Pacman en función de la dirección
     switch (direction) {
-      case 'ArrowUp':
-        if (!isWall(x, y - step)) newPosition.y = y - step;
+      case 'up':
+        newY -= cellSize;
         break;
-      case 'ArrowDown':
-        if (!isWall(x, y + step)) newPosition.y = y + step;
+      case 'down':
+        newY += cellSize;
         break;
-      case 'ArrowLeft':
-        if (!isWall(x - step, y)) newPosition.x = x - step;
+      case 'left':
+        newX -= cellSize;
         break;
-      case 'ArrowRight':
-        if (!isWall(x + step, y)) newPosition.x = x + step;
+      case 'right':
+        newX += cellSize;
         break;
       default:
         break;
     }
-  
-    setPacmanPosition(newPosition);
-    checkCollisions(newPosition);
+
+    // Verificar si el nuevo movimiento colisionaría con una pared
+    if (!isWall(newX, newY)) {
+      setPacmanPosition({ x: newX, y: newY });
+    }
   };
-  
 
   const isWall = (x, y) => {
     const row = Math.floor(y / cellSize);
     const col = Math.floor(x / cellSize);
-    return mazeLayout[row] && mazeLayout[row][col] === 1;
+    // Comprobar si la celda está dentro del rango del laberinto
+    if (row >= 0 && row < mazeLayout.length && col >= 0 && col < mazeLayout[0].length) {
+      return mazeLayout[row][col] === 1; // Devuelve true si es una pared
+    }
+    return true; // Considerar fuera de los límites como pared
   };
 
   const checkCollisions = (newPosition) => {
@@ -164,7 +163,6 @@ const App = () => {
         newPosition.y + 40 > ghost.y
       ) {
         alert("¡Te atrapó un fantasma!");
-        setPacmanPosition(initializePacmanPosition());
         setScore(0);
       }
     }
@@ -188,85 +186,54 @@ const App = () => {
     });
   };
 
-  // Modificación del movimiento de los fantasmas para tener en cuenta las paredes
-useEffect(() => {
-  const interval = setInterval(() => {
-    setGhosts((prevGhosts) => prevGhosts.map((ghost) => {
-      if (ghost.type === 'chaser') {
-        const directionX = pacmanPosition.x - ghost.x;
-        const directionY = pacmanPosition.y - ghost.y;
-        const step = 5;
-
-        const distance = Math.sqrt(directionX * directionX + directionY * directionY);
-        const moveX = distance > step ? (directionX / distance) * step : directionX;
-        const moveY = distance > step ? (directionY / distance) * step : directionY;
-
-        const newX = ghost.x + moveX;
-        const newY = ghost.y + moveY;
-
-        // Comprobar si hay una pared en la nueva posición del fantasma
-        if (!isWall(newX, ghost.y)) {
-          ghost.x = newX;
-        }
-        if (!isWall(ghost.x, newY)) {
-          ghost.y = newY;
-        }
-
-        return ghost; // Devolver la nueva posición del fantasma
-      } else if (ghost.type === 'random') {
-        const randomDirection = Math.floor(Math.random() * 4);
-        const step = 5;
-        let newX = ghost.x;
-        let newY = ghost.y;
-
-        switch (randomDirection) {
-          case 0: 
-            if (!isWall(ghost.x, ghost.y - step)) newY = ghost.y - step;
-            break;
-          case 1: 
-            if (!isWall(ghost.x, ghost.y + step)) newY = ghost.y + step;
-            break;
-          case 2: 
-            if (!isWall(ghost.x - step, ghost.y)) newX = ghost.x - step;
-            break;
-          case 3: 
-            if (!isWall(ghost.x + step, ghost.y)) newX = ghost.x + step;
-            break;
-          default:
-            break;
-        }
-
-        return {
-          x: newX,
-          y: newY,
-          type: ghost.type,
-        };
-      }
-    }));
-  }, 100);
-
-  return () => clearInterval(interval);
-}, [pacmanPosition]);
-
+  // Manejar las teclas de movimiento (WASD o flechas)
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+    const handleKeyDown = (e) => {
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'w':
+          movePacman('up');
+          break;
+        case 'ArrowDown':
+        case 's':
+          movePacman('down');
+          break;
+        case 'ArrowLeft':
+        case 'a':
+          movePacman('left');
+          break;
+        case 'ArrowRight':
+        case 'd':
+          movePacman('right');
+          break;
+        default:
+          break;
+      }
     };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [pacmanPosition]);
 
   return (
     <div className="App">
       <h1 style={{ textAlign: 'center', color: '#FFF' }}>Pacman Game</h1>
       <h2 style={{ textAlign: 'center', color: '#FFF' }}>Puntaje: {score}</h2>
-      <Board maze={mazeLayout}>
-        <Pacman position={pacmanPosition} />
-        {ghosts.map((ghost, index) => (
-          <Ghost key={index} position={ghost} />
-        ))}
-        {points.map((point, index) => (
-          <Point key={index} position={point} />
-        ))}
+      <Board 
+        width={boardWidth} 
+        height={boardHeight} 
+        cellSize={cellSize}>
+          <Maze maze={mazeLayout} cellSize={cellSize} />
+          
+          {ghosts.map((ghost, index) => (
+            <Ghost key={index} position={ghost} cellSize={cellSize}/>
+          ))}
+
+          {points.map((point, index) => (
+            <Point key={index} position={point} size={20}/>
+          ))}
+
+          <Pacman position={pacmanPosition} cellSize={cellSize} />
       </Board>
 
       {/* Controles de Pacman */}

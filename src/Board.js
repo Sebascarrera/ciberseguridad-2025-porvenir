@@ -1,40 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Stage, Layer } from 'react-konva';
 
-const Board = ({ children, maze }) => {
-  console.log(maze)
+const Board = ({ children, width, height }) => {
+  
+  const boardStyle = {
+    position: 'relative',
+    width: `${width}px`,
+    height: `${height}px`,
+    backgroundColor: 'black', // Color de fondo del tablero
+  };
+
+  const wallStyle = {
+    position: 'absolute',
+    backgroundColor: 'blue', // Color de las paredes
+  };
+
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '400px',
-        height: '650px',
-        backgroundColor: '#000',
-        border: '2px solid #FFF',
-        margin: '0 auto',
-      }}
-    >
-      {/* Renderizar el laberinto */}
-      {maze.map((row, rowIndex) =>
-        row.map((cell, cellIndex) => {
-          if (cell === 1) {
-            return (
-              <div
-                key={`${rowIndex}-${cellIndex}`}
-                style={{
-                  position: 'absolute',
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: 'blue',
-                  left: `${cellIndex * 20}px`,
-                  top: `${rowIndex * 20}px`,
-                }}
-              />
-            );
-          }
-          return null;
-        })
-      )}
-      {children}
+    <div style={boardStyle}>
+      <Stage width={width} height={height}>
+        <Layer>
+          {children}
+        </Layer>
+      </Stage>
     </div>
   );
 };
