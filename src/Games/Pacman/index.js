@@ -5,19 +5,20 @@ import Point from './Point';
 import Board from './Board';
 import Maze from './Maze';
 import './index.css';
-import logo from '../../assets/img/logo.png'; // Asegúrate de tener el logo en tu carpeta de proyecto
+import logo from '../../assets/img/logo.png';
+import Layout from './Layout/touch'
 
 
 const App = () => {
-  const boardWidth = 400;  // Ancho del tablero
-  const boardHeight = 650; // Alto del tablero
+  const boardWidth = 570;  // Ancho del tablero
+  const boardHeight = 1140; // Alto del tablero
   const cellSize = 30; // Cada celda será de 20x20 píxeles
   const numGhosts = 3;
 
   const [ghosts, setGhosts] = useState([]);
   const [points, setPoints] = useState([]);
   const [score, setScore] = useState(0);
-  const [mazeLayout] = useState(generateMazeDFS());
+  const [mazeLayout] = useState(Layout);
   const [pacmanPosition, setPacmanPosition] = useState([]);
 
   useEffect(() => {
@@ -28,53 +29,6 @@ const App = () => {
     setPacmanPosition(pacmanStart);
 
   }, [mazeLayout]);
-
-  function generateMazeDFS() {
-    const rows = Math.floor(boardHeight / cellSize);
-    const cols = Math.floor(boardWidth / cellSize);
-    
-    // Inicialmente, todo el laberinto son paredes
-    const maze = Array.from({ length: rows }, () => Array(cols).fill(1)); 
-    
-    // Dirección de movimiento: arriba, abajo, izquierda, derecha
-    const directions = [
-      [-2, 0], // Arriba
-      [2, 0],  // Abajo
-      [0, -2], // Izquierda
-      [0, 2],  // Derecha
-    ];
-  
-    // Función auxiliar para verificar si la celda está dentro de los límites
-    const isValid = (x, y) => x > 0 && y > 0 && x < rows - 1 && y < cols - 1;
-  
-    // Algoritmo DFS para generar el laberinto
-    function dfs(x, y) {
-      maze[x][y] = 0; // Abrir la celda actual
-      
-      // Mezclar las direcciones para un laberinto aleatorio
-      directions.sort(() => Math.random() - 0.5);
-      
-      for (const [dx, dy] of directions) {
-        const nx = x + dx;
-        const ny = y + dy;
-        
-        if (isValid(nx, ny) && maze[nx][ny] === 1) {
-          // Eliminar la pared entre la celda actual y la siguiente
-          maze[(x + nx) / 2][(y + ny) / 2] = 0;
-          // Llamar recursivamente para la siguiente celda
-          dfs(nx, ny);
-        }
-      }
-    }
-  
-    // Iniciar DFS desde una posición aleatoria en el laberinto
-    const startX = Math.floor(Math.random() * (rows / 2)) * 2 + 1;
-    const startY = Math.floor(Math.random() * (cols / 2)) * 2 + 1;
-    
-    dfs(startX, startY);
-    
-    return maze;
-  }
 
   const getRandomPassagePosition = (maze, cellSize) => {
     let row, col;
