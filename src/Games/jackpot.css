@@ -1,0 +1,39 @@
+.jackpot-game {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .slot-machine {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .slot {
+    font-size: 3rem;
+    margin: 0 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  

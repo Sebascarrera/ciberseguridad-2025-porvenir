@@ -34,12 +34,12 @@ header {
 
 .logo-ciberseguridad {
   height: auto;
-  float: right;
+  float: none;
   margin-bottom: 10px;
 }
 
 .logo-ciberseguridad img {
-  width: 100%;
+  width: 500px;
 }
 
 

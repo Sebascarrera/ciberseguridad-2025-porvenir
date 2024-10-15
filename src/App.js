@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import logo from './assets/img/logo-ciberseguridad.jpg'
+import logo from './assets/img/logo-ciberseguridad.png'
 import iconNombre from './assets/img/icon-nombre.png'
 import iconCedula from './assets/img/icon-cedula.png'
 import iconCorreo from './assets/img/icon-correo.png'

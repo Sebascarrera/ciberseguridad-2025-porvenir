@@ -1,0 +1,53 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/assets/img/pacman/fondo-home-pacman-antifraude.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .home-logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .home-text-container {
+    text-align: center;
+    color: white;
+  }
+
+  .home-logo-titulo-juego {
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-text-container h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .home-text-container h2 {
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  .home-play-button {
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-play-button:hover {
+    background-color: orange;
+  }
+  

@@ -29,6 +29,8 @@ const Board = ({ children, width, height }) => {
       <Stage 
         ref={stageRef}
         width={width} 
+        scaleX={1}
+        scaleY={1}
         height={height} 
         pixelRatio={1}>
         <Layer>
