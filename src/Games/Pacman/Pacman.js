@@ -4,7 +4,7 @@ import { Image } from 'react-konva';
 import useImage from 'use-image';
 
 const Pacman = ({ position, cellSize, direction }) => {
-  const [pacmanImage] = useImage(require('../../assets/img/pacman/cipo-animado.gif')); // Cargar el GIF de Pacman
+  const [pacmanImage] = useImage(require('../../assets/img/pacman/cipo-pacman.png')); // Cargar el GIF de Pacman
   const imageRef = useRef(null);
 
   // Rotar la imagen según la dirección
