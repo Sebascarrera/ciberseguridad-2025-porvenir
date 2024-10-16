@@ -57,14 +57,14 @@ header {
   margin-top: 40px;
 }
 
-.controls{
+.form_controls {
   display: flex;
   align-items: center;
   margin-right: 10px;
   font-family: 'Banda Regular' sans-serif;
 }
 
-.controls img {
+.form_controls img {
 margin-right: 10px;
 margin-left: 20px;
 background-color: #161616;
@@ -86,7 +86,7 @@ color: #fff;
   color: #fff;
 }
 
-.controls input {
+.form_controls input {
   width: 400px;
   border: none; /* Elimina el borde predeterminado */
   outline: none; /* Elimina el contorno al hacer clic */
@@ -477,8 +477,8 @@ border: none;
   margin: 5px 0; /* Aumenta el espacio entre controles */
 }
 
-/* Estilos para .controls */
-.controls {
+/* Estilos para .form_controls */
+.form_controls {
   width: 100%;
   display: flex;
   align-items: center;
@@ -486,7 +486,7 @@ border: none;
   margin: 8px 0; /* Aumenta el espacio entre controles */
 }
 
-.controls img {
+.form_controls img {
   margin-right: 10px;
   margin-left: 20px;
   background-color: #161616;

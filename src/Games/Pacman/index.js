@@ -13,21 +13,19 @@ const App = () => {
   const boardWidth = 570;  // Ancho del tablero
   const boardHeight = 1140; // Alto del tablero
   const cellSize = 29; // Cada celda será de 20x20 píxeles
-  const numGhosts = 1;
+  const numGhosts = 3;
+  const ghostSpeed = 200;
 
   const [ghosts, setGhosts] = useState([]);
   const [points, setPoints] = useState([]);
   const [score, setScore] = useState(0);
   const [mazeLayout] = useState(Layout);
   const [pacmanPosition, setPacmanPosition] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     // Generar el laberinto y los puntos al cargar
-    const { pacmanStart, ghosts, points } = initializeEntities(mazeLayout, cellSize, numGhosts);
-    setPoints(points);
-    setGhosts(ghosts);
-    setPacmanPosition(pacmanStart);
-
+    reset();
   }, [mazeLayout]);
 
   const getRandomPassagePosition = (maze, cellSize) => {
@@ -129,6 +127,8 @@ const App = () => {
   
 
   const checkCollision = (newPosition) => {
+
+    if(gameOver) return; 
     // Tamaños dinámicos para Pacman y los fantasmas (ajusta según el tamaño real de los sprites)
     const pacmanSize = 40; // Tamaño de Pacman
     const ghostSize = 40;  // Tamaño de los fantasmas
@@ -142,8 +142,16 @@ const App = () => {
         newPosition.y < ghost.y + ghostSize &&
         newPosition.y + pacmanSize > ghost.y
       ) {
+
+        setGameOver(true)
+        reset();  // Reset the game
         alert("¡Te atrapó un fantasma!");
-        setScore(0); // Resetea el score cuando te atrapan
+
+        setTimeout(() => {
+            setGameOver(false); // Re-enable the game
+        }, 1000); // Cooldown period to prevent multiple alerts
+
+
         return; // Terminar la función si hay colisión con un fantasma
       }
     }
@@ -238,6 +246,14 @@ const moveGhostTowardsPacman = (ghost) => {
 };
 
 
+const reset = () => {
+    const { pacmanStart, ghosts, points } = initializeEntities(mazeLayout, cellSize, numGhosts);
+    setPoints(points);
+    setGhosts(ghosts);
+    setScore(0);
+    setPacmanPosition(pacmanStart);
+}
+
      
   
   // Actualizar la posición de los fantasmas en cada frame
@@ -248,7 +264,7 @@ const moveGhostTowardsPacman = (ghost) => {
           moveGhostTowardsPacman(ghost)
         )
       );
-    }, 100); // Actualizar cada 100ms para simular movimiento continuo
+    }, ghostSpeed); // Actualizar cada 100ms para simular movimiento continuo
   
     return () => clearInterval(interval);
   }, [pacmanPosition]);
@@ -320,12 +336,12 @@ const moveGhostTowardsPacman = (ghost) => {
 
       {/* Controles de Pacman */}
       <div className="controls">
-        <button className="control-button up" onClick={() => movePacman('ArrowUp')}>↑</button>
+        <button className="control-button up" onClick={() => movePacman('up')}>↑</button>
         <div className="horizontal-buttons">
-          <button className="control-button left" onClick={() => movePacman('ArrowLeft')}>←</button>
-          <button className="control-button right" onClick={() => movePacman('ArrowRight')}>→</button>
+          <button className="control-button left" onClick={() => movePacman('left')}>←</button>
+          <button className="control-button right" onClick={() => movePacman('right')}>→</button>
         </div>
-        <button className="control-button down" onClick={() => movePacman('ArrowDown')}>↓</button>
+        <button className="control-button down" onClick={() => movePacman('down')}>↓</button>
       </div>
 
       {/* Logo del juego */}

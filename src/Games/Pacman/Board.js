@@ -10,6 +10,8 @@ const Board = ({ children, width, height }) => {
     width: `${width}px`,
     height: `${height}px`,
     backgroundColor: 'black', // Color de fondo del tablero
+    margin: '0 auto',
+    marginTop: '20px',
   };
 
   useEffect(() => {

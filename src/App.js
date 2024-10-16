@@ -63,21 +63,21 @@ function App() {
         <form onSubmit={handleSubmit(onSubmit)} className="form-cont">
             <div className="registro">
                 <div className="input-container">
-                    <div className="controls">
+                    <div className="form_controls">
                         <img className="icono" src={iconNombre} alt="Nombre" />
                         <input {...register("fullname")} placeholder="Nombre y Apellido" required />
                     </div>        
                 </div>
                 <div className="input-container">
-                    <div className="controls">
+                    <div className="form_controls">
                         <img className="icono" src={iconCedula} alt="Cédula" />
-                        <input className="controls" {...register("document")} placeholder="Cédula" required />
+                        <input className="form_controls" {...register("document")} placeholder="Cédula" required />
                     </div>        
                 </div>
                 <div className="input-container">
-                    <div className="controls">
+                    <div className="form_controls">
                         <img className="icono" src={iconCorreo} alt="Correo Corporativo" />
-                        <input className="controls" type="email" {...register("email")} placeholder="Correo Corporativo" required />
+                        <input className="form_controls" type="email" {...register("email")} placeholder="Correo Corporativo" required />
                     </div>        
                 </div>      
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'pacman-antifraude/src/Games/jackpot.css';
+import './jackpot.css';
 
 function App() {
   const symbols = ['🍒', '🍋', '🍉', '🍇', '⭐', '🍀']; // símbolos de la tragamonedas

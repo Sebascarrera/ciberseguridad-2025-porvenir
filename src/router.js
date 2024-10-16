@@ -6,6 +6,7 @@ import App from './App'
 import Selector from './Selector';
 
 import Pacman from './Games/Pacman';
+import Jackpot from './Games/Jackpot'
 
 import Focus from './Games/Focus'
 import FocusFrase from './Games/Focus/frase'
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     {
         path: "/pacman",
         element: <Pacman />,
+    },
+    {
+        path: "/jackpot",
+        element: <Jackpot />,
     },
     {
         path: "/selector",
