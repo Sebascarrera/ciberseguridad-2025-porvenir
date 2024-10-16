@@ -1,8 +1,8 @@
-import logo from '../assets/img/logo-ciberseguridad.jpg'
+import logo from '../assets/img/ciberseguridad-logo.png'
 import tituloJuegos from '../assets/img/titulo-juegos.png'
-import ruletaImg from '../assets/img/ruleta-img.png'
-import focusImg from '../assets/img/focus-img.png'
-import ninjaImg from '../assets/img/ninja-img.png'
+import ruletaImg from '../assets/img/pacman-img.png'
+import focusImg from '../assets/img/jackpot-img.png'
+import ninjaImg from '../assets/img/antihackers-img.png'
 import liveImg from '../assets/img/live-imagen.png'
 
 import '../App.css'
@@ -64,7 +64,7 @@ const Selector = () => {
                                     <img src={ruletaImg} alt="Ruleta del Saber" />
                                     <div className="boton-ruleta">
                                         <div onClick={ () => navigate('/ruleta/personaje')} className="boton-enlace-juegos">
-                                            Ruleta del Saber
+                                            Pacman
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ const Selector = () => {
                                     <img src={focusImg} alt="Focus Game" />
                                     <div className="boton-focus">
                                         <div onClick={ () => navigate('/focus/frase')} className="boton-enlace-juegos">
-                                            Focus Game
+                                            CiberJackpot
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ const Selector = () => {
                                     <img src={ninjaImg} alt="CiPo Ninja" />
                                     <div className="boton-ninja">
                                         <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
-                                            Cipo Ninja
+                                            Antihackers
                                         </div>
                                     </div>
                                 </div>
