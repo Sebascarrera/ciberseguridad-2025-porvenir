@@ -1,23 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import machine from '../../assets/img/machine-jackpot.png';
+import seguridad from '../../assets/img/img-jackpot/img-jackpot-1.png';
+import proteccion from '../../assets/img/img-jackpot/img-jackpot-2.png';
+import cipo from '../../assets/img/img-jackpot/img-jackpot-3.png';
+import troyano from '../../assets/img/img-jackpot/img-jackpot-4.png';
+import tarjeta from '../../assets/img/img-jackpot/img-jackpot-5.png';
+import logoCiberseguridad from '../../assets/img/logo-ciberseguridad.png';
+import spinSound from '../../assets/sounds/spinSound.mp3'; // Sonido de girar
+import winSound from '../../assets/sounds/winSound.mp3'; // Sonido de ganar
+
 import './jackpot.css';
 
 function App() {
-  const symbols = ['🍒', '🍋', '🍉', '🍇', '⭐', '🍀'];
-  const [slot1, setSlot1] = useState('🍒');
-  const [slot2, setSlot2] = useState('🍋');
-  const [slot3, setSlot3] = useState('🍉');
+  const symbols = [seguridad, proteccion, cipo, troyano, tarjeta];
+
+  const [slot1, setSlot1] = useState(symbols[0]);
+  const [slot2, setSlot2] = useState(symbols[1]);
+  const [slot3, setSlot3] = useState(symbols[2]);
   const [message, setMessage] = useState('¡Buena suerte!');
   const [isSpinning, setIsSpinning] = useState(false);
 
+  const spinAudio = useRef(new Audio(spinSound)); // Referencia al sonido de girar
+  const winAudio = useRef(new Audio(winSound)); // Referencia al sonido de ganar
+
+
   const getRandomSymbol = () => symbols[Math.floor(Math.random() * symbols.length)];
 
-  // Función que controla el giro de los slots
   const spin = () => {
-    setIsSpinning(true); // Comienza el giro
-
-    const spinDuration = 2000; // Duración total del giro en milisegundos
-    const spinInterval = 100; // Intervalo en el que cambian los símbolos durante el giro
-
+    setIsSpinning(true);
+    const spinDuration = 2000;
+    const spinInterval = 100;
     let spinTime = 0;
 
     const spinSlots = setInterval(() => {
@@ -27,37 +39,36 @@ function App() {
       spinTime += spinInterval;
 
       if (spinTime >= spinDuration) {
-        clearInterval(spinSlots); // Detiene el giro cuando alcanza la duración total
+        clearInterval(spinSlots);
+        spinAudio.current.pause(); // Detener el sonido cuando termine de girar
+        spinAudio.current.currentTime = 0; // Reiniciar el sonido para la próxima vez
         showFinalResult();
       }
     }, spinInterval);
   };
 
-  // Función que muestra el resultado final
   const showFinalResult = () => {
     const finalSlot1 = getRandomSymbol();
     const finalSlot2 = getRandomSymbol();
     const finalSlot3 = getRandomSymbol();
-  
-    // Aumentar la probabilidad de ganar (50% de chance)
-    const shouldWin = Math.random() < 0.5;  // Cambia 0.5 a un valor más alto o más bajo para ajustar la probabilidad
+
+    const shouldWin = Math.random() < 0.5;
     if (shouldWin) {
-      // Forzar una combinación ganadora
       setSlot1(finalSlot1);
       setSlot2(finalSlot1);
       setSlot3(finalSlot1);
     } else {
-      // Resultados aleatorios
       setSlot1(finalSlot1);
       setSlot2(finalSlot2);
       setSlot3(finalSlot3);
     }
-  
+
     setIsSpinning(false);
-  
-    // Mensaje final
+
     if (finalSlot1 === finalSlot2 && finalSlot2 === finalSlot3) {
       setMessage('¡Ganaste!');
+      setMessage('¡Ganaste!');
+      winAudio.current.play(); // Reproducir el sonido de ganar
     } else {
       setMessage('Inténtalo de nuevo');
     }
@@ -66,16 +77,30 @@ function App() {
   return (
     <div className="jackpot-game">
       <h1>Juego de Jackpot</h1>
-      <div className="slot-machine">
-        <div className={`slot ${isSpinning ? 'spinning' : ''}`}>{slot1}</div>
-        <div className={`slot ${isSpinning ? 'spinning' : ''}`}>{slot2}</div>
-        <div className={`slot ${isSpinning ? 'spinning' : ''}`}>{slot3}</div>
+      <div className="machine-slot">
+        <img src={machine} alt="machine jackpot" />
+        <div className="slot-machine">
+          <div className={`slot ${isSpinning ? 'spinning' : ''}`}>
+            <img src={slot1} alt="symbol 1" />
+          </div>
+          <div className={`slot ${isSpinning ? 'spinning' : ''}`}>
+            <img src={slot2} alt="symbol 2" />
+          </div>
+          <div className={`slot ${isSpinning ? 'spinning' : ''}`}>
+            <img src={slot3} alt="symbol 3" />
+          </div>
+        </div>
       </div>
+
       <button onClick={spin} disabled={isSpinning}>
         {isSpinning ? 'Girando...' : 'Girar'}
       </button>
       <p>{message}</p>
+      <div className="logo-container">
+        <img src={logoCiberseguridad} alt="Game Logo" />
+      </div>
     </div>
+    
   );
 }
 
