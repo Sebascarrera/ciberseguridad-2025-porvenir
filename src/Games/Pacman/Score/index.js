@@ -1,18 +1,27 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveScore, clearCurrentScore } from '../../../Redux/scores';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const username = useSelector( state => state.user.user.fullname );
+  const score = useSelector( state => state.scores.current );
 
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       navigate('/pacman/juego');
-//     }, 5000); // 5000ms = 5 segundos
+  useEffect(() => {
 
-//     // Limpiar el timeout si el componente se desmonta antes
-//     return () => clearTimeout(timer);
-//   }, [navigate]);
+    dispatch(saveScore('pacman'));
+
+    const timer = setTimeout(() => {
+      dispatch(clearCurrentScore());
+      navigate('/selector');
+    }, 5000); // 5000ms = 5 segundos
+
+    // Limpiar el timeout si el componente se desmonta antes
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className="pacman-summary-container">
@@ -20,13 +29,13 @@ const Home = () => {
             FELICITACIONES
         </div>
         <div>
-            nombre
+            { username }
         </div>
         <div>
             TU PUNTAJE FINAL ES DE:
         </div>
         <div>
-            500 PTS
+            { score } PTS
         </div>
     </div>
   );

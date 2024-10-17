@@ -7,14 +7,22 @@ import Maze from './Maze';
 import './index.css';
 import logo from '../../assets/img/logo.png';
 import Layout from './Layout/touch'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { markScore, startGame, endGame } from '../../Redux/scores';
 
 const App = () => {
-  const boardWidth = 570;  // Ancho del tablero
-  const boardHeight = 1140; // Alto del tablero
-  const cellSize = 29; // Cada celda será de 20x20 píxeles
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const boardWidth = 570;
+  const boardHeight = 1140;
+  const cellSize = 29;
+  const pointSize = 20;
   const numGhosts = 3;
   const ghostSpeed = 200;
+  const pointScore = 10;
 
   const [ghosts, setGhosts] = useState([]);
   const [points, setPoints] = useState([]);
@@ -22,10 +30,19 @@ const App = () => {
   const [mazeLayout] = useState(Layout);
   const [pacmanPosition, setPacmanPosition] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [coolDown, setCoolDown] = useState(false);
+  const [numLifes, setNumLifes] = useState(3);
+  const [isReady, setIsReady] = useState(false);
+
+  const username = useSelector( state => state.user.user.fullname);
+  
 
   useEffect(() => {
     // Generar el laberinto y los puntos al cargar
-    reset();
+    resetAvatars();
+    setPoints(initializePoints());
+    setIsReady(true);
+    dispatch(startGame());
   }, [mazeLayout]);
 
   const getRandomPassagePosition = (maze, cellSize) => {
@@ -74,15 +91,14 @@ const App = () => {
 
 
   // Función para inicializar las posiciones de Pacman, fantasmas y puntos
-  const initializeEntities = (maze, cellSize, numGhosts) => {
-    const pacmanStart = getRandomPassagePosition(maze, cellSize);
-    
-    // Generar varios fantasmas
-    const ghosts = Array.from({ length: numGhosts }, () => getRandomPassagePosition(maze, cellSize));
+  const initializeGhostAndPacman = () => {
+    const pacmanStart = getRandomPassagePosition(mazeLayout, cellSize);
+    const ghosts = Array.from({ length: numGhosts }, () => getRandomPassagePosition(mazeLayout, cellSize));
+    return { pacmanStart, ghosts };
+  };
 
-    const points = generateRandomPoints(maze, cellSize, 5);
-
-    return { pacmanStart, ghosts, points };
+  const initializePoints = () => {
+    return generateRandomPoints(mazeLayout, cellSize, 5);
   };
 
   // Función para mover Pacman
@@ -128,30 +144,28 @@ const App = () => {
 
   const checkCollision = (newPosition) => {
 
-    if(gameOver) return; 
-    // Tamaños dinámicos para Pacman y los fantasmas (ajusta según el tamaño real de los sprites)
-    const pacmanSize = 40; // Tamaño de Pacman
-    const ghostSize = 40;  // Tamaño de los fantasmas
-    const pointSize = 10;  // Tamaño de los puntos
+    console.log('Game Over: ', gameOver);
+    console.log('Cool down: ', coolDown);
+
+    if(gameOver || coolDown) return; 
   
     // Verificar colisión con fantasmas
     for (const ghost of ghosts) {
       if (
-        newPosition.x < ghost.x + ghostSize &&
-        newPosition.x + pacmanSize > ghost.x &&
-        newPosition.y < ghost.y + ghostSize &&
-        newPosition.y + pacmanSize > ghost.y
+        newPosition.x < ghost.x + cellSize &&
+        newPosition.x + cellSize > ghost.x &&
+        newPosition.y < ghost.y + cellSize &&
+        newPosition.y + cellSize > ghost.y
       ) {
-
-        setGameOver(true)
-        reset();  // Reset the game
+        setNumLifes( prev => prev - 1);
+        resetAvatars();  // Reset the game
+        setCoolDown(true);
         alert("¡Te atrapó un fantasma!");
 
-        setTimeout(() => {
-            setGameOver(false); // Re-enable the game
-        }, 1000); // Cooldown period to prevent multiple alerts
-
-
+        setTimeout( () => {
+          setCoolDown(false);
+        }, 2000)
+      
         return; // Terminar la función si hay colisión con un fantasma
       }
     }
@@ -160,12 +174,14 @@ const App = () => {
     points.forEach((point, index) => {
       if (
         newPosition.x < point.x + pointSize &&
-        newPosition.x + pacmanSize > point.x &&
+        newPosition.x + cellSize > point.x &&
         newPosition.y < point.y + pointSize &&
-        newPosition.y + pacmanSize > point.y
+        newPosition.y + cellSize > point.y
       ) {
         // Incrementar el puntaje
-        setScore(score + 1);
+        setScore(score + pointScore);
+
+        dispatch(markScore(pointScore));
   
         // Eliminar el punto recolectado
         const newPoints = [...points];
@@ -246,18 +262,15 @@ const moveGhostTowardsPacman = (ghost) => {
 };
 
 
-const reset = () => {
-    const { pacmanStart, ghosts, points } = initializeEntities(mazeLayout, cellSize, numGhosts);
-    setPoints(points);
+const resetAvatars = () => {
+    const { pacmanStart, ghosts } = initializeGhostAndPacman();
     setGhosts(ghosts);
-    setScore(0);
     setPacmanPosition(pacmanStart);
 }
 
-     
-  
   // Actualizar la posición de los fantasmas en cada frame
   useEffect(() => {
+    if (coolDown || gameOver) return;
     const interval = setInterval(() => {
       setGhosts((prevGhosts) =>
         prevGhosts.map((ghost) =>
@@ -267,16 +280,12 @@ const reset = () => {
     }, ghostSpeed); // Actualizar cada 100ms para simular movimiento continuo
   
     return () => clearInterval(interval);
-  }, [pacmanPosition]);
+  }, [pacmanPosition, gameOver, coolDown]);
 
   // useEffect para actualizar la posición de Pacman y verificar colisiones
   useEffect(() => {
-    const interval = setInterval(() => {
-      checkCollision(pacmanPosition);
-    }, 100); // Este intervalo puede ajustarse dependiendo de la velocidad del juego
-
-    return () => clearInterval(interval);
-  }, [pacmanPosition, ghosts, points]); // Dependencias: cuando Pacman, los fantasmas o los puntos cambien
+    checkCollision(pacmanPosition);
+  }, [pacmanPosition, ghosts, points, gameOver, coolDown]); // Dependencias: cuando Pacman, los fantasmas o los puntos cambien
   
 
   const movePacman = (direction) => {
@@ -313,10 +322,29 @@ const reset = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [pacmanPosition]);
 
+  useEffect( () => {
+    if (gameOver) {
+      const timer = setTimeout(() => {
+        navigate('/pacman/puntaje');
+      }, 3000); // 3000ms = 5 segundos
+
+      // Limpiar el timeout si el componente se desmonta antes
+      return () => clearTimeout(timer);
+    }
+  }, [gameOver])
+
+  useEffect( () => {
+    if((numLifes == 0 || points.length == 0) && isReady) {
+      setGameOver(true);
+      dispatch(endGame());
+    }
+  }, [dispatch, points, numLifes, isReady])
+
   return (
     <div className="Pacman_screen">
-      <h1 style={{ textAlign: 'center', color: '#FFF' }}>Pacman Game</h1>
+      <h1 style={{ textAlign: 'center', color: '#FFF' }}>{ username }</h1>
       <h2 style={{ textAlign: 'center', color: '#FFF' }}>Puntaje: {score}</h2>
+      <h3 style={{ textAlign: 'center', color: '#FFF' }}>Te quedan {numLifes} vidas</h3>
       <Board 
         width={boardWidth} 
         height={boardHeight} 
@@ -328,7 +356,7 @@ const reset = () => {
           ))}
 
           {points.map((point, index) => (
-            <Point key={index} position={point} size={20}/>
+            <Point key={index} position={point} size={pointSize}/>
           ))}
 
           <Pacman position={pacmanPosition} cellSize={cellSize} />

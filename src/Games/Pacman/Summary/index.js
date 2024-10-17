@@ -5,14 +5,14 @@ import './styles.css';
 const Home = () => {
   const navigate = useNavigate();
 
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       navigate('/pacman/juego');
-//     }, 5000); // 5000ms = 5 segundos
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/pacman/juego');
+    }, 5000); // 5000ms = 5 segundos
 
-//     // Limpiar el timeout si el componente se desmonta antes
-//     return () => clearTimeout(timer);
-//   }, [navigate]);
+    // Limpiar el timeout si el componente se desmonta antes
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className="pacman-summary-container">
