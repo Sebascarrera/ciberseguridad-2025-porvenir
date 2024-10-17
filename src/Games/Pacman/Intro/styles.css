@@ -1,16 +1,17 @@
 .home-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100vh;
-    background-image: url('/assets/img/pacman/fondo-home-pacman-antifraude.png');
-    background-size: cover;
+    background-image: url('../../../assets/img/pacman/fondo-home-pacman-antifraude.png');
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
   }
   
   .home-logo {
-    width: 200px;
+    max-width: 200px;
     margin-bottom: 20px;
   }
   
@@ -20,7 +21,7 @@
   }
 
   .home-logo-titulo-juego {
-    margin-top: 50px;
+    max-width: 450px;
     text-align: center;
     align-items: center;
     justify-content: center;

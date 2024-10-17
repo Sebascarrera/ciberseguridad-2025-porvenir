@@ -1,6 +1,6 @@
 import logo from '../assets/img/ciberseguridad-logo.png'
 import tituloJuegos from '../assets/img/titulo-juegos.png'
-import ruletaImg from '../assets/img/pacman-img.png'
+import pacmanImg from '../assets/img/pacman-img.png'
 import focusImg from '../assets/img/jackpot-img.png'
 import ninjaImg from '../assets/img/antihackers-img.png'
 import liveImg from '../assets/img/live-imagen.png'
@@ -61,9 +61,9 @@ const Selector = () => {
                         <div className="cont-escoge-juego">
                             <div className="escoge-juego">
                                 <div className="cont-ruleta">
-                                    <img src={ruletaImg} alt="Ruleta del Saber" />
+                                    <img src={pacmanImg} alt="Pacman" />
                                     <div className="boton-ruleta">
-                                        <div onClick={ () => navigate('/ruleta/personaje')} className="boton-enlace-juegos">
+                                        <div onClick={ () => navigate('/pacman/intro')} className="boton-enlace-juegos">
                                             Pacman
                                         </div>
                                     </div>

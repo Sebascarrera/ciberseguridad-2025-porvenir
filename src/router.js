@@ -5,7 +5,11 @@ import {
 import App from './App'
 import Selector from './Selector';
 
-import Pacman from './Games/Pacman';
+import PacmanIntro from './Games/Pacman/Intro'
+import PacmanSummary from './Games/Pacman/Summary'
+import Pacman from './Games/Pacman'
+import PacmanScore from './Games/Pacman/Score'
+
 import Jackpot from './Games/Jackpot'
 
 import Focus from './Games/Focus'
@@ -31,8 +35,20 @@ const router = createBrowserRouter([
         element: <App />,
     },
     {
-        path: "/pacman",
+        path: "/pacman/intro",
+        element: <PacmanIntro />,
+    },
+    {
+        path: "/pacman/resumen",
+        element: <PacmanSummary />,
+    },
+    {
+        path: "/pacman/juego",
         element: <Pacman />,
+    },
+    {
+        path: "/pacman/puntaje",
+        element: <PacmanScore />,
     },
     {
         path: "/jackpot",
