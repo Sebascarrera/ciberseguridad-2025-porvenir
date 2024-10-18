@@ -26,7 +26,7 @@ const PacmanSummary = () => {
           RECOGE LOS PUNTOS QUE ESTÁN REPARTIDOS POR EL TABLERO CON CIPO MIENTRAS QUE EVADES LOS TROYANOS
         </div>
         <div className='texto-summary2'>
-          TIENES 3 VIDAS PARA LOGRARLO ¡TU PUEDES!
+          TIENES 3 VIDAS PARA LOGRARLO ¡TÚ PUEDES!
         </div>
       </div>
     </div>
