@@ -17,6 +17,13 @@ import JackpotPregunta from './Games/Jackpot/Pregunta'
 import JackpotPuntaje from './Games/Jackpot/Puntaje'
 import Jackpot from './Games/Jackpot'
 
+import AntiHacker from './Games/AntiHackers/';
+import AntiHackerMundo1 from './Games/AntiHackers/Mundos/1';
+import AntiHackerMundo2 from './Games/AntiHackers/Mundos/2';
+import AntiHackerMundo3 from './Games/AntiHackers/Mundos/3';
+import AntiHackerMundo4 from './Games/AntiHackers/Mundos/4';
+import AntiHackersScore from './Games/AntiHackers/Score';
+
 import Live from './Live'
 
 import AuthRoute from './Auth/';
@@ -103,6 +110,54 @@ const router = createBrowserRouter([
         element: (
             <AuthRoute>
                 <JackpotPuntaje />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers",
+        element: (
+            <AuthRoute>
+                <AntiHacker />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers/mundo1",
+        element: (
+            <AuthRoute>
+                <AntiHackerMundo1 />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers/mundo2",
+        element: (
+            <AuthRoute>
+                <AntiHackerMundo2 />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers/mundo3",
+        element: (
+            <AuthRoute>
+                <AntiHackerMundo3 />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers/mundo4",
+        element: (
+            <AuthRoute>
+                <AntiHackerMundo4 />
+            </AuthRoute>
+        )
+    },
+    {
+        path: "/antihackers/puntaje",
+        element: (
+            <AuthRoute>
+                <AntiHackersScore />
             </AuthRoute>
         )
     },

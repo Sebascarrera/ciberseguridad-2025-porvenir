@@ -3,11 +3,13 @@ import storage from 'redux-persist/lib/storage'
 
 import UserReducer from './user'
 import RuletaReducer from '../Games/Jackpot/Redux'
+import AntiHackerReducer from '../Games/AntiHackers/Redux'
 import ScoreReducer  from './scores'
 
 const appReducer = combineReducers({
   user: UserReducer,
   ruleta: RuletaReducer,
+  antihackers: AntiHackerReducer,
   scores: ScoreReducer
 })
 

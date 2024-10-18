@@ -1,0 +1,41 @@
+.AntiHacker_Container {
+    background: url('../../assets/img/img-antihackers/background-inicio-antihackers.png') no-repeat center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.AntiHacker_Container h1 {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .AntiHacker_Container {
+      flex-direction: column; /* Los elementos se apilan uno debajo del otro */
+      justify-content: space-around;
+      padding: 20px;
+    }
+  }
+
+.antihacker-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual tamaño */
+    width: 100%; /* Ajusta el ancho de la cuadrícula */
+    max-width: 600px; /* Tamaño máximo (ajustable) */
+    margin: 0 auto; /* Centrar la cuadrícula */
+}
+
+.antihacker-grid-item {
+    display: flex;
+    justify-content: center; /* Centrar imagen horizontalmente */
+    align-items: center;     /* Centrar imagen verticalmente */
+    background-color: #f0f0f0; /* Color de fondo para el div */
+}
+
+.antihacker-grid-item img {
+    max-width: 100%; /* Imagen ajusta al tamaño del contenedor */
+    height: auto;
+}

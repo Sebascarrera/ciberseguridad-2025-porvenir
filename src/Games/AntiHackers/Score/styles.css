@@ -1,0 +1,29 @@
+.antihacker-score-container {
+    background: url('../../../assets/img/img-antihackers/background-inicio-antihackers.png') no-repeat center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2%;
+}
+
+.antihacker-score-container  .texto-felicitaciones {
+    margin-top: .5em;
+    color: #000;
+}
+
+.antihacker-score-container .texto-tu-puntaje,  .antihacker-score-container .texto-puntos {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .antihacker-score-container {
+      flex-direction: column-reverse; /* Los elementos se apilan uno debajo del otro */
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .antihacker-score-container > div:last-child {
+        flex: .3
+    }
+}

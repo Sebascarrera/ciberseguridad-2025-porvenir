@@ -273,19 +273,19 @@ const resetAvatars = () => {
     setPacmanPosition(pacmanStart);
 }
 
-  // // Actualizar la posición de los fantasmas en cada frame
-  // useEffect(() => {
-  //   if (coolDown || gameOver) return;
-  //   const interval = setInterval(() => {
-  //     setGhosts((prevGhosts) =>
-  //       prevGhosts.map((ghost) =>
-  //         moveGhostTowardsPacman(ghost)
-  //       )
-  //     );
-  //   }, ghostSpeed); // Actualizar cada 100ms para simular movimiento continuo
+  // Actualizar la posición de los fantasmas en cada frame
+  useEffect(() => {
+    if (coolDown || gameOver) return;
+    const interval = setInterval(() => {
+      setGhosts((prevGhosts) =>
+        prevGhosts.map((ghost) =>
+          moveGhostTowardsPacman(ghost)
+        )
+      );
+    }, ghostSpeed); // Actualizar cada 100ms para simular movimiento continuo
   
-  //   return () => clearInterval(interval);
-  // }, [pacmanPosition, gameOver, coolDown]);
+    return () => clearInterval(interval);
+  }, [pacmanPosition, gameOver, coolDown]);
 
   // useEffect para actualizar la posición de Pacman y verificar colisiones
   useEffect(() => {

@@ -69,7 +69,7 @@ const Selector = () => {
                                     </div>
                                 </div>
                                 <div className="cont-focus">
-                                    <img src={focusImg} alt="Focus Game" />
+                                    <img src={focusImg} alt="CiberJackpot" />
                                     <div className="boton-focus">
                                         <div onClick={ () => navigate('/jackpot/intro')} className="boton-enlace-juegos">
                                             CiberJackpot
@@ -77,9 +77,9 @@ const Selector = () => {
                                     </div>
                                 </div>
                                 <div className="cont-ninja">
-                                    <img src={ninjaImg} alt="CiPo Ninja" />
+                                    <img src={ninjaImg} alt="Antihackers" />
                                     <div className="boton-ninja">
-                                        <div onClick={ () => navigate('/ninja/intro')} className="boton-enlace-juegos">
+                                        <div onClick={ () => navigate('/antihackers')} className="boton-enlace-juegos">
                                             Antihackers
                                         </div>
                                     </div>
