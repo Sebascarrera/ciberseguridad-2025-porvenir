@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveScore, clearCurrentScore } from '../../../Redux/scores';
+import Logo from '../../../assets/img/logo-fondo-blanco-ciberseguridad2024.png'
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,15 +27,18 @@ const Home = () => {
   return (
     <div className="pacman-summary-container">
         <div>
+        <img className="home-logo" src={Logo} alt="Logo"/>
+        </div>
+        <div className='texto-felicitaciones'>
             FELICITACIONES
         </div>
-        <div>
+        <div className='texto-username'>
             { username }
         </div>
-        <div>
+        <div className='texto-tu-puntaje-pacman'>
             TU PUNTAJE FINAL ES DE:
         </div>
-        <div>
+        <div className='texto-puntos-pacman'>
             { score } PTS
         </div>
     </div>

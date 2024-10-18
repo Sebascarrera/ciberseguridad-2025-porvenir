@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
-
+import Logo from '../../../assets/img/logo-fondo-blanco-ciberseguridad2024.png'
 const Home = () => {
   const navigate = useNavigate();
 
@@ -17,10 +17,15 @@ const Home = () => {
   return (
     <div className="pacman-summary-container">
       <div>
-        RECOGE LOS PUNTOS QUE ESTÁN REPARTIDOS POR EL TABLERO CON CIPO MIENTRAS QUE EVADES LOS TROYANOS
+        <img className="home-logo" src={Logo} alt="Logo"/>
       </div>
-      <div>
-        TIENES 3 VIDAS PARA LOGRARLO ¡TU PUEDES!
+      <div className='container-text-summary'>
+        <div className='texto-summary1'>
+          RECOGE LOS PUNTOS QUE ESTÁN REPARTIDOS POR EL TABLERO CON CIPO MIENTRAS QUE EVADES LOS TROYANOS
+        </div>
+        <div className='texto-summary2'>
+          TIENES 3 VIDAS PARA LOGRARLO ¡TU PUEDES!
+        </div>
       </div>
     </div>
   );
