@@ -154,7 +154,7 @@ const AntiHacker = () => {
                             image={conexionImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Conexión Responsable", description: "Recuerda conectarte a redes wifi seguras, evita utilizar tu dispositivo en sitios públicos para realizar transacciones, cuando ingreses a una página web verifica que la URL sea legítima, que contenga un certificado SSL valido y el protocolo https, asegúrate que tu equipo cuenta con herramientas de seguridad y software de antivirus, únicamente debes descargar aplicaciones en tu dispositivo directamente desde tiendas oficiales.", image: MatchConexion }} />
+                            metadata={{ isMatch: true, name: "Conexión Responsable", description: "Conexión Responsable. Recuerda conectarte a redes wifi seguras, evita utilizar tu dispositivo en sitios públicos para realizar transacciones, cuando ingreses a una página web verifica que la URL sea legítima, que contenga un certificado SSL valido y el protocolo https, asegúrate que tu equipo cuenta con herramientas de seguridad y software de antivirus, únicamente debes descargar aplicaciones en tu dispositivo directamente desde tiendas oficiales.", image: MatchConexion }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -164,7 +164,7 @@ const AntiHacker = () => {
                             image={fraudeExternoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Fraude Externo", description: "Los fraudes conocidos como externos son aquellos actos realizados por personas externas ajenas a Porvenir que buscan defraudar, apropiarse indebidamente de activos, incumplir normas o leyes y/o hacer uso de su buen nombre para obtener ganancias ilícitas. En Porvenir contamos con un área de Gestión de Riesgos de Fraude Externo adscritos a la Gerencia de Riesgos de Negocio con el objetivo de implementar actividades y elementos para prevenir, investigar, detectar y mitigar riesgos relacionados con prácticas transaccionales fraudulentas de origen externo. ¡Recuerda reportar cualquier operación sospechosa de carácter externo al buzón fraudeexterno@porvenir.com.co !", image: MatchFraudeExterno }} />
+                            metadata={{ isMatch: true, name: "Fraude Externo", description: " Fraude Externo. Los fraudes conocidos como externos son aquellos actos realizados por personas externas ajenas a Porvenir que buscan defraudar, apropiarse indebidamente de activos, incumplir normas o leyes y/o hacer uso de su buen nombre para obtener ganancias ilícitas. En Porvenir contamos con un área de Gestión de Riesgos de Fraude Externo adscritos a la Gerencia de Riesgos de Negocio con el objetivo de implementar actividades y elementos para prevenir, investigar, detectar y mitigar riesgos relacionados con prácticas transaccionales fraudulentas de origen externo. ¡Recuerda reportar cualquier operación sospechosa de carácter externo al buzón fraudeexterno@porvenir.com.co !", image: MatchFraudeExterno }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -174,7 +174,7 @@ const AntiHacker = () => {
                             image={fraudeInternoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Fraude Interno", description: "Los fraudes denominados internos son aquellos organizados por una o varias personas dentro de una compañía, con el fin de obtener un beneficio propio. En Porvenir contamos con la Gerencia de Auditoria quienes se encargan de realizar los procesos de investigación correspondiente.", image: MatchFraudeInterno }} />
+                            metadata={{ isMatch: true, name: "Fraude Interno", description: "Fraude Interno. Los fraudes denominados internos son aquellos organizados por una o varias personas dentro de una compañía, con el fin de obtener un beneficio propio. En Porvenir contamos con la Gerencia de Auditoria quienes se encargan de realizar los procesos de investigación correspondiente.", image: MatchFraudeInterno }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}

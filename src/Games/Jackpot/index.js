@@ -57,39 +57,31 @@ function App() {
   };
 
   const showFinalResult = () => {
-    const finalSlot1 = getRandomSymbol();
-    const finalSlot2 = getRandomSymbol();
-    const finalSlot3 = getRandomSymbol();
+    const finalSlot = getRandomSymbol(); // Solo obtienes un símbolo final para asegurar que siempre sea igual
 
-    const shouldWin = Math.random() < 0.5;
-    if (shouldWin) {
-      setSlot1(finalSlot1);
-      setSlot2(finalSlot1);
-      setSlot3(finalSlot1);
-    } else {
-      setSlot1(finalSlot1);
-      setSlot2(finalSlot2);
-      setSlot3(finalSlot3);
-    }
+    // Asegurar que los tres slots muestren el mismo símbolo (siempre ganar)
+    setSlot1(finalSlot);
+    setSlot2(finalSlot);
+    setSlot3(finalSlot);
 
     setIsSpinning(false);
+    winAudio.current.play(); // Reproducir el sonido de ganar
   };
 
-  useEffect( () => {
-
+  useEffect(() => {
     if (isSpinning) return;
 
-    if (slot1.id == slot2.id && slot2.id == slot3.id) {
-      navigate(`/jackpot/preguntas?slice=${slot1.id}`)
-      winAudio.current.play(); // Reproducir el sonido de ganar
-    } else {
-      setMessage('Inténtalo de nuevo');
+    if (slot1.id === slot2.id && slot2.id === slot3.id) {
+      // Espera 3 segundos antes de redirigir
+      setTimeout(() => {
+        navigate(`/jackpot/preguntas?slice=${slot1.id}`);
+      }, 5000); // 5 segundos de espera
     }
-  }, [slot1, slot2, slot3, isSpinning])
+  }, [slot1, slot2, slot3, isSpinning, navigate]);
 
   return (
     <div className="jackpot-game">
-      <h1>Juego de Jackpot</h1>
+      <h1></h1>
       <div className="machine-slot">
         <img src={machine} alt="machine jackpot" />
         <div className="slot-machine">
@@ -106,7 +98,7 @@ function App() {
       </div>
 
       <button onClick={spin} disabled={isSpinning}>
-        {isSpinning ? 'Girando...' : 'Girar'}
+        {isSpinning ? 'Girando...' : 'Jugar'}
       </button>
       <p>{message}</p>
       <div className="logo-container">

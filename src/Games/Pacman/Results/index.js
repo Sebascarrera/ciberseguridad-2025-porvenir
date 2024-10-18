@@ -50,7 +50,7 @@ const PacmanResults = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/pacman/puntaje');
-    }, 5000); // 5000ms = 5 segundos
+    }, 20000); // 20000ms = 20 segundos
 
     return () => clearTimeout(timer);
   }, [navigate]);
@@ -60,9 +60,9 @@ const PacmanResults = () => {
       <div>
             {/* Logo */}
       </div>
-      <div>
+      <div className='texto-buen-trabajo'>
         <p>Hiciste un trabajo excelente evitando ser victima de las distintas</p>
-        <p>Técnicas de Fraude</p>
+        <p className='titulo-tecnicas-fraude'>Técnicas de Fraude</p>
       </div>
       <div className='pacman-results-cards'>
             { cards.map( card => (

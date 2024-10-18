@@ -157,7 +157,7 @@ const AntiHacker = () => {
                             image={biometricoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Dato Biométrico", description: "Son de categoría sensible y corresponden a una característica física única de las personas que se utilizas para identificarlas. Esto puede incluir huellas dactilares, reconocimiento facial, iris, entre otros. ¡Recuerda implementar medidas de seguridad adecuadas para proteger los datos durante su ciclo de vida!", image: MatchBiometrico }} />
+                            metadata={{ isMatch: true, name: "Dato Biométrico", description: "Dato Biométrico. Son de categoría sensible y corresponden a una característica física única de las personas que se utilizas para identificarlas. Esto puede incluir huellas dactilares, reconocimiento facial, iris, entre otros. ¡Recuerda implementar medidas de seguridad adecuadas para proteger los datos durante su ciclo de vida!", image: MatchBiometrico }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -167,7 +167,7 @@ const AntiHacker = () => {
                             image={consentimientoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Consentimiento", description: "Es el permiso que tú, como dueño del dato, das para que una persona o empresa los use. Este permiso debe ser libre, Informado y expreso. Conoce nuestra política de tratamiento de datos personales, publicada en la pagina web de Porvenir.", image: MatchConsentimiento  }} />
+                            metadata={{ isMatch: true, name: "Consentimiento", description: "Consentimiento. Es el permiso que tú, como dueño del dato, das para que una persona o empresa los use. Este permiso debe ser libre, Informado y expreso. Conoce nuestra política de tratamiento de datos personales, publicada en la pagina web de Porvenir.", image: MatchConsentimiento  }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -177,7 +177,7 @@ const AntiHacker = () => {
                             image={habeasImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Habeas Data", description: "Es el derecho que tienen las personas a Conocer, Actualizar y Corregir la información personal que tienen los Responsables en sus bases de datos.", image: MatchHabeas }} />
+                            metadata={{ isMatch: true, name: "Habeas Data", description: "Habeas Data.Es el derecho que tienen las personas a Conocer, Actualizar y Corregir la información personal que tienen los Responsables en sus bases de datos.", image: MatchHabeas }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}

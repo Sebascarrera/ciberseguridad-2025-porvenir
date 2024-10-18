@@ -156,7 +156,7 @@ const AntiHacker = () => {
                             image={vulnerabilidadesImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Vulnerabilidades", description: "Son puntos débiles de seguridad en un sistema que pueden ser aprovechados por Cibercriminales para hacer daño o robar información. ¡Recuerda que estas deben ser cerradas y mitigadas en el menor tiempo posible con el apoyo de los equipos de Seguridad de la Información y Ciberseguridad, Seguridad Informática y comunicaciones y Calidad de Software!.", image: MatchVulnerabilidades }} />
+                            metadata={{ isMatch: true, name: "Vulnerabilidades", description: "Vulnerabilidades. Son puntos débiles de seguridad en un sistema que pueden ser aprovechados por Cibercriminales para hacer daño o robar información. ¡Recuerda que estas deben ser cerradas y mitigadas en el menor tiempo posible con el apoyo de los equipos de Seguridad de la Información y Ciberseguridad, Seguridad Informática y comunicaciones y Calidad de Software!.", image: MatchVulnerabilidades }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -166,7 +166,7 @@ const AntiHacker = () => {
                             image={controlImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Controles de seguridad en nube", description: "Son necesarios para proteger la  confidencialidad, integridad, disponibilidad y privacidad, sin comprometer la flexibilidad e innovación que busca Porvenir al migrar: Aplicaciones core de negocio, plataformas, bases de datos , redes, entre otros en estos entornos.", image: MatchControl }} />
+                            metadata={{ isMatch: true, name: "Controles de seguridad en nube", description: "Controles de seguridad en nube. Son necesarios para proteger la  confidencialidad, integridad, disponibilidad y privacidad, sin comprometer la flexibilidad e innovación que busca Porvenir al migrar: Aplicaciones core de negocio, plataformas, bases de datos , redes, entre otros en estos entornos.", image: MatchControl }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -176,7 +176,7 @@ const AntiHacker = () => {
                             image={ciberataquesImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Ciberataques", description: "Los ciberataques pueden iniciarse mediante la explotación de una vulnerabilidad en un servicio expuesto públicamente o interno, engañando a un colaborador para que abra un archivo adjunto infeccioso o incluso provocando la instalación de programas a través de visitas inocentes al sitio web. ¡ Participa activamente en las estrategias de cultura y sensibilización de Ciberseguridad CiPo!", image: MatchCiberataque }} />
+                            metadata={{ isMatch: true, name: "Ciberataques", description: "Ciberataques. Los ciberataques pueden iniciarse mediante la explotación de una vulnerabilidad en un servicio expuesto públicamente o interno, engañando a un colaborador para que abra un archivo adjunto infeccioso o incluso provocando la instalación de programas a través de visitas inocentes al sitio web. ¡ Participa activamente en las estrategias de cultura y sensibilización de Ciberseguridad CiPo!", image: MatchCiberataque }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}

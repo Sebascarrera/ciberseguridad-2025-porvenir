@@ -74,9 +74,6 @@ const AvatarScreen = () => {
 					Siguiente
 				</div>
 			</div>
-			<footer className='container_logo_ruleta'>
-				<img src={LogoRuleta} alt="Logo ruleta" />
-			</footer>
         </div>
     )
 }

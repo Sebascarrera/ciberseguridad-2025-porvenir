@@ -47,11 +47,10 @@ const PuntajeScreen = () => {
                     <p className='texto-felicitaciones-ruleta'>Felicitaciones</p>
                     <p className='texto-felicitaciones-ruleta'>Tu puntaje es { puntaje } </p>
                 </div>
+                <div className='div-vacio'>
+                    <p></p>
+                </div>
             </main>
-
-            <footer className='container_logo_ruleta'>
-                <img src={LogoRuleta} alt="logo ruleta" />
-            </footer>
             
         </div>
     )
