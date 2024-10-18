@@ -10,14 +10,19 @@ import spinSound from '../../assets/sounds/spinSound.mp3'; // Sonido de girar
 import winSound from '../../assets/sounds/winSound.mp3'; // Sonido de ganar
 
 import './jackpot.css';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+
+  const navigate = useNavigate();
+
   const symbols = [
+    { id: 0, symbol: proteccion }, 
     { id: 1, symbol: seguridad }, 
-    { id: 2, symbol: proteccion }, 
-    { id: 3, symbol: cipo }, 
-    { id: 4, symbol: troyano }, 
-    { id: 5, symbol: tarjeta }];
+    { id: 2, symbol: cipo }, 
+    { id: 3, symbol: troyano }, 
+    { id: 4, symbol: tarjeta }
+  ];
 
   const [slot1, setSlot1] = useState(symbols[0]);
   const [slot2, setSlot2] = useState(symbols[1]);
@@ -75,7 +80,7 @@ function App() {
     if (isSpinning) return;
 
     if (slot1.id == slot2.id && slot2.id == slot3.id) {
-      setMessage('¡Ganaste!');
+      navigate(`/jackpot/preguntas?slice=${slot1.id}`)
       winAudio.current.play(); // Reproducir el sonido de ganar
     } else {
       setMessage('Inténtalo de nuevo');

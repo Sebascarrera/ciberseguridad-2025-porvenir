@@ -71,7 +71,7 @@ const Selector = () => {
                                 <div className="cont-focus">
                                     <img src={focusImg} alt="Focus Game" />
                                     <div className="boton-focus">
-                                        <div onClick={ () => navigate('/jackpot/personaje')} className="boton-enlace-juegos">
+                                        <div onClick={ () => navigate('/jackpot/intro')} className="boton-enlace-juegos">
                                             CiberJackpot
                                         </div>
                                     </div>

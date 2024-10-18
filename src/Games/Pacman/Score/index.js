@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveScore, clearCurrentScore } from '../../../Redux/scores';
 import Logo from '../../../assets/img/logo-fondo-blanco-ciberseguridad2024.png'
 
-const Home = () => {
+const PacmanScore = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const username = useSelector( state => state.user.user.fullname );
@@ -45,4 +45,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PacmanScore;

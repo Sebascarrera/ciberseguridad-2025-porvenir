@@ -68,7 +68,7 @@ const PreguntaScreen = () => {
 
         setTimeout( () => {
 
-            navigate( questions < Config.questionsPerGame ? -1 : '/ruleta/puntaje')
+            navigate( questions < Config.questionsPerGame ? -1 : '/jackpot/puntaje')
 
             if(questions < Config.questionsPerGame) {
                 dispatch(bumpAnsweredQuestion())
@@ -99,7 +99,7 @@ const PreguntaScreen = () => {
 
 
     return (
-        <div>
+        <div className="QuestionScreenContainer">
             <header className="container_logo">
                 <img src={Logo} alt="Logo" />
             </header>

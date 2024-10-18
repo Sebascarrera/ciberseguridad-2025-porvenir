@@ -1,5 +1,5 @@
 const Config = {
-    questionsPerGame: 3,
+    questionsPerGame: 5,
     points: 10,
 }
 

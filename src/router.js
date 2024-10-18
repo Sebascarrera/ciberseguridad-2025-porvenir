@@ -11,20 +11,11 @@ import Pacman from './Games/Pacman'
 import PacmanResults from './Games/Pacman/Results'
 import PacmanScore from './Games/Pacman/Score'
 
+import JackpotIntro from './Games/Jackpot/Intro';
 import JackpotAvatar from './Games/Jackpot/Avatar'
 import JackpotPregunta from './Games/Jackpot/Pregunta'
 import JackpotPuntaje from './Games/Jackpot/Puntaje'
 import Jackpot from './Games/Jackpot'
-
-import Focus from './Games/Focus'
-import FocusFrase from './Games/Focus/frase'
-import FocusPuntaje from './Games/Focus/Puntaje'
-
-
-
-import Ninja from './Games/Ninja'
-import NinjaIntro from './Games/Ninja/Intro'
-import NinjaPuntaje from './Games/Ninja/Puntaje'
 
 import Live from './Live'
 
@@ -37,44 +28,82 @@ const router = createBrowserRouter([
     },
     {
         path: "/pacman/intro",
-        element: <PacmanIntro />,
+        element: ( 
+             <AuthRoute>
+                <PacmanIntro />
+             </AuthRoute>
+            )
     },
     {
         path: "/pacman/resumen",
-        element: <PacmanSummary />,
+        element: ( 
+             <AuthRoute>
+                <PacmanSummary />
+             </AuthRoute>
+            )
     },
     {
         path: "/pacman/juego",
-        element: <Pacman />,
+        element: ( 
+             <AuthRoute>
+                <Pacman />
+             </AuthRoute>
+            )
     },
     {
         path: "/pacman/resultados",
-        element: <PacmanResults />,
+        element: ( 
+             <AuthRoute>
+                <PacmanResults />
+             </AuthRoute>
+            )
     },
     {
         path: "/pacman/puntaje",
-        element: <PacmanScore />,
+        element: ( 
+             <AuthRoute>
+                <PacmanScore />
+             </AuthRoute>
+            )
+    },
+    {
+        path: "/jackpot/intro",
+        element: (
+            <AuthRoute>
+                <JackpotIntro />
+            </AuthRoute>
+        )
     },
     {
         path: "/jackpot/personaje",
         element: (
-            <JackpotAvatar />
+            <AuthRoute>
+                <JackpotAvatar />
+            </AuthRoute>
         )
     },
     {
         path: "/jackpot/juego",
-        element: <Jackpot />,
+        element: (
+            <AuthRoute>
+                <Jackpot />
+            </AuthRoute>
+        )
     },
     {
         path: "/jackpot/preguntas",
         element: (
-            <JackpotPregunta />
+            <AuthRoute>
+                <JackpotPregunta />
+            </AuthRoute>
         )
     },
     {
         path: "/jackpot/puntaje",
         element: (
-            <JackpotPuntaje />
+            <AuthRoute>
+                <JackpotPuntaje />
+            </AuthRoute>
         )
     },
     {
@@ -93,55 +122,6 @@ const router = createBrowserRouter([
         </AuthRoute>),
     },
 
-    {
-        path: "/focus",
-        element: (
-        <AuthRoute>
-            <Focus />
-        </AuthRoute>),
-    },
-    {
-        path: "/focus/frase",
-        element: (
-            <AuthRoute>
-                <FocusFrase />
-            </AuthRoute>
-        ),
-    },
-    {
-        path: "/focus/puntaje",
-        element: (
-            <AuthRoute>
-                <FocusPuntaje />
-            </AuthRoute>
-        ),
-    },
-    {
-        path: "/ninja",
-        element: (
-            <AuthRoute>
-                <Ninja />
-            </AuthRoute>
-        ),
-    },
-
-    {
-        path: "/ninja/intro",
-        element: (
-            <AuthRoute>
-                <NinjaIntro />
-            </AuthRoute>
-        ),
-    },
-
-    {
-        path: "/ninja/puntaje",
-        element: (
-            <AuthRoute>
-                <NinjaPuntaje />
-            </AuthRoute>
-        ),
-    },
 ]);
 
 export default router

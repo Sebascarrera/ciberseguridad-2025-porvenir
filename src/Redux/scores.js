@@ -23,7 +23,7 @@ export const saveScore = createAsyncThunk('scores/create', async (data, { dispat
         const user_id = state.user.user.id
         const score = { quantity: state.scores.current ?? 0, time, game: data, user_id }
         
-        if(data === "ruleta") {
+        if(data === "jackpot") {
             dispatch(resetAnsweredQuestions())
         }
         const response = await saveScoreService(score)

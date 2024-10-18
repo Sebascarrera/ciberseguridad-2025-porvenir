@@ -7,7 +7,7 @@ import Card2  from '../../../assets/img/pacman-mensaje2.png'
 import Card3  from '../../../assets/img/pacman-mensaje3.png'
 import Card4  from '../../../assets/img/pacman-mensaje4.png'
 
-const Home = () => {
+const PacmanResults = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -76,4 +76,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PacmanResults;

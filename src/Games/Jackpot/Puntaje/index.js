@@ -26,7 +26,7 @@ const PuntajeScreen = () => {
     }, [status])
 
     useEffect( () => {
-        dispatch(saveScore('ruleta'))
+        dispatch(saveScore('jackpot'))
     }, [dispatch])
 
     return (

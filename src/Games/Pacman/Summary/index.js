@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import Logo from '../../../assets/img/logo-fondo-blanco-ciberseguridad2024.png'
-const Home = () => {
+
+
+const PacmanSummary = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PacmanSummary;

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { fetchWheelSlices } from '../../../Services/ruleta'
+import { fetchCategories as fetchCategoriesAPI } from '../../../Services/preguntas'
 
 const initialState = {
     questions: 0,
@@ -10,13 +10,13 @@ const initialState = {
     error: null
 }
 
-export const fetchSlices = createAsyncThunk('slices/fetchSlices',  async () => {
-    const response = await fetchWheelSlices()
+export const fetchCategories = createAsyncThunk('slices/fetchPreguntas',  async () => {
+    const response = await fetchCategoriesAPI()
     return response.data.data
 })
 
-export const ruletaSlice = createSlice({
-    name: 'ruleta',
+export const preguntasSlice = createSlice({
+    name: 'preguntas',
     initialState,
     reducers: {
         selectAvatar(state, action) {
@@ -31,21 +31,21 @@ export const ruletaSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-            .addCase(fetchSlices.pending, (state, action) => {
+            .addCase(fetchCategories.pending, (state, action) => {
                 state.status = 'loading'
             })
-            .addCase(fetchSlices.fulfilled, (state, action) => {
+            .addCase(fetchCategories.fulfilled, (state, action) => {
                 state.status = 'succeded'
                 state.slices = action.payload
             })
-            .addCase(fetchSlices.rejected, (state, action) => {
+            .addCase(fetchCategories.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.error.message
             })
     }
 })
 
-export const { selectAvatar, bumpAnsweredQuestion, resetAnsweredQuestions } = ruletaSlice.actions
+export const { selectAvatar, bumpAnsweredQuestion, resetAnsweredQuestions } = preguntasSlice.actions
 
 
-export default ruletaSlice.reducer
+export default preguntasSlice.reducer
