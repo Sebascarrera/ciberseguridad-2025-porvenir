@@ -216,6 +216,11 @@ const AntiHacker = () => {
             {isModalOpen && match && (
                 <div className="modal">
                     <div className="modal-content">
+                        <span className="close" onClick={() => {
+                            setIsModalOpen(false)
+                            dispatch(increaseMundo1());
+                            dispatch(validateTotal());
+                        }}>Cerrar</span>
                         <div>
                             <div>
                                 <h2>{match.name}</h2>
@@ -228,11 +233,7 @@ const AntiHacker = () => {
                             </div>
 
                         </div>
-                        <span className="close" onClick={() => {
-                            setIsModalOpen(false)
-                            dispatch(increaseMundo1());
-                            dispatch(validateTotal());
-                        }}>Cerrar</span>
+                        
                         
                     </div>
                 </div>
