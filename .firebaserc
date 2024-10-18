@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ciberseguridad-porvenir-web"
+  },
+  "targets": {
+    "ciberseguridad-porvenir-web": {
+      "hosting": {
+        "ciberseguridad-porvenir-2024": [
+          "ciberseguridad-porvenir-2024"
+        ]
+      }
+    }
   }
 }

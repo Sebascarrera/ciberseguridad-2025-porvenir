@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "ciberseguridad-porvenir-2024",
     "public": "build",
     "ignore": [
       "firebase.json",
