@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { saveScore as saveScoreService } from '../Services/score'
 
-import { resetAnsweredQuestions } from '../Games/Ruleta/Redux'
+import { resetAnsweredQuestions } from '../Games/Jackpot/Redux'
 import { replaceUser } from './user'
 
 const initialState = {

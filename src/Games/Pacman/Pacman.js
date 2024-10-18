@@ -1,15 +1,14 @@
 // Pacman.js
-import React, { useRef } from 'react';
+import React from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
 
 const Pacman = ({ position, cellSize }) => {
-  const [pacmanImage] = useImage(require('../../assets/img/pacman/cipo-pacman.png')); // Cargar el GIF de Pacman
-  const imageRef = useRef(null);
+
+  const [pacmanImage] = useImage(require('../../assets/img/pacman/cipo-pacman.png'));
 
   return (
     <Image
-      ref={imageRef}
       x={position.x}
       y={position.y}
       image={pacmanImage}

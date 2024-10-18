@@ -22,7 +22,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 import './styles.css'
 
-const PersonajeScreen = () => {
+const AvatarScreen = () => {
 
     const dispatch = useDispatch()
     const [selectedIndex, setSelectedIndex] = useState(0)
@@ -39,7 +39,7 @@ const PersonajeScreen = () => {
 
 	const onNext = () => {
 		dispatch(selectAvatar(characters[selectedIndex]))
-		navigate('/ruleta')
+		navigate('/jackpot/juego')
 	}
 
     return (
@@ -81,4 +81,4 @@ const PersonajeScreen = () => {
     )
 }
 
-export default PersonajeScreen
+export default AvatarScreen

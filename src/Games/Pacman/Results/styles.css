@@ -1,0 +1,16 @@
+.pacman-results-container {
+    background-image: url(../../../assets/img/pacman/fondo-seccion-juego-pacman-antifrude.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: orange;
+    text-align: center;
+}
+
+.pacman-results-cards {
+    margin-top: 20px;
+}

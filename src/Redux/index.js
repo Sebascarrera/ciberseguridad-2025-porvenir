@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import storage from 'redux-persist/lib/storage'
 
 import UserReducer from './user'
-import RuletaReducer from '../Games/Ruleta/Redux'
+import RuletaReducer from '../Games/Jackpot/Redux'
 import ScoreReducer  from './scores'
 
 const appReducer = combineReducers({

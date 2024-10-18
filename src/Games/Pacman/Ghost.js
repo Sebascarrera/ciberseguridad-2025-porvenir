@@ -1,14 +1,19 @@
 // Ghost.js
 import React from 'react';
-import { Circle } from 'react-konva';
+import { Image } from 'react-konva';
+import useImage from 'use-image';
 
-const Ghost = ({ position, color = 'red', cellSize }) => {
+const Ghost = ({ position, cellSize }) => {
+
+  const [ghostImage] = useImage(require('../../assets/img/pacman/troyano-pacman.png'));
+
   return (
-    <Circle
-      x={position.x + cellSize / 2}
-      y={position.y + cellSize / 2}
-      radius={cellSize / 2}
-      fill={color}
+    <Image
+      x={position.x}
+      y={position.y}
+      image={ghostImage}
+      width={cellSize}
+      height={cellSize}
     />
   );
 };

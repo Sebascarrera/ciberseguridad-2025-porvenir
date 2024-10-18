@@ -6,26 +6,32 @@ import Board from './Board';
 import Maze from './Maze';
 import './index.css';
 import logo from '../../assets/img/logo.png';
-import Layout from './Layout/touch'
+import Layout from './Layout/web'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { markScore, startGame, endGame } from '../../Redux/scores';
 
 const App = () => {
 
+  const isMobile = () => {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const boardWidth = 570;
-  const boardHeight = 1140;
-  const cellSize = 29;
-  const pointSize = 20;
+  const boardWidth = isMobile() ? 320 : 600;
+  const boardHeight = isMobile() ? 320 : 600;
+  const cellSize = isMobile() ? 16 : 30;
+  const pointSize = isMobile() ? 10 : 20;
   const numGhosts = 3;
   const ghostSpeed = 200;
   const pointScore = 10;
+  const numPoints = 4;
 
   const [ghosts, setGhosts] = useState([]);
   const [points, setPoints] = useState([]);
+  const [eatenPoints, setEatenPoints] = useState(0);
   const [score, setScore] = useState(0);
   const [mazeLayout] = useState(Layout);
   const [pacmanPosition, setPacmanPosition] = useState([]);
@@ -33,6 +39,7 @@ const App = () => {
   const [coolDown, setCoolDown] = useState(false);
   const [numLifes, setNumLifes] = useState(3);
   const [isReady, setIsReady] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const username = useSelector( state => state.user.user.fullname);
   
@@ -98,7 +105,7 @@ const App = () => {
   };
 
   const initializePoints = () => {
-    return generateRandomPoints(mazeLayout, cellSize, 5);
+    return generateRandomPoints(mazeLayout, cellSize, numPoints);
   };
 
   // Función para mover Pacman
@@ -144,9 +151,6 @@ const App = () => {
 
   const checkCollision = (newPosition) => {
 
-    console.log('Game Over: ', gameOver);
-    console.log('Cool down: ', coolDown);
-
     if(gameOver || coolDown) return; 
   
     // Verificar colisión con fantasmas
@@ -164,7 +168,7 @@ const App = () => {
 
         setTimeout( () => {
           setCoolDown(false);
-        }, 2000)
+        }, 1000)
       
         return; // Terminar la función si hay colisión con un fantasma
       }
@@ -180,6 +184,7 @@ const App = () => {
       ) {
         // Incrementar el puntaje
         setScore(score + pointScore);
+        setEatenPoints( prev => prev + 1);
 
         dispatch(markScore(pointScore));
   
@@ -325,7 +330,7 @@ const resetAvatars = () => {
   useEffect( () => {
     if (gameOver) {
       const timer = setTimeout(() => {
-        navigate('/pacman/puntaje');
+        navigate(`/pacman/resultados?eaten=${eatenPoints}`);
       }, 3000); // 3000ms = 5 segundos
 
       // Limpiar el timeout si el componente se desmonta antes
@@ -339,6 +344,12 @@ const resetAvatars = () => {
       dispatch(endGame());
     }
   }, [dispatch, points, numLifes, isReady])
+
+  useEffect(() => {
+    // Verificar si el dispositivo es táctil
+    const isTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouchScreen);
+  }, []);
 
   return (
     <div className="Pacman_screen">
@@ -362,15 +373,16 @@ const resetAvatars = () => {
           <Pacman position={pacmanPosition} cellSize={cellSize} />
       </Board>
 
-      {/* Controles de Pacman */}
-      <div className="controls">
-        <button className="control-button up" onClick={() => movePacman('up')}>↑</button>
-        <div className="horizontal-buttons">
-          <button className="control-button left" onClick={() => movePacman('left')}>←</button>
-          <button className="control-button right" onClick={() => movePacman('right')}>→</button>
+      {isTouchDevice && (
+        <div className="controls">
+          <button className="control-button up" onClick={() => movePacman('up')}>↑</button>
+          <div className="horizontal-buttons">
+            <button className="control-button left" onClick={() => movePacman('left')}>←</button>
+            <button className="control-button right" onClick={() => movePacman('right')}>→</button>
+          </div>
+          <button className="control-button down" onClick={() => movePacman('down')}>↓</button>
         </div>
-        <button className="control-button down" onClick={() => movePacman('down')}>↓</button>
-      </div>
+      )}
 
       {/* Logo del juego */}
       <div className="logo-container">
