@@ -8,10 +8,10 @@
   background-image: linear-gradient(to bottom, #272428, #272428);
   z-index: 99999999;
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
   opacity: 0.9;
+  padding: 20px;
 }
 
 .Overlay {
@@ -24,15 +24,43 @@
 
 .ContainerAnswerModal {
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  width: 80vw; /* Se adapta al 90% del ancho de la pantalla */
+  max-width: 600px; /* Limita el ancho máximo */
+  height: auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+  border-radius: 10px;
 }
 
 .ContainerAnswerModalLabel {
-  margin-top: 38px;
+  margin-top: 20px;
   color: #fff;
-  font-size: 64px;
+  font-size: 6vw; /* Tamaño de texto adaptable al ancho de la pantalla */
+  max-font-size: 64px; /* Limite máximo de tamaño */
+  text-align: center;
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .ContainerAnswerModalLabel {
+    font-size: 8vw; /* Texto un poco más grande en pantallas más pequeñas */
+  }
+
+  .Modal {
+    padding: 15px; /* Reduce el padding en pantallas pequeñas */
+  }
+}
+
+/* Estilos para pantallas muy pequeñas (ej. iPhone SE) */
+@media (max-width: 375px) {
+  .ContainerAnswerModalLabel {
+    font-size: 10vw; /* Aumenta el tamaño del texto en pantallas pequeñas */
+  }
+
+  .ContainerAnswerModal {
+    width: 95vw; /* Aumenta el ancho para pantallas más pequeñas */
+  }
 }

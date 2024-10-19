@@ -13,7 +13,7 @@
 
 .QuestionContainer {
   width: 100%;
-  margin: 56px;
+  margin: 36px;
 }
 
 .Question {
@@ -21,22 +21,26 @@
   margin: auto;
   margin-top: 10px;
   display: flex;
-  flex: 1;
-  border-radius: 50px;
+  border-radius: 15px;
   background-color: #FF7C00;
   padding: 5%;
   justify-content: center;
   align-items: center;
   font-family: 'Banda Regular', sans-serif;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 300;
   color: #fff;
+  flex: 0; /* No dejar que el contenedor crezca automáticamente */
+  height: auto; /* Ajuste dinámico según el contenido */
+  text-align: center; /* Opcional: para centrar el texto si es necesario */
+  box-sizing: border-box; /* Incluir el padding dentro del tamaño del contenedor */
 }
+
 
 .Answers {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 95%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -55,7 +59,7 @@
   background-color: #333;
   padding: 26px;
   font-family: 'Banda Regular', sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 300;
   color: #fff;
   justify-content: center;
@@ -88,7 +92,7 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 500;
   color: #fff;
 }
@@ -96,6 +100,7 @@
 @media (max-width: 768px) {
   /* Estilos específicos para pantallas más pequeñas */
   .Question{
+    width: 80%;
     font-size: 16px;
     text-align: center;
   }

@@ -107,6 +107,9 @@ color: #fff;
   display: flex;
 }
 
+
+
+
 /* Ocultar el input checkbox por defecto */
 #activar {
   display: none;
@@ -301,6 +304,39 @@ border: none;
 .cont-juegos{
   width: 100%;
   margin-left: 20px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .cont-select {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra los elementos en el contenedor */
+  }
+
+  .cont-sel-options {
+    justify-content: center; /* Centra las opciones en pantallas pequeñas */
+  }
+
+  .cont-juegos {
+    margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+    margin-top: 10px; /* Añade margen superior para separación */
+  }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .cont-select {
+    margin: 0 5px; /* Reduce márgenes en pantallas muy pequeñas */
+  }
+
+  .cont-sel-options {
+    flex-direction: column; /* Cambia a columna para mejorar la legibilidad */
+    align-items: center; /* Centra las opciones verticalmente */
+  }
+
+  .cont-juegos {
+    margin-top: 5px; /* Espaciado menor para pantallas pequeñas */
+  }
 }
 
 .cont-escoge-juego{
@@ -574,7 +610,6 @@ border: none;
     .cont-escoge-juego{
       display: flex;
       flex-direction: column;
-      height: 1650px;
       border-radius: 15px;
     }
     

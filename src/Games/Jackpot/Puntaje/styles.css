@@ -10,19 +10,54 @@
     margin-bottom: 30px;
 }
 
-.texto-felicitaciones-ruleta{
-    font-size: 1.35em;
+.texto-felicitaciones-ruleta {
+    font-size: 1.35em; /* Ajuste para pantallas grandes */
     font-family: 'Banda bold', sans-serif;
     margin-bottom: 20px;
     color: orange;
 }
 
 .container-personaje-felicitaciones {
+    width: 90%; /* Ancho del contenedor */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    margin: 0 auto; /* Asegura que el contenedor esté centrado en su contenedor padre */
+    text-align: center; /* Alinear el texto al centro, si es necesario */
 }
 
-.div-vacio{
-    height: 60px;
+
+.div-vacio {
+    height: 60px; /* Espacio reservado */
+}
+
+/* Estilos para pantallas más pequeñas (máx. 768px) */
+@media (max-width: 768px) {
+    
+    .texto-felicitaciones-ruleta {
+        font-size: 1.1em; /* Reduce el tamaño de fuente para pantallas más pequeñas */
+        margin-bottom: 15px; /* Reduce el margen inferior */
+    }
+
+    .div-vacio {
+        height: 40px; /* Ajusta el espacio reservado para pantallas más pequeñas */
+    }
+}
+
+/* Estilos para pantallas aún más pequeñas (máx. 480px) */
+@media (max-width: 480px) {
+
+    .container_screen_ruleta_puntaje {
+        height: 80vh;
+    }
+
+    .texto-felicitaciones-ruleta {
+        font-size: 0.9em; /* Tamaño de fuente más pequeño para móviles */
+        margin-bottom: 10px; /* Menos margen inferior */
+    }
+
+    .div-vacio {
+        height: 30px; /* Ajusta el espacio reservado */
+    }
 }
