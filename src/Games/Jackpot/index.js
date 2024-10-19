@@ -27,7 +27,7 @@ function App() {
   const [slot1, setSlot1] = useState(symbols[0]);
   const [slot2, setSlot2] = useState(symbols[1]);
   const [slot3, setSlot3] = useState(symbols[2]);
-  const [message, setMessage] = useState('¡Buena suerte!');
+  const [message, setMessage] = useState('Recuerda que tienes 6 oportunidades para jugar, entre más preguntas respondas bien, más puntos vas a ganar, ¡Vamos tu puedes!');
   const [isSpinning, setIsSpinning] = useState(false);
 
   const spinAudio = useRef(new Audio(spinSound)); // Referencia al sonido de girar
@@ -100,7 +100,7 @@ function App() {
       <button onClick={spin} disabled={isSpinning}>
         {isSpinning ? 'Girando...' : 'Jugar'}
       </button>
-      <p>{message}</p>
+      <p className='estilos-mensaje-recordatorio'>{message}</p>
       <div className="logo-container">
         <img src={logoCiberseguridad} alt="Game Logo" />
       </div>

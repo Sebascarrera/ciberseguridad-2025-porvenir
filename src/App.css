@@ -701,7 +701,7 @@ border: none;
   display: flex;
   justify-content: center;
   padding: 10px 10px;
-  background-color: #fff;
+  background-color: #d2643a;
   border: 1px solid #fff;
   border-radius: 50px;
   transition: background-color 0.3s ease;

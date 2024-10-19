@@ -1,15 +1,15 @@
 .jackpot-game {
-  background-image: url('../../assets/img/background-jackpot.png'); /* Cambia la ruta a la imagen que desees usar */
-  background-size: cover; /* Hace que la imagen cubra todo el fondo */
-  background-position: center; /* Centra la imagen en el fondo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-image: url('../../assets/img/background-jackpot.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+  height: 100vh;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -19,11 +19,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 400px; /* Limita el tamaño de la máquina */
 }
 
 .machine-slot img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .slot-machine {
@@ -34,16 +36,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
 .slot {
-  font-size: 3rem;
-  margin: 0 10px;
-  padding: 20px;
-  border: 6px solid #961212;
-  width: 80px;
-  height: 80px;
+  font-size: 2rem;
+  margin: 0 5px;
+  padding: 10px;
+  border: 4px solid #961212;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,16 +53,16 @@
 }
 
 .slot img {
-  width: 80px; /* Ajusta el tamaño de las imágenes */
-  height: 80px;
+  width: 60px; /* Ajusta el tamaño de las imágenes */
+  height: 60px;
 }
 
 .jackpot-game button {
-  width: 200px;
+  width: 150px;
   height: 40px;
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  padding: 10px;
+  font-size: 1rem;
   cursor: pointer;
   background-color: #ff7f1d !important;
   color: rgb(223, 223, 223);
@@ -78,27 +79,14 @@
   cursor: not-allowed;
 }
 
-
-@keyframes spin {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(360deg);
-  }
-}
-
-.spinning {
-  animation: spin 0.2s infinite linear;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(360deg);
-  }
+.estilos-mensaje-recordatorio{
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(249, 249, 249, 0.7);
+  border-radius: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: #c44e18;
 }
 
 .logo-container {
@@ -108,6 +96,69 @@
 }
 
 .logo-container img {
-  width: 350px; /* Ajusta el tamaño del logo */
+  width: 250px; /* Ajusta el tamaño del logo para pantallas pequeñas */
   height: auto;
+}
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  .jackpot-game {
+    height: auto;
+    padding: 20px;
+  }
+
+  .machine-slot {
+    margin-top: 100px;
+    max-width: 320px; /* Reduce el tamaño de la máquina para pantallas más pequeñas */
+  }
+
+  .slot {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .slot img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .jackpot-game button {
+    margin-top: 50px;
+    width: 130px;
+    font-size: 0.9rem;
+  }
+
+  .logo-container img {
+    margin-top: 50px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 375px) {
+  .machine-slot {
+    margin-top: 70px;
+    max-width: 290px; /* Más pequeño para iPhone SE */
+  }
+
+  .slot {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .slot img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .jackpot-game button {
+    width: 120px;
+    font-size: 0.8rem;
+  }
+
+  .logo-container img {
+    margin-top: 0;
+    width: 180px;
+  }
 }

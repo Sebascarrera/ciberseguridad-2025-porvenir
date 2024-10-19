@@ -3,34 +3,131 @@
     flex-direction: column;
     height: 100vh;
     justify-content: space-around;
+    align-items: center; /* Añadido para centrar el contenido */
 }
 
 .container-carousel {
+    width: 80%; /* Ancho del 80% de la pantalla */
+    margin: 0 auto; /* Centramos horizontalmente */
     text-align: center;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* Ajusta según la altura mínima que desees */
 }
 
+/* Ajustes generales */
 .container_siguiente {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.titulo-personaje{
+
+.titulo-personaje {
     display: flex;
     justify-content: center;
 }
 
-.titulo-personaje p{
+.titulo-personaje p {
     font-size: larger;
-    font-weight:700;
+    font-weight: 700;
 }
 
+/* Estilos para pantallas más pequeñas (máx. 768px) */
 @media (max-width: 768px) {
-    /* Estilos específicos para pantallas más pequeñas */
-    .ScoreCardImage{
-      width: 80px;
-      top: -15px;
-      left: 15px;
+    .container_personaje {
+        height: auto; /* Ajusta la altura para pantallas pequeñas */
+        justify-content: flex-start; /* Ajuste para evitar espacios grandes */
+        padding: 10px;
+        align-items: center; /* Centramos el contenido en pantallas pequeñas */
+    }
+
+    .container-carousel {
+        width: 90%; /* Hacemos el contenedor más ancho en pantallas pequeñas */
+        margin: 0 auto; /* Reforzamos el centrado horizontal */
+        padding: 10px;
+    }
+
+    .titulo-personaje p {
+        font-size: medium; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    }
+
+    .container_siguiente {
+        margin-top: 20px; /* Aumenta el espacio en la parte superior */
+    }
+
+    .ScoreCardImage {
+        width: 80px;
+        top: -15px;
+        left: 15px;
     }
 }
 
+/* Estilos para pantallas aún más pequeñas (máx. 480px) */
+@media (max-width: 480px) {
+    .container_personaje {
+        padding: 5px; /* Reducimos el padding para pantallas muy pequeñas */
+        align-items: center; /* Centramos el contenido */
+    }
+
+    .titulo-personaje p {
+        font-size: small; /* Tamaño de fuente más pequeño */
+        margin-bottom: 20px;
+    }
+
+    .container_siguiente {
+        margin-top: 10px; /* Menos espacio en pantallas más pequeñas */
+        margin-top: 25px;
+    }
+
+    .container-carousel {
+        width: 100%; /* Ocupa el 100% del ancho en pantallas muy pequeñas */
+        margin: 0 auto; /* Centramos el contenedor */
+        padding: 0;
+        display: flex;
+    }
+
+    .ScoreCardImage {
+        width: 60px; /* Reduce el tamaño de la imagen */
+        top: -10px;
+        left: 10px;
+    }
+}
+
+/* Estilos para iPhone SE (máx. 375px) */
+@media (max-width: 375px) {
+    .container_logo{
+        margin-left: 25px;
+    }
+    .titulo-personaje p {
+        font-size: small; /* Tamaño de fuente más pequeño */
+        padding-left: 25px;
+        margin-bottom: 20px;
+    }
+    .container_personaje {
+        height: auto;
+        padding: 0 10px;
+    }
+
+    .container-carousel {
+        width: 95%; /* Hacemos el contenedor más ancho para que ocupe más espacio */
+        margin: 0 auto; /* Centramos el contenedor */
+        padding: 0 25px;
+    }
+
+    .titulo-personaje p {
+        font-size: small;
+    }
+
+    .container_siguiente {
+        margin-top: 25px;
+        margin-left: 25px;
+    }
+
+    .ScoreCardImage {
+        width: 60px;
+        top: -10px;
+        left: 10px;
+    }
+}

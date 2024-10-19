@@ -5,22 +5,30 @@
     align-items: center;
     height: 100vh;
     background-image: url('../../../assets/img/pacman/fondo-home-pacman-antifraude.png');
+    background-color: #0b0635;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
    }
 
+   .container-textos-puntaje-background{
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(17, 17, 37, 0.8);
+      border-radius: 20px;
+   }
+
    .texto-felicitaciones{
     text-align: center;
     color: orange;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
    }
 
    .texto-username{
     text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
    }
 
@@ -36,7 +44,40 @@
     margin-top: 10px;
     text-align: center;
     color: orange;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: bold;
    }
+
+
+   /* Ajustes para pantallas móviles */
+@media (max-width: 600px) {
+   .pacman-summary-container {
+       background-size: cover;
+   }
+
+   .container-textos-puntaje-background {
+       margin: 10px;
+       padding: 15px;
+       background-color: rgba(17, 17, 37, 0.9); /* Más opacidad para mejor visibilidad en móvil */
+       border-radius: 15px;
+   }
+
+   .texto-felicitaciones {
+       font-size: 28px; /* Ajuste de tamaño de fuente para móviles */
+   }
+
+   .texto-username {
+       font-size: 24px; /* Tamaño de fuente menor para que se ajuste bien en móvil */
+   }
+
+   .texto-tu-puntaje-pacman {
+       margin-top: 8px;
+       font-size: 18px; /* Reducido para móviles */
+   }
+
+   .texto-puntos-pacman {
+       margin-top: 8px;
+       font-size: 32px; /* Ajustado para pantallas más pequeñas */
+   }
+}
     

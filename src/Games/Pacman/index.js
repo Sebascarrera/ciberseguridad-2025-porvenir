@@ -25,7 +25,7 @@ const App = () => {
   const cellSize = isMobile() ? 16 : 30;
   const pointSize = isMobile() ? 10 : 20;
   const numGhosts = 3;
-  const ghostSpeed = 200;
+  const ghostSpeed = 260;
   const pointScore = 10;
   const numPoints = 4;
 
@@ -168,7 +168,7 @@ const App = () => {
 
         setTimeout( () => {
           setCoolDown(false);
-        }, 1000)
+        }, 100)
       
         return; // Terminar la función si hay colisión con un fantasma
       }

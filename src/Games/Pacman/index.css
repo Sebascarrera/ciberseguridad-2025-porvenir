@@ -113,4 +113,10 @@
       transform: rotate(360deg);
     }
   }
-  
+ 
+  @media (max-width: 600px) {
+    .Pacman_screen {
+        background-size: contain;
+
+    }
+  }

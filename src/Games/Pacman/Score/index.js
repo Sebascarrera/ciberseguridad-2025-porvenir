@@ -29,18 +29,20 @@ const PacmanScore = () => {
         <div>
         <img className="home-logo" src={Logo} alt="Logo"/>
         </div>
-        <div className='texto-felicitaciones'>
-            FELICITACIONES
-        </div>
-        <div className='texto-username'>
-            { username }
-        </div>
-        <div className='texto-tu-puntaje-pacman'>
-            TU PUNTAJE FINAL ES DE:
-        </div>
-        <div className='texto-puntos-pacman'>
-            { score } PTS
-        </div>
+        <div className='container-textos-puntaje-background'>
+          <div className='texto-felicitaciones'>
+              FELICITACIONES
+          </div>
+          <div className='texto-username'>
+              { username }
+          </div>
+          <div className='texto-tu-puntaje-pacman'>
+              TU PUNTAJE FINAL ES DE:
+          </div>
+          <div className='texto-puntos-pacman'>
+              { score } PTS
+          </div>
+        </div>      
     </div>
   );
 };
