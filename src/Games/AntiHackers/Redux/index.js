@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-    max: 3,
     mundo1: 0,
     mundo2: 0,
     mundo3: 0,

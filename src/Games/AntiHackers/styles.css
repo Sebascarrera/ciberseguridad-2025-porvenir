@@ -49,6 +49,10 @@
     border-radius: 10px;
 }
 
+.antihacker-disabled {
+    pointer-events: none; /* Evita que se pueda hacer clic */
+}
+
 .antihacker-grid-item img {
     max-width: 100%;
     height: auto;
