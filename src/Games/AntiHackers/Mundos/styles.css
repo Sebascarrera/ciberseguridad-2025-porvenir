@@ -43,6 +43,45 @@
 }
 
 
+.modal-content h2 {
+    width: auto;
+    flex-direction: column;
+    color: #272447;
+    text-shadow: none;
+    background-color: rgba(127, 255, 212, 0.3);
+    padding: 10px 20px;
+    padding-right: 200px;
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content p {
+    color: #313131;
+    margin-bottom: 15px;
+   
+}
+
+.modal-content img {
+    margin-bottom: 15px;
+   
+}
+
+
+.close {
+    flex-direction: column;
+    color: #ffffff;
+    background-color: rgb(43, 36, 255);
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
     .AntiHacker_Mundo_Container {
@@ -96,5 +135,5 @@
     max-height: 90vh; /* Limitar la altura máxima al 90% del viewport */
     padding: 20px;
     overflow-y: auto; /* Hacer scroll vertical si el contenido es más alto que el contenedor */
-    background-color: #fff;
+    background-color: #f1feff;
 }

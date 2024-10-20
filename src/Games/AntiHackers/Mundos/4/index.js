@@ -170,7 +170,7 @@ const AntiHacker = () => {
                             image={consentimientoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Consentimiento", description: "Consentimiento. Es el permiso que tú, como dueño del dato, das para que una persona o empresa los use. Este permiso debe ser libre, Informado y expreso. Conoce nuestra política de tratamiento de datos personales, publicada en la pagina web de Porvenir.", image: MatchConsentimiento  }} />
+                            metadata={{ isMatch: true, name: "Consentimiento", description: "Es el permiso que tú, como dueño del dato, das para que una persona o empresa los use. Este permiso debe ser libre, Informado y expreso. Conoce nuestra política de tratamiento de datos personales, publicada en la pagina web de Porvenir.", image: MatchConsentimiento  }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}

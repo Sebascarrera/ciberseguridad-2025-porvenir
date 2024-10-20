@@ -7,8 +7,8 @@
     flex-direction: row; /* Mantén los elementos uno al lado del otro */
     align-items: center; /* Centrado vertical */
     justify-content: center; /* Centrado horizontal */
-    padding: 20px;
-    gap: 50px;
+    padding: 50px;
+    gap: 10px;
 }
 
 .container-titulo-texto-antihackers{
@@ -47,6 +47,7 @@
     background-color: #f0f0f0;
     padding: 10px; /* Aumenta el padding para hacerlo más espacioso */
     border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .antihacker-disabled {

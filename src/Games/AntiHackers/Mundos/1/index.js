@@ -171,7 +171,7 @@ const AntiHacker = () => {
                             image={cumplimientoImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Cumplimiento Normativo", description: "Cumplimiento Normativo. Estamos comprometidos con el cumplimiento continúo de las normativas internas y externas de Seguridad y Ciberseguridad expedidas por diferentes entes de control como la Superintendencia Financiera de Colombia, La SIC, entre otros.  Adoptando los mejores estándares como ISO/IEC 27001:2022 y Marco de referencia NIST. ¡Consulta nuestras políticas de seguridad en Isolución!", image: MatchCumplimiento  }} />
+                            metadata={{ isMatch: true, name: "Cumplimiento Normativo", description: "Estamos comprometidos con el cumplimiento continúo de las normativas internas y externas de Seguridad y Ciberseguridad expedidas por diferentes entes de control como la Superintendencia Financiera de Colombia, La SIC, entre otros.  Adoptando los mejores estándares como ISO/IEC 27001:2022 y Marco de referencia NIST. ¡Consulta nuestras políticas de seguridad en Isolución!", image: MatchCumplimiento  }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -181,7 +181,7 @@ const AntiHacker = () => {
                             image={seguridadImage}
                             onDragStart={handleDragStart} 
                             onDragEnd={handleDragEnd}
-                            metadata={{ isMatch: true, name: "Seguridad de la Información y Ciberseguridad", description: "Seguridad de la Información y Ciberseguridad. Como segunda línea coadyuvamos a la supervisión de los riesgos, controles y cumplimiento establecidos por la Alta Dirección entorno a la seguridad. Por ejemplo, definimos el Manual, Políticas y procedimientos, fomentamos la cultura de seguridad de la información, apoyamos la implementación  y monitoreo de herramientas de seguridad  y gestión de accesos para mantener nuestros entornos físicos  y digitales más seguros.", image: MatchSeguridad }} />
+                            metadata={{ isMatch: true, name: "Seguridad de la Información y Ciberseguridad", description: "Como segunda línea coadyuvamos a la supervisión de los riesgos, controles y cumplimiento establecidos por la Alta Dirección entorno a la seguridad. Por ejemplo, definimos el Manual, Políticas y procedimientos, fomentamos la cultura de seguridad de la información, apoyamos la implementación  y monitoreo de herramientas de seguridad  y gestión de accesos para mantener nuestros entornos físicos  y digitales más seguros.", image: MatchSeguridad }} />
                         <Image 
                             scaleX={scale} 
                             scaleY={scale}
@@ -218,13 +218,7 @@ const AntiHacker = () => {
 
             {isModalOpen && match && (
                 <div className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={() => {
-                            setIsModalOpen(false)
-                            dispatch(increaseMundo1());
-                            dispatch(validateTotal());
-                        }}>Cerrar</span>
-                        <div>
+                    <div className="modal-content"> 
                             <div>
                                 <h2>{match.name}</h2>
                                 <p>
@@ -234,8 +228,13 @@ const AntiHacker = () => {
                             <div>
                                <img src={match.image} />     
                             </div>
-
-                        </div>
+                            <span className="close" onClick={() => {
+                            setIsModalOpen(false)
+                            dispatch(increaseMundo1());
+                            dispatch(validateTotal());
+                        }}>Cerrar</span>
+                        <div>
+                    </div>
                         
                         
                     </div>
