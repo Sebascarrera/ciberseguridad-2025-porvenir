@@ -1,7 +1,12 @@
+.container-todo-frases{
+    background-color: #0b0635;
+}
+
 .pacman-results-container {
     background-image: url(../../../assets/img/pacman/fondo-seccion-juego-pacman-antifrude.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
+    background-color: #0b0635;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
@@ -13,18 +18,70 @@
 
 .pacman-results-cards {
     margin-top: 20px;
+    width: 100%;
 }
 
-.texto-buen-trabajo{
-    width: 400px;
+.texto-buen-trabajo {
+    width: 90%;
+    max-width: 400px;
     margin-top: 60px;
 }
 
-.titulo-tecnicas-fraude{
+.titulo-tecnicas-fraude {
     margin-top: 10px;
     align-items: center;
     color: white;
-    font-size: 30px;
-    text-align: center;  
+    font-size: 26px;
+    text-align: center;
+}
 
+/* Media Queries para dispositivos más pequeños */
+@media only screen and (max-width: 375px) { /* iPhone SE */
+    .texto-buen-trabajo {
+        width: 80%;
+        margin-top: 40px;
+    }
+
+    .titulo-tecnicas-fraude {
+        font-size: 24px;
+    }
+
+    .container-todo-frases{
+        background-color: #0b0635;
+        width: 100%;
+    }
+
+    .pacman-results-container {
+        height: 100vh;
+    }
+
+    .container-todo-frases{
+        background-color: #0b0635;
+    }
+
+    .pacman-results-cards {
+        width: 66%;
+    }
+}
+
+@media only screen and (max-width: 667px) { /* Pantallas pequeñas */
+    .texto-buen-trabajo {
+        width: 85%;
+        margin-top: 50px;
+    }
+
+    .titulo-tecnicas-fraude {
+        font-size: 28px;
+    }
+
+    .pacman-results-container {
+        height: 100vh;
+
+    }
+
+    .container-todo-frases{
+        background-color: #0b0635;
+        height: 100vh;
+    }
+    
 }

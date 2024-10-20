@@ -47,32 +47,34 @@ const PacmanResults = () => {
     }
   }, [location.search]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/pacman/puntaje');
-    }, 20000); // 20000ms = 20 segundos
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  //useEffect(() => {
+  //  const timer = setTimeout(() => {
+  //    navigate('/pacman/puntaje');
+  //  }, 20000); // 20000ms = 20 segundos
+//
+  //  return () => clearTimeout(timer);
+  //}, [navigate]);
 
   return (
-    <div className="pacman-results-container">
-      <div>
-            {/* Logo */}
+      <div className='container-todo-frases'>
+        <div className="pacman-results-container">
+        <div>
+              {/* Logo */}
+        </div>
+        <div className='texto-buen-trabajo'>
+          <p>Hiciste un trabajo excelente evitando ser victima de las distintas</p>
+          <p className='titulo-tecnicas-fraude'>Técnicas de Fraude</p>
+        </div>
+        <div className='pacman-results-cards'>
+              { cards.map( card => (
+                  <div>
+                      <img src={card} />
+                  </div>
+              ))}
+        </div>  
       </div>
-      <div className='texto-buen-trabajo'>
-        <p>Hiciste un trabajo excelente evitando ser victima de las distintas</p>
-        <p className='titulo-tecnicas-fraude'>Técnicas de Fraude</p>
       </div>
-      <div className='pacman-results-cards'>
-            { cards.map( card => (
-                <div>
-                    <img src={card} />
-                </div>
-            ))}
-      </div>
-      
-    </div>
+    
   );
 };
 

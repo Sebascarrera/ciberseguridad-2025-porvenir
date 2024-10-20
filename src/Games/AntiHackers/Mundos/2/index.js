@@ -129,12 +129,15 @@ const AntiHacker = () => {
         <div className="AntiHacker_Mundo_Container">
 
             <div className="left">
-                <h1>Mundo 2</h1>
-                <h2>Antifraude</h2>
-                <h3>Arrastra las imágenes que hagan Match con el personaje central Anti Hackers para que sumes la mayor cantidad de puntos.</h3>
+                <h1>Mundo 2 Antifraude</h1>
+                <h3>¿Cómo jugar?</h3>
+                <h4>Observa el personaje central: En el centro de la pantalla encontrarás un personaje de AntiHackers.</h4>
+                <h4>Tu objetivo es identificar las imágenes que tienen relación con este personaje.</h4>
+                <h4>Arrastra las imágenes correctas: Desliza y arrastra las imágenes que correspondan al personaje central. Cada imagen correcta te sumará puntos, ¡así que elige sabiamente!</h4>
+                <h4>Cuidado con las imágenes incorrectas: Si arrastras una imagen que no hace match con el personaje central, perderás una vida. Recuerda que solo tienes dos vidas por cada mundo, ¡no las desperdicies!</h4>
             </div>  
 
-            <div>
+            <div className="stage-container">
                 <Stage 
                     pixelRatio={1}
                     width={stageSize.width} 

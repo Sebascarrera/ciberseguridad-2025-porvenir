@@ -1,41 +1,91 @@
+/* Contenedor principal */
 .AntiHacker_Container {
     background: url('../../assets/img/img-antihackers/background-inicio-antihackers.png') no-repeat center;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row; /* Mantén los elementos uno al lado del otro */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    padding: 20px;
     gap: 50px;
 }
 
-.AntiHacker_Container h1 {
+.container-titulo-texto-antihackers{
+    max-width: 100%;
+}
+
+/* Contenedor del texto */
+.AntiHacker_Text {
+    flex: 1; /* Permite que el texto ocupe menos espacio, dando más espacio a los mundos */
+    max-width: 350px; /* Limita el ancho máximo del texto */
+    text-align: center; /* Centra el texto */
+}
+
+.AntiHacker_Container h1, h2, h4 {
     color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #1e1e1e;
 }
 
-@media (max-width: 768px) {
-    .AntiHacker_Container {
-      flex-direction: column; /* Los elementos se apilan uno debajo del otro */
-      justify-content: space-around;
-      padding: 20px;
-    }
-  }
-
+/* Cuadrícula de mundos */
 .antihacker-grid-container {
+    flex: 2; /* Ocupa más espacio que el texto */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-    grid-template-rows: repeat(2, 1fr);    /* 2 filas de igual tamaño */
-    width: 100%; /* Ajusta el ancho de la cuadrícula */
-    max-width: 600px; /* Tamaño máximo (ajustable) */
-    margin: 0 auto; /* Centrar la cuadrícula */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas grandes */
+    gap: 20px; /* Más espacio entre ítems */
+    width: 100%;
+    max-width: 700px; /* Aumenta el tamaño máximo de la cuadrícula */
+    justify-self: center; /* Centrar la cuadrícula horizontalmente */
 }
 
+/* Ítems de la cuadrícula */
 .antihacker-grid-item {
     display: flex;
-    justify-content: center; /* Centrar imagen horizontalmente */
-    align-items: center;     /* Centrar imagen verticalmente */
-    background-color: #f0f0f0; /* Color de fondo para el div */
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px; /* Aumenta el padding para hacerlo más espacioso */
+    border-radius: 10px;
 }
 
 .antihacker-grid-item img {
-    max-width: 100%; /* Imagen ajusta al tamaño del contenedor */
+    max-width: 100%;
     height: auto;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .AntiHacker_Container {
+        flex-direction: column; /* En móviles, apila el texto y los mundos en columna */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagen-cipo-antihackers-titulo{
+        text-align: center;
+    }
+
+    .container-titulo-texto-antihackers{
+        width: 100%;
+    }
+
+    .antihacker-grid-container {
+        grid-template-columns: 1fr; /* En móviles, solo una columna */
+        width: 100%;
+        max-width: none;
+    }
+
+    .AntiHacker_Text {
+        flex: 1; /* Permite que el texto ocupe menos espacio, dando más espacio a los mundos */
+        width: 80%; /* Limita el ancho máximo del texto */
+        text-align: center; /* Centra el texto */
+    }
+
+    .AntiHacker_Container h1, h2, h4 {
+        color: #fff;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+    }
 }

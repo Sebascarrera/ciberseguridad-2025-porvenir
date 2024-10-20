@@ -5,7 +5,7 @@ import Point from './Point';
 import Board from './Board';
 import Maze from './Maze';
 import './index.css';
-import logo from '../../assets/img/logo.png';
+import logo from '../../assets/img/logo-fondo-blanco-ciberseguridad2024.png';
 import Layout from './Layout/web'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
