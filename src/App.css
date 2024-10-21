@@ -5,11 +5,10 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Banda Regular', 'sans-serif' !important;
 }
 
 @font-face {
-font-family: 'Banda Regular';
+font-family: 'MiFuentePersonalizada';
 src: url(./assets/Fonts/BANDA_REGULAR.OTF) format('OTF');
 font-weight: normal;
 font-style: normal;
@@ -17,6 +16,12 @@ font-family: 'Banda bold';
 src: url(./assets/Fonts/BandaBold-Bold.ttf) format('ttf');
 font-weight: normal;
 font-style: normal;
+font-family: 'MiFuentePersonalizada';
+  src: url('./assets/Fonts/BANDA_REGULAR.OTF') format('OTF'),
+       url('./assets/Fonts/BandaBold-Bold.ttf') format('ttf'),
+       url('./assets/Fonts/BandaLight-Light.ttf') format('ttf'),
+       url('./assets/Fonts/BandaSemibold-SemiBold.ttf') format('ttf'),
+       url('./assets/Fonts/bold.otf') format('otf');
 }
 
 .App {
