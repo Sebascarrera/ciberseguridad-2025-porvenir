@@ -75,7 +75,7 @@ function App() {
       // Espera 3 segundos antes de redirigir
       setTimeout(() => {
         navigate(`/jackpot/preguntas?slice=${slot1.id}`);
-      }, 5000); // 5 segundos de espera
+      }, 2000); // 2 segundos de espera
     }
   }, [slot1, slot2, slot3, isSpinning, navigate]);
 

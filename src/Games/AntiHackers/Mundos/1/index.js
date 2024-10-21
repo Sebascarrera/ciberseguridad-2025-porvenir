@@ -138,7 +138,7 @@ const AntiHacker = () => {
                 <h4>Observa el personaje central: En el centro de la pantalla encontrarás un personaje de AntiHackers.</h4>
                 <h4>Tu objetivo es identificar las imágenes que tienen relación con este personaje.</h4>
                 <h4>Arrastra las imágenes correctas: Desliza y arrastra las imágenes que correspondan al personaje central. Cada imagen correcta te sumará puntos, ¡así que elige sabiamente!</h4>
-                <h4>Cuidado con las imágenes incorrectas: Si arrastras una imagen que no hace match con el personaje central, perderás una vida. Recuerda que solo tienes dos vidas por cada mundo, ¡no las desperdicies!</h4>
+                <h4>Cuidado con las imágenes incorrectas: Si arrastras una imagen que no hace match con el personaje central, perderás una vida. Recuerda que solo tienes tres vidas por cada mundo, ¡no las desperdicies!</h4>
             </div>  
 
             <div className="stage-container">
