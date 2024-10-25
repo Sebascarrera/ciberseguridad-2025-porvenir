@@ -19,7 +19,7 @@ export const saveScore = createAsyncThunk('scores/create', async (data, { dispat
         dispatch(endGame())
 
         const state = getState()
-        const time = Math.abs(state.scores.end_time - state.scores.start_time)
+        const time = 0
         const user_id = state.user.user.id
         const score = { quantity: state.scores.current ?? 0, time, game: data, user_id }
         
