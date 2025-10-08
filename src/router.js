@@ -24,9 +24,17 @@ import AntiHackerMundo3 from './Games/AntiHackers/Mundos/3';
 import AntiHackerMundo4 from './Games/AntiHackers/Mundos/4';
 import AntiHackersScore from './Games/AntiHackers/Score';
 
+import FirewallIntro from "./Games/firewall/pages/Intro";
+import FirewallPlay from "./Games/firewall/pages/Play";
+
+import ContrasenaMaestraIntro from "./Games/contrasena-maestra/pages/intro.js";
+import ContrasenaMaestraPlay from "./Games/contrasena-maestra/pages/play.js";
+
 import Live from './Live'
 
 import AuthRoute from './Auth/';
+import MalwareIntro from './Games/escapa-malware/pages/intro.js';
+import MalwarePlay from './Games/escapa-malware/pages/play.js';
 
 const router = createBrowserRouter([
     {
@@ -163,11 +171,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/selector",
-        element: (
-            <AuthRoute>
-                <Selector />
-            </AuthRoute>
-        ),
+        element: (<Selector />),
     },
     {
         path: "/live",
@@ -176,7 +180,69 @@ const router = createBrowserRouter([
             <Live />
         </AuthRoute>),
     },
+    {/*{
+        path:"/firewall/intro",
+        element:(
+        <AuthRoute>
+            <FirewallIntro />
+        </AuthRoute>),
+    },
+    {
+        path:"/firewall/play",
+        element:(
+        <AuthRoute>
+            <FirewallPlay />
+        </AuthRoute>),
+    },*/},
 
+    {
+        path:"/firewall/intro",
+        element:(
+
+            <FirewallIntro />)
+
+    },
+    {
+        path:"/firewall/play",
+        element:(
+
+            <FirewallPlay />)
+
+    },
+
+    {
+        path:"/contrasena-maestra/intro",
+        element:(
+
+            <ContrasenaMaestraIntro />)
+
+    },
+
+    {
+        path:"/contrasena-maestra/play",
+        element:(
+
+            <ContrasenaMaestraPlay />)
+
+    },
+
+    {
+        path:"/escapa-malware/intro",
+        element:(
+
+            <MalwareIntro />)
+
+    },
+
+    {
+        path:"/escapa-malware/play",
+        element:(
+
+            <MalwarePlay />)
+
+    },
+
+    
 ]);
 
 export default router

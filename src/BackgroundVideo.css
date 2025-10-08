@@ -1,0 +1,12 @@
+/* src/components/BackgroundVideo.css */
+.bg-video{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce){ .bg-video{ display:none; } }
+  

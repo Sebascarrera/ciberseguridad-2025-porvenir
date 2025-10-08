@@ -1,0 +1,15 @@
+Need to install the following packages:
+tree-cli@0.6.7
+Ok to proceed? (y) 
+
+/Users/m1sebas/Documents/porvenir/ciberseguridad-2025/project-web/ciberseguridad-2025-porvenir
+├── node_modules
+├── public
+└── src
+
+directory: 3
+
+
+
+[2K[1G
+Y

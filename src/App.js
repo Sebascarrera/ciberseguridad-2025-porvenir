@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import logo from './assets/img/logo-ciberseguridad.png'
+import logo from './assets/img/logo-ciberseguridad-2025.png'
 import iconNombre from './assets/img/icon-nombre.png'
 import iconCedula from './assets/img/icon-cedula.png'
 import iconCorreo from './assets/img/icon-correo.png'
+import iconCiudad from './assets/img/icon-ciudad.png'
 import docDatos from './assets/docs/tratamientoDatosPorvenir.pdf'
+import BackgroundVideo from "./components/BackgroundVideo"; // 👈 IMPORTANTE
 import imgNegra  from './assets/img/img-negra.png'
 import imgNaranja from './assets/img/img-naranja.png'
 
@@ -55,59 +57,79 @@ function App() {
 
     return (
     <div className="App">
-        <header>
-            <div className="logo-ciberseguridad">
-                <img src={logo} alt="Logo Ciberseguridad Porvenir" />
-            </div>
-        </header>
-        <form onSubmit={handleSubmit(onSubmit)} className="form-cont">
-            <div className="registro">
-                <div className="input-container">
-                    <div className="form_controls">
-                        <img className="icono" src={iconNombre} alt="Nombre" />
-                        <input {...register("fullname")} placeholder="Nombre y Apellido" required />
-                    </div>        
+        <BackgroundVideo />
+        <div className='background-form'>
+            <header>
+                <div className="logo-ciberseguridad">
+                    <img src={logo} alt="Logo Ciberseguridad Porvenir" />
                 </div>
-                <div className="input-container">
-                    <div className="form_controls">
-                        <img className="icono" src={iconCedula} alt="Cédula" />
-                        <input className="form_controls" {...register("document")} placeholder="Cédula" required />
-                    </div>        
+            </header>
+            <form onSubmit={handleSubmit(onSubmit)} className="form-cont">
+                <div className="registro">
+                    <div className="input-container">
+                        <div className="form_controls">
+                            <img className="icono" src={iconNombre} alt="Nombre" />
+                            <input {...register("fullname")} placeholder="Nombre y Apellido" required />
+                        </div>        
+                    </div>
+                    <div className="input-container">
+                        <div className="form_controls">
+                            <img className="icono" src={iconCedula} alt="Cédula" />
+                            <input className="form_controls" {...register("document")} placeholder="Cédula" required />
+                        </div>        
+                    </div>
+                    <div className="input-container">
+                        <div className="form_controls">
+                            <img className="icono" src={iconCorreo} alt="Correo Corporativo" />
+                            <input className="form_controls" type="email" {...register("email")} placeholder="Correo Corporativo" required />
+                        </div>        
+                    </div>
+                    <div className="input-container select">
+                        <div className="form_controls">
+                            <img className="icono" src={iconCiudad} alt="Ciudad" />
+                            <select
+                                className="form_controls"
+                                {...register("city", { required: true })}
+                                defaultValue=""
+                            >
+                                <option value="" disabled>Selecciona tu ciudad</option>
+                                <option value="bogota">Bogotá</option>
+                                <option value="medellin">Medellín</option>
+                                <option value="cali">Cali</option>
+                                <option value="cali">Barranquilla</option>
+                                <option value="bucaramanga">Bucaramanga</option>
+                                <option value="otras">Otras</option>
+                            </select>
+                        </div>
+                    </div>       
                 </div>
-                <div className="input-container">
-                    <div className="form_controls">
-                        <img className="icono" src={iconCorreo} alt="Correo Corporativo" />
-                        <input className="form_controls" type="email" {...register("email")} placeholder="Correo Corporativo" required />
-                    </div>        
-                </div>      
-            </div>
-            <div className="terminos-y-condiciones">
-                <div className="cont-check-terms">
-                    <input type="checkbox" {...register("terms")} required />
-                    <label htmlFor="activar">
-                        <p className="text-terms">He leído y acepto la autorización de tratamiento de datos que se encuentra disponible en el siguiente <span className="resaltado" onClick={openPopup}>enlace</span>.</p>
-                    </label>
-                    
+                <div className="terminos-y-condiciones">
+                    <div className="cont-check-terms">
+                        <input type="checkbox" {...register("terms")} required />
+                        <label htmlFor="activar">
+                            <p className="text-terms">He leído y acepto la autorización de tratamiento de datos que se encuentra disponible en el siguiente <span className="resaltado" onClick={openPopup}>enlace</span>.</p>
+                        </label>
+                        
+                    </div>
                 </div>
-            </div>
-            
-            <section className="boton-start">
-                <div className="boton-enlace">
-                    <input value="Continuar" type="submit" />
-                    { status == 'loading' && (
-                        <div className='loader_button'></div>
-                    )}
-                </div>
-            </section>
+                
+                <section className="boton-start">
+                    <div className="boton-enlace">
+                        <input value="CONTINUAR" type="submit" />
+                        { status == 'loading' && (
+                            <div className='loader_button'></div>
+                        )}
+                    </div>
+                </section>
 
-            <section>
-                { status == "failed" && (
-                    <p className='error_form'>{error}</p>
-                )}
-            </section>
-        </form>
-        
-        <footer>
+                <section>
+                    { status == "failed" && (
+                        <p className='error_form'>{error}</p>
+                    )}
+                </section>
+            </form>
+        </div>
+        {/*<footer>
             <div className="cont-footer">
                 <div className="naranja">
                     <img src={imgNaranja} alt="" />
@@ -116,7 +138,7 @@ function App() {
                     <img src={imgNegra} alt="" />
                 </div>
             </div>
-        </footer>
+        </footer>*/}
 
         <div id="miPopUp" className="popUp" style={{ display: isShowingPopup ? 'block' : 'none' }}>
             <div className="popup-contenido">

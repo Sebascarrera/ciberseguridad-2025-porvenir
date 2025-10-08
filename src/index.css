@@ -3,6 +3,9 @@ body {
   margin: 0; /* Elimina el margen predeterminado */
 
 }
+html, body, #root { height: 100%; }
+body { margin: 0; }              /* quita el margen por defecto que deja hueco arriba/izquierda */
+* { box-sizing: border-box; }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
