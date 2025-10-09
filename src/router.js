@@ -180,7 +180,7 @@ const router = createBrowserRouter([
             <Live />
         </AuthRoute>),
     },
-    {/*{
+    {
         path:"/firewall/intro",
         element:(
         <AuthRoute>
@@ -193,53 +193,40 @@ const router = createBrowserRouter([
         <AuthRoute>
             <FirewallPlay />
         </AuthRoute>),
-    },*/},
-
-    {
-        path:"/firewall/intro",
-        element:(
-
-            <FirewallIntro />)
-
     },
-    {
-        path:"/firewall/play",
-        element:(
-
-            <FirewallPlay />)
-
-    },
-
     {
         path:"/contrasena-maestra/intro",
         element:(
-
-            <ContrasenaMaestraIntro />)
+            <AuthRoute>
+                <ContrasenaMaestraIntro />
+            </AuthRoute>
+        )
 
     },
 
     {
         path:"/contrasena-maestra/play",
         element:(
-
-            <ContrasenaMaestraPlay />)
-
+            <AuthRoute>
+            <ContrasenaMaestraPlay />
+        </AuthRoute>
+        )
     },
-
     {
         path:"/escapa-malware/intro",
         element:(
-
-            <MalwareIntro />)
-
+            <AuthRoute>
+                <MalwareIntro />
+            </AuthRoute>
+        )
     },
-
     {
         path:"/escapa-malware/play",
         element:(
-
-            <MalwarePlay />)
-
+            <AuthRoute>
+                <MalwarePlay />
+            </AuthRoute>
+        )
     },
 
     

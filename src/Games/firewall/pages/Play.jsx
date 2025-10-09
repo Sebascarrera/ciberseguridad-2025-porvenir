@@ -13,6 +13,9 @@ import a6 from "../../../assets/img/amenaza6.png";
 import serverImg from "../../../assets/img/servidor.png";
 import shieldImg from "../../../assets/img/cipo-escudo.png";
 
+import { markScore, startGame, endGame, saveScore } from '../../../Redux/scores'
+import { useDispatch } from 'react-redux'
+
 const SPRITES = [a1, a2, a3, a4, a5, a6];
 
 // Parámetros del juego
@@ -47,7 +50,8 @@ const WAVES = {
 
 export default function PlayRadial() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch()
+  
   // HUD
   const [timeLeft, setTimeLeft] = useState(GAME_SECONDS);
   const [score, setScore] = useState(0);
@@ -316,6 +320,16 @@ export default function PlayRadial() {
     if (didWin) playSfx("win");
     if (didLose) playSfx("lose");
   }, [ended, timeLeft, lives]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => { dispatch(startGame()) }, [dispatch])
+
+  useEffect(() => {
+    if (ended) {
+      dispatch(markScore(score))
+      dispatch(endGame())
+      dispatch(saveScore("firewall"))
+    }
+  }, [dispatch, score, ended]);
 
   // Target del escudo desde puntero (y “prime” del audio)
   const updateTargetFromEvent = (e) => {

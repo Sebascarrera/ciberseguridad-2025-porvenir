@@ -1,6 +1,13 @@
 import { useEffect, useMemo, useRef, useState, useImperativeHandle, forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/contrasena-maestra-play.css";
+import { useDispatch } from "react-redux";
+import { 
+  startGame, 
+  endGame as endGameAction, 
+  saveScore,
+  markScore,
+} from "../../../Redux/scores";
 
 /**
  * Contraseña Maestra – Play
@@ -15,6 +22,7 @@ import bgPlay from "../../../assets/img/bg-contrasena-play.png";
 import cipoLogo from "../../../assets/img/cipo-logo-contrasena.png";
 import footerImg from "../../../assets/img/contrasena-footer.png";
 import footerImgMobile from "../../../assets/img/contrasena-footer-movil.png";
+import { use } from "react";
 
 const GAME_SECONDS = 60;
 const MAX_STRIKES = 3;
@@ -245,6 +253,7 @@ function ReelChar({ finalChar, index, duration, stagger }) {
 // =========================== Componente principal ===========================
 export default function ContrasenaMaestraPlay() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [timeLeft, setTimeLeft] = useState(GAME_SECONDS);
   const [score, setScore] = useState(0);
@@ -321,6 +330,10 @@ export default function ContrasenaMaestraPlay() {
       window.removeEventListener("resize", onResize);
     };
   }, []);
+
+  useEffect(() => {
+    dispatch(startGame());
+  }, [dispatch]);
 
   function nextCandidate(delay = 260) {
     setTimeout(() => {
@@ -417,6 +430,14 @@ export default function ContrasenaMaestraPlay() {
   const strengthLabel = a.strong
     ? (a.length >= 16 && a.symbols ? "Excelente" : "Fuerte")
     : (a.inDict || a.hasSeq || a.length < 8 ? "Muy débil" : "Débil");
+
+  useEffect(() => {
+    if (ended) {
+      dispatch(endGameAction());
+      dispatch(markScore(score));
+      dispatch(saveScore("contrasena-maestra"));
+    }
+  }, [ended, score, dispatch]);
 
   return (
     <div

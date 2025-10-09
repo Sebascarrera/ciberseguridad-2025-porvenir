@@ -10,35 +10,18 @@ import liaImgLandscape from'../assets/img/liaImgLandscape.png'
 import liaImgPortrait from'../assets/img/liaImgPortrait.png'
 import '../App.css'
 import { useNavigate } from 'react-router-dom'
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
-//import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-//import { clearUser, getUser } from '../Redux/user'
-//import { useEffect } from 'react'
-
-//const Selector = () => {
-
-    //const navigate = useNavigate()
-    //const dispatch = useDispatch()
-
-    //const isCompleted = useSelector( state => state.user.user.completed)
-    //const result = useSelector( state => state.user.user.result)
-
-    //*useEffect( () => {
-    //    dispatch(getUser())
-    //}, [dispatch])
-
-    //const onExit = () => {
-    //    dispatch( { type: 'user/clear' } )
-    //}
+import { getUser } from '../Redux/user'
 
     const Selector = () => {
         const navigate = useNavigate();
+        const dispatch = useDispatch();
       
-        // Mocks para edición local
-        const isCompleted = false; // pon true para ver la vista "gracias"
-        const result = 0;
+        const isCompleted = useSelector( state => state.user.user.completed)
+        const result = useSelector( state => state.user.user.result)
 
         // Refs de los dos videos de fondo
         const desktopRef = useRef(null);
@@ -47,6 +30,7 @@ import React, { useRef, useState } from 'react';
         const [hasStarted, setHasStarted] = useState(false);
       
         const onExit = () => {
+          dispatch( { type: 'user/clear' } )
           navigate('/'); // o deja vacío si prefieres
         };
 
@@ -92,6 +76,11 @@ import React, { useRef, useState } from 'react';
             console.error('No se pudo reproducir el video:', err);
             }
         };
+
+        useEffect(() => {
+          dispatch(getUser());
+        }, [dispatch]);
+
     return (
         <div>
             {/* Fondo en video: desktop (landscape) + mobile (portrait) */}

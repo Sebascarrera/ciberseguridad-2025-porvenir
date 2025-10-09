@@ -88,6 +88,7 @@ function App() {
                         <div className="form_controls">
                             <img className="icono" src={iconCiudad} alt="Ciudad" />
                             <select
+                                required
                                 className="form_controls"
                                 {...register("city", { required: true })}
                                 defaultValue=""
@@ -96,7 +97,7 @@ function App() {
                                 <option value="bogota">Bogotá</option>
                                 <option value="medellin">Medellín</option>
                                 <option value="cali">Cali</option>
-                                <option value="cali">Barranquilla</option>
+                                <option value="barranquilla">Barranquilla</option>
                                 <option value="bucaramanga">Bucaramanga</option>
                                 <option value="otras">Otras</option>
                             </select>

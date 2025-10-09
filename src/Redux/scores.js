@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { saveScore as saveScoreService } from '../Services/score'
 
-import { resetAnsweredQuestions } from '../Games/Jackpot/Redux'
 import { replaceUser } from './user'
 
 const initialState = {
@@ -19,16 +18,13 @@ export const saveScore = createAsyncThunk('scores/create', async (data, { dispat
         dispatch(endGame())
 
         const state = getState()
-        const time = 0
+        const time = state.scores.end_time - state.scores.start_time
         const user_id = state.user.user.id
         const score = { quantity: state.scores.current ?? 0, time, game: data, user_id }
-        
-        if(data === "jackpot") {
-            dispatch(resetAnsweredQuestions())
-        }
         const response = await saveScoreService(score)
         const user = response.data
         dispatch(replaceUser(user))
+        dispatch(clearCurrentScore())
         return user
     } catch (error) {
         return rejectWithValue(error.response.data);
@@ -39,18 +35,18 @@ export const scoreSlice = createSlice({
     name: 'score',
     initialState,
     reducers: {
-        startGame(state, action) {
+        startGame(state) {
             state.started = true
             state.start_time = (new Date()).getTime()
         },
         markScore(state, action) {
             state.current += action.payload
         },
-        endGame(state, action) {
+        endGame(state) {
             state.end_time = (new Date()).getTime()
             state.started = false
         },
-        clearCurrentScore(state, action ) {
+        clearCurrentScore(state) {
             state.current = 0
         }
     },
