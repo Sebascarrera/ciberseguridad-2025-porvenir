@@ -82,11 +82,11 @@
   user-select:none;
 }
 .rad-server{
-  width: clamp(140px, 26vw, 220px);
+  width: clamp(180px, 30vw, 280px);
   filter:drop-shadow(0 10px 14px rgba(0,0,0,.35));
 }
 .rad-shield{
-  width: clamp(110px, 20vw, 180px);
+  width: clamp(80px, 16vw, 140px);
   animation:rad-shield-pulse 2.2s ease-in-out infinite;
   filter:drop-shadow(0 0 16px rgba(0,229,193,.45));
 }

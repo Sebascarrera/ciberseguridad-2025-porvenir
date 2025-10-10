@@ -1,5 +1,5 @@
 // src/components/BackgroundVideo.jsx
-import mp4 from "../assets/img/background-loop.mov";   // o usa /assets/... desde public
+import mp4 from "../assets/img/background-loop.mp4";   // o usa /assets/... desde public
 import "../BackgroundVideo.css";
 
 export default function BackgroundVideo(){

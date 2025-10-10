@@ -22,21 +22,21 @@ const SPRITES = [a1, a2, a3, a4, a5, a6];
 const GAME_SECONDS = 60;
 const MAX_LIVES = 3;
 const POINTS_PER_BLOCK = 10;
-const SERVER_RADIUS = 44; // px (si llega aquí, pierdes vida)
+const SERVER_RADIUS = 60; // px (si llega aquí, pierdes vida)
 const MAX_ON_STAGE = 70;  // tope opcional de amenazas en pantalla
 
 // Curva de dificultad
 const DIFF = {
-  minSpeed: 120,
-  maxSpeed: 340,
+  minSpeed: 110,
+  maxSpeed: 360,
   speedPow: 1.25,
   startSpawnMs: 950,
   endSpawnMs: 260,
   spawnPow: 1.15,
   extraSpawn1: 0.33, // ~20s
   extraSpawn2: 0.66, // ~40s
-  shieldStart: 80,
-  shieldEnd: 60,
+  shieldStart: 64,  // antes 80
+  shieldEnd: 44,    // antes 60
 };
 
 // Oleadas (cada ciertos segundos)

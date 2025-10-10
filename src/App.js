@@ -13,8 +13,7 @@ import iconCorreo from './assets/img/icon-correo.png'
 import iconCiudad from './assets/img/icon-ciudad.png'
 import docDatos from './assets/docs/tratamientoDatosPorvenir.pdf'
 import BackgroundVideo from "./components/BackgroundVideo"; // 👈 IMPORTANTE
-import imgNegra  from './assets/img/img-negra.png'
-import imgNaranja from './assets/img/img-naranja.png'
+
 
 import './App.css';
 import { createUser } from './Redux/user';
