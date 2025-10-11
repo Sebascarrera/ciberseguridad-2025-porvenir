@@ -80,7 +80,7 @@ header {
 }
 
 .logo-ciberseguridad img {
-  width: 500px;
+  width: 350px;
 }
 
 .logo-ciberseguridad-selector {
@@ -114,7 +114,7 @@ header {
   display: flex;
   align-items: center;
   margin: 5px;
-  margin-top:30px;
+  margin-top:15px;
 }
 
 .form_controls {
@@ -400,7 +400,7 @@ border: none;
   outline: none;
   padding: 12px;
   background: transparent;
-  color: #fff;
+  color: #ff7c00;
   font-family: 'Banda Regular', sans-serif;
   /* quitar estilo nativo del sistema */
   appearance: none;
